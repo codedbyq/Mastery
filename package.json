@@ -31,9 +31,12 @@
     "mongoose": "^5.9.21",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "validator": "^13.1.1"
   },
   "devDependencies": {
+    "redux-logger": "^3.0.6",
     "nodemon": "^2.0.4"
   }
 }
