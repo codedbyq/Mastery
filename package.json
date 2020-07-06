@@ -29,10 +29,12 @@
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "mongoose": "^5.9.21",
+    "node-sass": "^4.14.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "sass-loader": "^9.0.1",
     "validator": "^13.1.1"
   },
   "devDependencies": {
