@@ -36,13 +36,17 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <Link className='logo'>Mastery</Link>
+      <div className='navbar'>
+        <div className='nav-left'>
+          <Link className='logo'>Mastery</Link>
+          <Link className='nav-left-btn'>Home</Link>
+          <Link className='nav-left-btn'>Explore</Link>
+        </div>
 
         {this.getLinks()}
 
         <div className='search-bar'>
-          <input type='search' placeholder="Search for a skill or user..."/>
+          <input type='search' placeholder="Search for a skill or user"/>
         </div>
 
         <div className='timer'>
