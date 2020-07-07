@@ -11,19 +11,39 @@ import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
 
+import {
+  receiveSkill,
+  receiveSkills,
+  receiveUserSkills,
+  receiveNewSkill,
+  removeSkill,
+} from "./actions/skill_actions";
+
 document.addEventListener("DOMContentLoaded", () => {
   let store;
 
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
 
-    const decodedUser = jwt_decode(localStorage.jwtToken);
+    const decodedUser = jwt_decode(
+      localStorage.jwtToken
+    );
 
     const preloadedState = {
-      session: { isAuthenticated: true, user: decodedUser },
+      session: {
+        isAuthenticated: true,
+        user: decodedUser,
+      },
     };
 
     store = configureStore(preloadedState);
+
+    window.store = store;
+    window.receiveSkill = receiveSkill;
+    window.receiveSkills = receiveSkills;
+    window.receiveUserSkills = receiveUserSkills;
+    window.receiveNewSkill = receiveNewSkill;
+    window.removeSkill = removeSkill;
 
     const currentTime = Date.now() / 1000;
 
