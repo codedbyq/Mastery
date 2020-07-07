@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../../styles/navbar.scss';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -17,28 +18,41 @@ class NavBar extends React.Component {
   getLinks() {
     if (this.props.loggedIn) {
       return (
-        <div>
+        <>
           <Link to={"/skills"}>All Skills</Link>
           <Link to={"/profile"}>Profile</Link>
           <Link to={"/new_skill"}>Add a Skill</Link>
           <button onClick={this.logoutUser}>Logout</button>
-        </div>
+        </>
       );
     } else {
       return (
-        <div>
+        <>
           <Link to={"/signup"}>Signup</Link>
           <Link to={"/login"}>Login</Link>
-        </div>
+        </>
       );
     }
   }
 
   render() {
     return (
-      <div>
-        <h1>Mastery</h1>
-        {this.getLinks()}
+      <div className='navbar'>
+        <div className='nav-left'>
+          <Link className='logo'>Mastery</Link>
+          <Link className='nav-left-btn'>Home</Link>
+          <Link className='nav-left-btn'>Explore</Link>
+        </div>
+
+        <input className='search' type='search' placeholder="Search for a skill or user..."/>
+
+        <div className='nav-right'>
+          {this.getLinks()}
+        </div>
+
+        <div className='timer'>
+          <span className='clock'>00:00</span>
+        </div>
       </div>
     );
   }
