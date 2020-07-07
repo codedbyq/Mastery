@@ -1,0 +1,78 @@
+@import 'colors.scss';
+
+.login-form-container {
+  z-index: 2;
+  position: absolute;
+  top: 30%;
+  left: 29%;
+  border: 2px solid $color-blue;
+  width: 280px;
+  border-radius: 20px;
+  animation: login-open-up 0.4s;
+
+}
+
+@keyframes login-open-up {
+    from {
+        height: 0%;
+        opacity: 0;
+    }
+    to {
+        height: 38%;
+        opacity: 1;
+    }
+}
+
+.signup-form-container {
+  position: absolute;
+  top: 25%;
+  left: 29%;
+  border: 2px solid $color-blue;
+  width: 280px;
+  border-radius: 20px;
+  animation: signup-open-up 0.6s;
+}
+
+@keyframes signup-open-up {
+    from {
+        height: 0%;
+        opacity: 0;
+    }
+    to {
+        height: 54%;
+        opacity: 1;
+    }
+}
+
+.session-form {
+  width: 70%;
+  margin: auto;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 20px;
+  line-height: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+}
+
+
+.session-input {
+  width: 200px;
+  height: 25px;
+}
+
+.session-button {
+  margin: 10px;
+  width: 150px;
+  padding: 5px 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.session-button-holder{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
