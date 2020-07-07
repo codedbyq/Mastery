@@ -37,8 +37,17 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <h1>Mastery</h1>
+        <Link className='logo'>Mastery</Link>
+
         {this.getLinks()}
+
+        <div className='search-bar'>
+          <input type='search' placeholder="Search for a skill or user..."/>
+        </div>
+
+        <div className='timer'>
+          00:00
+        </div>
       </div>
     );
   }
