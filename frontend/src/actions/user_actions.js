@@ -1,7 +1,7 @@
 import * as userAPI from '../util/user_api_util';
 
-const RECEIVE_USERS = 'RECEIVE_USERS';
-const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_USERS = 'RECEIVE_USERS';
+export const RECEIVE_USER = 'RECEIVE_USER';
 
 // action creator to receive all users
 const receiveUsers = users =>  ({
