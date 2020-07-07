@@ -109,5 +109,21 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
   });
 })
 
+// get all users
+router.get('/', (req, res) => {
+  User.find()
+    .then(users => res.send(users))
+    .catch(er => res.status(400).json(errors));
+});
+
+// get a single User
+router.get('/:userId', (req, res) => {
+  User.findById(req.params.userId)
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(404).json({ noskillfound: 'No user was found' })
+    );
+});
+
 
 module.exports = router;
