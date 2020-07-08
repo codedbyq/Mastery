@@ -3,10 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 
 const Task = require('../../models/Task');
-const Skill = require('../../models/Skill');
 const validateTaskInput = require('../../validation/tasks');
-const { findById } = require("../../models/Task");
-
 
 // get all tasks 
 router.get('/', (req, res) => {
