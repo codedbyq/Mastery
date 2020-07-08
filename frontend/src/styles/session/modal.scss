@@ -1,16 +1,4 @@
-@import 'colors.scss';
-
-// .login-form-container {
-//   z-index: 2;
-//   position: absolute;
-//   top: 30%;
-//   left: 29%;
-//   border: 2px solid $color-blue;
-//   width: 280px;
-//   border-radius: 20px;
-//   animation: login-open-up 0.4s;
-
-// }
+@import 'variables.scss';
 
 .modal-background {
    position: fixed;
@@ -45,7 +33,7 @@
   z-index: 1;
   background-color: #fefefe;
   margin: 5px auto;
-  border: 1px solid $color-blue;
+  border: 1px solid $dark-green;
   border-radius: 15px;
   padding: 10px;
   height: 140%;
@@ -80,7 +68,7 @@
 .session-input {
   width: 200px;
   height: 25px;
-  border: 1px solid $color-blue;
+  border: 1px solid $dark-green;
   border-radius: 5px;
 }
 
