@@ -38,10 +38,4 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
 
   ReactDOM.render(<Root store={store} />, root);
-
-  //! testing remove before pushing to master
-  window.fetchUser = fetchUser();
-  window.fetchUsers = fetchUsers();
-  window.dispatch = store;
-  window.getState = store.getState;
 });
