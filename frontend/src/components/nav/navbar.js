@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import '../../styles/navbar.scss';
 import Modal from "../modal/modal"
 
-
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
