@@ -14,6 +14,7 @@ mongoose
   .then(() => console.log("WooHoo! Connected to MongoDB"))
   .catch((err) => console.log(err));
 
+
 app.get("/", (req, res) => res.send("Hi World"));
 
 app.use(passport.initialize());
