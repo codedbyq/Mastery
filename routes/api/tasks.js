@@ -3,14 +3,11 @@ const router = express.Router();
 const passport = require("passport");
 
 const Task = require('../../models/Task');
-
+const Skill = require('../../models/Skill');
 const validateTaskInput = require('../../validation/tasks');
 
 
-
-
-
-// get all tasks
+// get all tasks 
 router.get('/', (req, res) => {
   Task.find()
     .then(tasks => res.send(tasks))
@@ -20,27 +17,34 @@ router.get('/', (req, res) => {
 
 //get all tasks for a userID
 router.get('/user/:user_id', (req, res) => {
-  Task.find({ user: req.params.user_id })
-    .then(tasks => res.send(tasks))
-    .catch(err => res.status(400).json(errors));
+  skills = Skill.find({user: req.params.user_id})
+  console.log(skills)
+  // Task.find({ user: req.params.user_id })
+  //   .then(tasks => res.send(tasks))
+  //   .catch(err => res.status(400).json({ error: err }))
   
-  console.log("task's get request complete!");
+  // console.log("task's get request complete!");
 });
 
 // get all tasks attached to a skillID
-// router.get('/skill/:skill_id', (req, res) => { 
-// })
+router.get('/skill/:skill_id', (req, res) => { 
+  Task.find({ skill: req.params.skill_id })
+    .then(tasks => res.send(tasks))
+    .catch(err => res.status(400).json({ error: err }))
+})
 
 // get a single task
 router.get('/:id', (req, res) => {
   Task.findById(req.params.id)
     .then(task => res.json(task))
-    .catch(err => res.status(404).json({notFound: 'No task found'}));
+    .catch(err => res.status(404).json({error: 'No task found'}));
+
 });
 
 // create new task - only user can
-router.post('/skill/:skill_id', (req, res) => {
-//  passport.authenticate("jwt", { session: false }),
+router.post('/skill/:skill_id', 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
     const { errors, isValid } = validateTaskInput(req.body);
 
     if (!isValid) {
@@ -62,26 +66,27 @@ router.post('/skill/:skill_id', (req, res) => {
 );
 
 // edit task
-router.patch('/edit/:id',(req, res) => {
-    const {errors, isValid} = validTaskInput(req.body);
-    // passport.authenticate('jwt', { session: false }),
-    if(!isValid) {
-      return res.status(400).json(errors);
+router.patch('/edit/:id', 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateTaskInput(req.body);
+      if(!isValid) {
+        return res.status(400).json(errors);
+      }
+
+      Task.findById(req.params.id)
+        .then(task => {
+          // task.skill = req.body.id;
+          task.title = req.body.title;
+          task.details = req.body.details;
+          task.elapsedTime = req.body.elapsedTime;
+          task.createdAt = req.body.createdAt;
+
+          task.save()
+            .then(() => res.json('Task Updated'))
+            .catch(err => res.status(400).json({Error: err}));
+        })
     }
-
-    Task.findById(req.params.id)
-      .then(task => {
-        // task.skill = req.body.id;
-        task.title = req.body.title;
-        task.details = req.body.details;
-        task.elapsedTime = req.body.elapsedTime;
-        task.createdAt = req.body.createdAt;
-
-        task.save()
-          .then(() => res.json('Task Updated'))
-          .catch(err => res.status(400).json({Error: err}));
-      })
-  }
 ),
 
 // delete task - only user can
