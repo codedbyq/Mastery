@@ -8,6 +8,7 @@ const path = require("path");
 
 const users = require("./routes/api/users");
 const skills = require("./routes/api/skills");
+const follows = require("./routes/api/follows");
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -21,6 +22,7 @@ mongoose
   .then(() => console.log("WooHoo! Connected to MongoDB"))
   .catch((err) => console.log(err));
 
+
 app.get("/", (req, res) => res.send("Hi World"));
 
 app.use(passport.initialize());
@@ -31,6 +33,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/skills", skills);
+app.use("/api/follows", follows);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
