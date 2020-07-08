@@ -12,6 +12,7 @@ import { setAuthToken } from "./util/session_api_util";
 import { logout } from "./actions/session_actions";
 import { fetchUser, fetchUsers } from "./actions/user_actions";
 
+
 document.addEventListener("DOMContentLoaded", () => {
   let store;
 

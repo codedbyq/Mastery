@@ -1,0 +1,35 @@
+.dashboard {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.dashboard-header > h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.dashboard-header > p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.dash-content {
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-main {
+    width: 65%;
+    height: 500px;
+    border: 1px solid blue
+}
+
+.content-side {
+    width: 30%;
+    height: 500px;
+    border: solid 1px green;
+}
+
