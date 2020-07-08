@@ -9,9 +9,15 @@ const validateSkillInput = require('../../validation/skills');
 // get all skills
 router.get('/', (req, res) => {
     Skill.find()
-    .then(skills => res.send(skills))
-    .catch(er => res.status(400).json(errors));
-    console.log("get request complete!");
+        .then(skills => {
+            const allSkills = {};
+            // iterate over the users and format the response as an object of key-value pairs
+            skills.forEach(skill => {
+                allSkills[skill.id] = skill;
+            });
+            return res.send(allSkills);
+        })
+        .catch(err => res.status(404).json({ noskillsfound: 'No skills found' }));
 });
 
 // get all skills attached to a userID
@@ -36,7 +42,6 @@ router.get('/:id', (req, res) => {
 //create new skill - only user can
 router.post('/', passport.authenticate("jwt", {session: false}),
     (req, res) => {
-        debugger
         const { errors, isValid } = validateSkillInput(req.body);
 
         if (!isValid) {
