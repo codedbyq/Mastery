@@ -32,7 +32,7 @@ router.post('/', passport.authenticate('jwt', { session: false }),
             
             newFollow.save()
                 .then(() => res.json('Followed Successfully'))
-            .catch(err => res.status(400).json('Error: ' + err));
+                .catch(err => res.status(400).json('Error: ' + err));
         } else {
             return res.status(400).json('Error: user not found');
         }
