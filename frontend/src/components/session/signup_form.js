@@ -57,52 +57,56 @@ class SignupForm extends React.Component {
   }
 
   render() {
-    let modal = document.getElementById('mySignupModal');
+    let modal = document.getElementById("mySignupModal");
     window.onclick = function (e) {
       if (e.target === modal) {
         modal.style.display = "none";
       }
-    }
+    };
     return (
       <div className="modal">
         <form className="modal-content animate">
-            <div onClick={this.props.closeModal} className="close-x">X</div>
-            <h3>Create An Account</h3>
-            <div className="modal-inputs">
-              <input
-                type="text"
-                value={this.state.email}
-                onChange={this.update("email")}
-                placeholder="Email"
-                className="session-input"
-              />
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                placeholder="Username"
-                className="session-input"
-              />
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Password"
-                className="session-input"
-              />
-              <input
-                type="password"
-                value={this.state.password2}
-                onChange={this.update("password2")}
-                placeholder="Confirm Password"
-                className="session-input"
-              />
-            </div>
-            <div className="session-button-holder">
-              <button className="session-button" onClick={this.handleSubmit}>Submit</button>
-              {this.props.otherForm}
-            </div>
-            {this.renderErrors()}
+          <div onClick={this.props.closeModal} className="close-x">
+            X
+          </div>
+          <h3>Create An Account</h3>
+          <div className="modal-inputs">
+            <input
+              type="text"
+              value={this.state.email}
+              onChange={this.update("email")}
+              placeholder="Email"
+              className="session-input"
+            />
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.update("username")}
+              placeholder="Username"
+              className="session-input"
+            />
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+              className="session-input"
+            />
+            <input
+              type="password"
+              value={this.state.password2}
+              onChange={this.update("password2")}
+              placeholder="Confirm Password"
+              className="session-input"
+            />
+          </div>
+          <div className="session-button-holder">
+            <button className="session-button" onClick={this.handleSubmit}>
+              Submit
+            </button>
+            {this.props.otherForm}
+          </div>
+          {this.renderErrors()}
         </form>
       </div>
     );
