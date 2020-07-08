@@ -4,12 +4,17 @@ const db = require("./config/keys").mongoURI;
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const passport = require('passport');
-// import configureStore from './frontend/src/store/store';
-// import { receiveSkill, receiveSkills, receiveUserSkills, receiveNewSkill, removeSkill } from "./frontend/src/actions/skill_actions"
-// import Root from './frontend/src/components/root'
+const path = require("path");
 
 const users = require("./routes/api/users");
 const skills = require("./routes/api/skills");
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
