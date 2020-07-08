@@ -36,11 +36,11 @@ router.get('/:id', (req, res) => {
 //create new skill - only user can
 router.post('/', passport.authenticate("jwt", {session: false}),
     (req, res) => {
-        // const { errors, isValid } = validateSkillInput(req.body);
+        const { errors, isValid } = validateSkillInput(req.body);
 
-        // if (!isValid) {
-        //     return res.status(400).json(errors);
-        // }
+        if (!isValid) {
+            return res.status(400).json(errors);
+        }
 
         const newSkill = new Skill({
             user: req.user.id,

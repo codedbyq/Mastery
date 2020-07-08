@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const TaskSchema = new Schema ({
   skill: {
     type: Schema.Types.ObjectId,
-    ref: "skills",
-    required: true
+    ref: "skills"
   },
   title: {
     type: String,
