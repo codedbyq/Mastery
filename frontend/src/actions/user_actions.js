@@ -19,12 +19,10 @@ const receiveUser = user => ({
 export const fetchUsers = () => dispatch => (
     getUsers()
         .then(users => dispatch(receiveUsers(users)))
-        .catch(err => console.log(err))
 );
 
 // thunk action creator to request users and dipatch them to the state
 export const fetchUser = userId => dispatch => (
     getUser(userId)
         .then(user => dispatch(receiveUser(user)))
-        .catch(err => console.log(err))
 );
