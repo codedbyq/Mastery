@@ -10,6 +10,7 @@ import SignupFormContainer from "./session/signup_form_container";
 
 
 import "../styles/reset.scss";
+import "../styles/application.scss";
 
 
 const App = () => (
@@ -17,8 +18,8 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <AuthRoute exact path="/" component={MainPage} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
     </Switch>
   </div>
 );
