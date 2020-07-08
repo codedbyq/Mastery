@@ -42,7 +42,6 @@ router.get('/:id', (req, res) => {
 //create new skill - only user can
 router.post('/', passport.authenticate("jwt", {session: false}),
     (req, res) => {
-        debugger
         const { errors, isValid } = validateSkillInput(req.body);
 
         if (!isValid) {

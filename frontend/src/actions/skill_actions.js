@@ -7,7 +7,6 @@ export const REMOVE_SKILL = "REMOVE_SKILL";
 export const RECEIVE_NEW_SKILL = "RECEIVE_NEW_SKILL";
 
 export const receiveSkills = (skills) => {
-    debugger;
     return {type: RECEIVE_SKILLS,
     skills}
 };
@@ -33,7 +32,6 @@ export const removeSkill = (skill) => ({
 });
 
 export const getSkills = () => (dispatch) => {
-  debugger;
   return fetchSkills()
     .then((skills) => dispatch(receiveSkills(skills)));
 }

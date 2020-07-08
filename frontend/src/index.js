@@ -11,29 +11,6 @@ import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
 
-import {
-  receiveSkill,
-  receiveSkills,
-  receiveUserSkills,
-  receiveNewSkill,
-  removeSkill,
-  getSkill,
-  getSkills,
-  getUserSkills,
-  newSkill,
-  patchSkill,
-  deleteSkill
-} from "./actions/skill_actions";
-
-import {
-  fetchSkills,
-  fetchUserSkills,
-  fetchSkill,
-  createSkill,
-  updateSkill,
-  destroySkill
-} from './util/skill_api_util'
-
 document.addEventListener("DOMContentLoaded", () => {
   let store;
 
@@ -62,25 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
-
-    window.store = store;
-    // window.store = store.getState();
-    window.dispatch = store.dispatch;
-    window.getState = store.dispatch;
-    // window.getState = getState;
-    window.getSkill = getSkill();
-    window.getSkills = getSkills();
-    window.getUserSkills = getUserSkills();
-    window.newSkill = newSkill();
-    window.patchSkill = patchSkill();
-    window.deleteSkill = deleteSkill();
-
-    window.fetchSkills = fetchSkills;
-    window.fetchUserSkills = fetchUserSkills;
-    window.fetchSkill = fetchSkill;
-    window.createSkill = createSkill;
-    window.updateSkill = updateSkill;
-    window.destroySkill = destroySkill;
       
   const root = document.getElementById("root");
 
