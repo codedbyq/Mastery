@@ -20,9 +20,7 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <>
-          <Link to={"/skills"}>All Skills</Link>
           <Link to={"/profile"}>Profile</Link>
-          <Link to={"/new_skill"}>Add a Skill</Link>
           <button onClick={this.logoutUser}>Logout</button>
         </>
       );
@@ -41,8 +39,8 @@ class NavBar extends React.Component {
     return (
       <div className='navbar'>
         <div className='nav-left'>
-          <Link className='logo'>Mastery</Link>
-          <Link className='nav-left-btn'>Home</Link>
+          <Link to='/' className='logo'>Mastery</Link>
+          <Link to='/dashboard' className='nav-left-btn'>Home</Link>
           <Link className='nav-left-btn'>Explore</Link>
         </div>
 
