@@ -17,10 +17,9 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      this.props.openModal();
+    if (nextProps.currentUser === true) {
+      this.props.history.push("/skills");
     }
-
     this.setState({ errors: nextProps.errors });
   }
 
@@ -40,7 +39,15 @@ class SignupForm extends React.Component {
       password2: this.state.password2,
     };
 
-    this.props.signup(user, this.props.history);
+    this.props.signup(user, this.props.history)
+    // .then(() => {
+    //   let newUser = {
+    //   email: this.state.email,
+    //   password: this.state.password,
+    // };
+
+    // this.props.login(newUser);
+    // });
   }
 
   renderErrors() {
