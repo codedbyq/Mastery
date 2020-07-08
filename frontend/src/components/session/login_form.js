@@ -57,29 +57,37 @@ class LoginForm extends React.Component {
   }
 
   render() {
+
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.update("email")}
-              placeholder="Email"
-            />
-            <br />
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.update("password")}
-              placeholder="Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
+
+      <div className="modal">
+        <form className="modal-content animate">
+            <div onClick={this.props.closeModal} className="close-x">X</div>
+            <h3>Log In</h3>
+            <div className="modal-inputs">
+              <input
+                type="text"
+                value={this.state.email}
+                onChange={this.update("email")}
+                placeholder="Email"
+                className="session-input"
+              />
+              <input
+                type="password"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Password"
+                className="session-input"
+              />
+            </div>
+            <div className="session-button-holder">
+              <button value="Submit" className="session-button" onClick={this.handleSubmit}>Submit</button>
+              {this.props.otherForm}
+            </div>
             {this.renderErrors()}
-          </div>
         </form>
       </div>
+
     );
   }
 }

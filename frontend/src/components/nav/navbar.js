@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../../styles/navbar.scss';
+import Modal from "../modal/modal"
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -28,8 +29,9 @@ class NavBar extends React.Component {
     } else {
       return (
         <>
-          <Link to={"/signup"}>Signup</Link>
-          <Link to={"/login"}>Login</Link>
+          <Modal />
+          <span className="nav-right-btn" onClick={() => this.props.openModal('signup')}>Sign Up</span>
+          <span className="nav-right-btn" onClick={() => this.props.openModal('login')}>Log In</span>
         </>
       );
     }
