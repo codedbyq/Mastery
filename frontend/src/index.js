@@ -17,7 +17,22 @@ import {
   receiveUserSkills,
   receiveNewSkill,
   removeSkill,
+  getSkill,
+  getSkills,
+  getUserSkills,
+  newSkill,
+  patchSkill,
+  deleteSkill
 } from "./actions/skill_actions";
+
+import {
+  fetchSkills,
+  fetchUserSkills,
+  fetchSkill,
+  createSkill,
+  updateSkill,
+  destroySkill
+} from './util/skill_api_util'
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -38,13 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     store = configureStore(preloadedState);
 
-    window.store = store;
-    window.receiveSkill = receiveSkill;
-    window.receiveSkills = receiveSkills;
-    window.receiveUserSkills = receiveUserSkills;
-    window.receiveNewSkill = receiveNewSkill;
-    window.removeSkill = removeSkill;
-
     const currentTime = Date.now() / 1000;
 
     if (decodedUser.exp < currentTime) {
@@ -54,6 +62,26 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
+
+    window.store = store;
+    // window.store = store.getState();
+    window.dispatch = store.dispatch;
+    window.getState = store.dispatch;
+    // window.getState = getState;
+    window.getSkill = getSkill();
+    window.getSkills = getSkills();
+    window.getUserSkills = getUserSkills();
+    window.newSkill = newSkill();
+    window.patchSkill = patchSkill();
+    window.deleteSkill = deleteSkill();
+
+    window.fetchSkills = fetchSkills;
+    window.fetchUserSkills = fetchUserSkills;
+    window.fetchSkill = fetchSkill;
+    window.createSkill = createSkill;
+    window.updateSkill = updateSkill;
+    window.destroySkill = destroySkill;
+      
   const root = document.getElementById("root");
 
   ReactDOM.render(<Root store={store} />, root);

@@ -12,10 +12,11 @@ const SkillsReducer = (
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_SKILLS:
+      debugger;
       action.skills.forEach( skill => {
-        nextState[skill.id] = skill;
+        newState[skill.id] = skill;
       });
-      return nextState;
+      return newState;
     case RECEIVE_SKILL:
       newState[action.skill.data.id] = action.skill.data;
       return newState;
