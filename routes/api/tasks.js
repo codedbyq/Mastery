@@ -6,6 +6,10 @@ const Task = require('../../models/Task');
 
 const validateTaskInput = require('../../validation/tasks');
 
+
+
+
+
 // get all tasks
 router.get('/', (req, res) => {
   Task.find()
@@ -24,10 +28,8 @@ router.get('/user/:user_id', (req, res) => {
 });
 
 // get all tasks attached to a skillID
-// router.get('/skill/:skill_id', (req, res) => {
-
+// router.get('/skill/:skill_id', (req, res) => { 
 // })
-
 
 // get a single task
 router.get('/:id', (req, res) => {
@@ -37,9 +39,8 @@ router.get('/:id', (req, res) => {
 });
 
 // create new task - only user can
-router.post('/', (req, res) => {
+router.post('/skill/:skill_id', (req, res) => {
 //  passport.authenticate("jwt", { session: false }),
-  
     const { errors, isValid } = validateTaskInput(req.body);
 
     if (!isValid) {
@@ -47,7 +48,7 @@ router.post('/', (req, res) => {
     }
 
     const newTask = new Task({
-      skill: req.body.id,
+      skill: req.params.skill_id,
       title: req.body.title,
       details: req.body.details,
       elapsedTime: req.body.elapsedTime,
@@ -86,7 +87,12 @@ router.patch('/edit/:id',(req, res) => {
 // delete task - only user can
 router.delete('/:id',
 //  passport.authenticate("jwt", { session: false }),
-  (req, res) => {}
+
+  (req, res) => {
+    Task.findByIdAndDelete(req.params.id)
+      .then(() => res.json('Task Deleted'))
+      .catch(err => res.status(400).json({ Error: err }));
+  }
 );
 
 
