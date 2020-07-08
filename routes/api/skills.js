@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
     Skill.find()
     .then(skills => res.send(skills))
     .catch(er => res.status(400).json(errors));
-    console.log("get request complete!");
 });
 
 // get all skills attached to a userID
@@ -36,7 +35,6 @@ router.get('/:id', (req, res) => {
 //create new skill - only user can
 router.post('/', passport.authenticate("jwt", {session: false}),
     (req, res) => {
-        debugger
         const { errors, isValid } = validateSkillInput(req.body);
 
         if (!isValid) {
