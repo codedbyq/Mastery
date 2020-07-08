@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -54,10 +54,17 @@ class SignupForm extends React.Component {
   }
 
   render() {
+    let modal = document.getElementById('mySignupModal');
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    }
     return (
-      <div className="signup-form-container">
-        <form className="session-form" onSubmit={this.handleSubmit}>
+      <div className="modal">
+        <form className="modal-content animate">
           <div>
+            <div onClick={this.props.closeModal} className="close-x">X</div>
             <input
               type="text"
               value={this.state.email}
@@ -87,10 +94,8 @@ class SignupForm extends React.Component {
               className="session-input"
             />
             <div className="session-button-holder">
-              <input type="submit" value="Submit" className="session-button"/>
-              <Link to="/login">
-                <button className="session-button">Need An Account?</button>
-              </Link>
+              <input type="submit" value="Submit" className="session-button" onSubmit={this.handleSubmit}/>
+              {this.props.otherForm}
             </div>
             {this.renderErrors()}
           </div>

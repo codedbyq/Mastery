@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -57,10 +57,13 @@ class LoginForm extends React.Component {
   }
 
   render() {
+
     return (
-      <div className="login-form-container">
-        <form className="session-form" onSubmit={this.handleSubmit}>
+
+      <div className="modal">
+          <form className="modal-content animate">
           <div>
+          <div onClick={this.props.closeModal} className="close-x">X</div>
             <input
               type="text"
               value={this.state.email}
@@ -76,15 +79,14 @@ class LoginForm extends React.Component {
               className="session-input"
             />
             <div className="session-button-holder">
-              <input type="submit" value="Submit" className="session-button"/>
-              <Link to="/signup">
-                <button className="session-button">Have An Account?</button>
-              </Link>
+              <input type="submit" value="Submit" className="session-button" onSubmit={this.handleSubmit}/>
+              {this.props.otherForm}
             </div>
             {this.renderErrors()}
           </div>
         </form>
       </div>
+
     );
   }
 }
