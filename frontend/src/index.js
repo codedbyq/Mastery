@@ -10,6 +10,7 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
+import { fetchUser, fetchUsers } from "./actions/user_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -37,4 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
 
   ReactDOM.render(<Root store={store} />, root);
+
+  //! testing remove before pushing to master
+  window.fetchUser = fetchUser();
+  window.fetchUsers = fetchUsers();
+  window.dispatch = store;
+  window.getState = store.getState;
 });

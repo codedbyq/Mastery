@@ -112,16 +112,23 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
 // get all users
 router.get('/', (req, res) => {
   User.find()
-    .then(users => res.send(users))
-    .catch(er => res.status(400).json(errors));
+    .then(users => {
+      const allUsers = {};
+      // iterate over the users and format the response as an object of key-value pairs
+      users.forEach(user => {
+        allUsers[user.id] = user;
+      });
+      return res.send(allUsers);
+    })
+    .catch(err => res.status(404).json({ nousersfound: 'No users found'}));
 });
 
 // get a single User
 router.get('/:userId', (req, res) => {
   User.findById(req.params.userId)
     .then(user => res.json(user))
-    .catch(err =>
-      res.status(404).json({ nouserfound: 'No user was found' })
+    .catch(err => 
+      res.status(404).json({ nouserfound: 'No user was found with that ID' })
     );
 });
 

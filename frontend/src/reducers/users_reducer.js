@@ -6,13 +6,9 @@ const usersReducer = (state = {}, action) => {
     const newState = Object.assign({}, state);
 
     switch (action.type) {
-        // receive fetched users as an array that we will iterate over and 
-        // add each user to our state as key(user id) - value(user object) pair
+        // add all users to our state as key(user id) - value(user object) pair
         case RECEIVE_USERS:
-            action.users.forEach(user => {
-                newState[user.id] = user;
-            });
-            return newState;
+            return Object.assign({}, newState, action.users.data);
 
         // receive a single user that we can add to our state as key(user id) - 
         // value(user object) pair
@@ -23,7 +19,7 @@ const usersReducer = (state = {}, action) => {
         // on login receive the current user and add to our state as key(user id) - 
         // value(user object) pair
         case RECEIVE_CURRENT_USER:
-            newState[action.user.id] = action.user;
+            newState[action.currentUser.id] = action.currentUser;
             return newState;
     
         default:
