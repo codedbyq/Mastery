@@ -8,6 +8,7 @@ const path = require("path");
 
 const users = require("./routes/api/users");
 const skills = require("./routes/api/skills");
+const tasks = require("./routes/api/tasks");
 const follows = require("./routes/api/follows");
 
 if (process.env.NODE_ENV === 'production') {
@@ -33,6 +34,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/skills", skills);
+app.use("/api/tasks", tasks);
 app.use("/api/follows", follows);
 
 const port = process.env.PORT || 5000;
