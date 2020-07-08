@@ -31,12 +31,8 @@ class NavBar extends React.Component {
       return (
         <>
           <Modal />
-          <span className="session-button" onClick={() => this.props.openModal('signup')}>
-              Sign Up
-          </span>
-          <span className="session-button" onClick={() => this.props.openModal('login')}>
-              Login
-          </span>
+          <span className="nav-right-btn" onClick={() => this.props.openModal('signup')}>Sign Up</span>
+          <span className="nav-right-btn" onClick={() => this.props.openModal('login')}>Log In</span>
         </>
       );
     }
