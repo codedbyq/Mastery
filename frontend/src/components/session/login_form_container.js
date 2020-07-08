@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     login: (user) => dispatch(login(user)),
     otherForm: (
-      <button onClick={() => dispatch(openModal('signup'))}>
+      <button className="session-button" onClick={() => dispatch(openModal('signup'))}>
         Need An Account?
       </button>
     ),

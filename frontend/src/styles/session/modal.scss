@@ -31,9 +31,13 @@
 
  .close-x {
    position: absolute;
-   top: 5px;
-   right: 5px;
+   top: 8px;
+   right: 8px;
    cursor: pointer;
+ }
+
+ .close-x:hover {
+   color: grey;
  }
 
 .modal-content {
@@ -41,8 +45,20 @@
   z-index: 1;
   background-color: #fefefe;
   margin: 5px auto;
-  border: 1px solid #888;
-  width: 80%;
+  border: 1px solid $color-blue;
+  border-radius: 15px;
+  padding: 10px;
+  height: 140%;
+  width: 120%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
 
 /* Add Zoom Animation */
@@ -64,6 +80,8 @@
 .session-input {
   width: 200px;
   height: 25px;
+  border: 1px solid $color-blue;
+  border-radius: 5px;
 }
 
 .session-button {
