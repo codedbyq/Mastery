@@ -63,20 +63,26 @@ export const fetchSkillTasks = (skillId) => (dispatch) => {
 }
 
 export const fetchUserTasks = (userId) => (dispatch) => {
-    return APITaskUtil.fetchSkillTasks(userId)
+    return APITaskUtil.fetchUserTasks(userId)
         .then((tasks) => dispatch(receiveTasks(tasks)));
+};
+
+export const createTask = (task) => (dispatch) => {
+  return APITaskUtil.createTask(task)
+        .then((task) => dispatch(receiveTask(task)))
+        , (err) => dispatch(receiveTaskErrors(err.responseJSON))
 };
 
 export const deleteTask = (taskId) => (dispatch) => {
     return APITaskUtil.deleteTask(taskId)
         .then(() => dispatch(removeTask(taskId)))
-        , (err) => dispatch(receiveRouteErrors(err.responseJSON));
+        , (err) => dispatch(receiveTaskErrors(err.responseJSON));
 }
 
-export const updateTask = (taskId) => (dispatch) => {
-    return APITaskUtil.updateTask(taskId)
+export const updateTask = (task) => (dispatch) => {
+    return APITaskUtil.updateTask(task)
         .then((task) => dispatch(receiveTask(task)))
-        , (err) => dispatch(receiveRouteErrors(err.responseJSON));
+        , (err) => dispatch(receiveTaskErrors(err.responseJSON));
 }
 
 export const clearTaskErrors = () => (dispatch) => {
