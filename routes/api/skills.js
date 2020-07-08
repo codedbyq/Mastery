@@ -19,10 +19,9 @@ router.get('/user/:user_id', (req, res) => {
     Skill.find({ user: req.params.user_id })
         .then(skills => res.json(skills))
         .catch(err =>
-            res.status(404).json({ noskillsfound: 'No skills found for that user' }
-            )
-        );
-});
+            res.status(404).json({ noskillsfound: 'No skills found for that user' })
+        )
+})
 
 // get a single skill
 router.get('/:id', (req, res) => {
@@ -36,7 +35,6 @@ router.get('/:id', (req, res) => {
 //create new skill - only user can
 router.post('/', passport.authenticate("jwt", {session: false}),
     (req, res) => {
-        debugger
         const { errors, isValid } = validateSkillInput(req.body);
 
         if (!isValid) {
@@ -50,7 +48,6 @@ router.post('/', passport.authenticate("jwt", {session: false}),
             description: req.body.description,
             createdAt: req.body.createdAt,
         })
-        
         newSkill.save().then((skill) => res.json(skill));
     }
 );

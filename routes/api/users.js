@@ -56,10 +56,9 @@ router.post('/register', (req, res) => {
     })
 })
 
-
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-
+  debugger
   console.log(errors);
 
   if (!isValid) {
@@ -108,6 +107,12 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     email: req.user.email
   });
 })
+
+router.get('/', (req, res) => {
+  User.find()
+  .then((users) => res.json(users))
+  .catch((err) => res.status(400).json("Errors: " + err))
+});
 
 
 module.exports = router;

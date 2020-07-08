@@ -7,6 +7,7 @@ const passport = require('passport');
 
 const users = require("./routes/api/users");
 const skills = require("./routes/api/skills");
+const follows = require("./routes/api/follows");
 
 mongoose
   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true})
@@ -23,6 +24,7 @@ app.use(bodyParser.json());
 
 app.use("/api/users", users);
 app.use("/api/skills", skills);
+app.use("/api/follows", follows);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
