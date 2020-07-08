@@ -10,6 +10,7 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
+import { fetchUser, fetchUsers } from "./actions/user_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -17,10 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
 
-    const decodedUser = jwt_decode(localStorage.jwtToken);
+    const decodedUser = jwt_decode(
+      localStorage.jwtToken
+    );
 
     const preloadedState = {
-      session: { isAuthenticated: true, user: decodedUser },
+      session: {
+        isAuthenticated: true,
+        user: decodedUser,
+      },
     };
 
     store = configureStore(preloadedState);
@@ -34,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
+      
   const root = document.getElementById("root");
 
   ReactDOM.render(<Root store={store} />, root);

@@ -49,19 +49,15 @@ router.post('/register', (req, res) => {
                   });
                 });
               })
-              .catch(err => console.log(err));
+              .catch(err => res.json("Error: " + err));
           })
         })
       }
     })
 })
 
-
 router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
-
-  console.log(errors);
-
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -108,6 +104,29 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     email: req.user.email
   });
 })
+
+// get all users
+router.get('/', (req, res) => {
+  User.find()
+    .then(users => {
+      const allUsers = {};
+      // iterate over the users and format the response as an object of key-value pairs
+      users.forEach(user => {
+        allUsers[user.id] = user;
+      });
+      return res.send(allUsers);
+    })
+    .catch(err => res.status(404).json({ nousersfound: 'No users found'}));
+});
+
+// get a single User
+router.get('/:userId', (req, res) => {
+  User.findById(req.params.userId)
+    .then(user => res.json(user))
+    .catch(err => 
+      res.status(404).json({ nouserfound: 'No user was found with that ID' })
+    );
+});
 
 
 module.exports = router;
