@@ -85,9 +85,7 @@ router.patch('/edit/:id',(req, res) => {
 ),
 
 // delete task - only user can
-router.delete('/:id',
-//  passport.authenticate("jwt", { session: false }),
-
+router.delete('/:id', passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Task.findByIdAndDelete(req.params.id)
       .then(() => res.json('Task Deleted'))
