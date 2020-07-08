@@ -10,6 +10,7 @@ import SignupFormContainer from "./session/signup_form_container";
 
 
 import "../styles/reset.scss";
+import "../styles/application.scss";
 
 
 const App = () => (
