@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
 
     return (
 
-      <div className="modal">
+      <div id="modal">
         <form className="modal-content animate">
             <div onClick={this.props.closeModal} className="close-x">X</div>
             <h3>Log In</h3>
