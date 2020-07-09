@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+.footer-field {
+  position: fixed;
+  width: 972px;
+  height: 45px;
+  bottom: 0;
+  text-align: center;
+  background-color: $dark-green;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-child {
+  margin: 20px;
+}
+
+a {
+  color: $light-green;
+}
+
+a:hover {
+  color: $brown;
+}

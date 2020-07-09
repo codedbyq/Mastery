@@ -5,6 +5,8 @@ import '../styles/app.scss'
 
 import NavBarContainer from "./nav/navbar_container";
 import MainPageContainer from "./main/main_container";
+
+import Footer from "./footer/footer"
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import DashboardContainer from './user/user_dash_container';
@@ -24,9 +26,8 @@ const App = () => (
     <Switch>
       <ProtectedRoute path='/dashboard' component={DashboardContainer} />
       <AuthRoute exact path="/" component={MainPageContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
+    <Footer />
   </div>
 );
 
