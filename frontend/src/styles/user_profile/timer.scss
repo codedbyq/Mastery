@@ -4,25 +4,32 @@
   position: relative;
 }
 
+#timer {
+  background-color: $dark-green;
+  color: white;
+}
+
 .timer-buttons-small {
   display: none;
   position:absolute;
   left: -7px;
   // top: 30px;
-  width: 98px;
+  width: 99px;
   // min-height: 60px;
   overflow: auto;
 }
 
 .timer-field-small:hover {
-  color: red;
-  // background-color: $light-green;
+  color: $bright-yellow;
+  background-color: $dark-green;
 }
 
 .timer-field-small:hover .timer-buttons-small {
   display: inline-block;
-  // background-color: $light-green;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: $dark-green;
+  // box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border: 1px solid $yellow;
+  border-top: none;
   padding: 20px 12px;
   z-index: 1;
   display:flex;
