@@ -26,13 +26,13 @@ class FileUpload extends Component {
 
   render() {
     return (
-      <div>
+      <div className="profile-section">
         {this.state.documents.map((document) => (
             <div>
               <img className="profile-img" src={document.fileLink} target="_blank"/>
               <button
                   onClick={this.deleteDocument.bind(this,document._id)}
-                  className="btn btn-danger"
+                  className=""
               >
                 Delete
               </button>
