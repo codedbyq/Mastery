@@ -1,8 +1,13 @@
 @import '../variables.scss';
 
 .profile-img {
-  width: 50px; /* width of container */
-  height: 50px; /* height of container */
+  width: 200px; /* width of container */
+  height: 200px; /* height of container */
   object-fit: cover;
   border-radius: 50%;
+}
+
+.profile-section {
+  position: absolute;
+  top: 200px;
 }

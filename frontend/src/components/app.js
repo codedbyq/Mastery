@@ -8,7 +8,7 @@ import MainPageContainer from "./main/main_container";
 // import LoginFormContainer from "./session/login_form_container";
 // import SignupFormContainer from "./session/signup_form_container";
 import Footer from "./footer/footer"
-import NewFileUpload from "./upload/new_file_upload";
+import NewFileUploadContainer from "./upload/new_file_upload_container";
 import FileUpload from "./upload/file_upload";
 
 
@@ -23,7 +23,7 @@ const App = () => (
       <AuthRoute exact path="/" component={MainPageContainer} />
     </Switch>
     <ProtectedRoute path="/" component={FileUpload} />
-    <ProtectedRoute path="/" component={NewFileUpload} />
+    <ProtectedRoute path="/" component={NewFileUploadContainer} />
     <Footer />
   </div>
 );

@@ -15,13 +15,13 @@ const receiveUser = user => ({
     user
 });
 
-// thunk action creator to request users and dipatch them to the state
+// thunk action creator to request users and dispatch them to the state
 export const fetchUsers = () => dispatch => (
     getUsers()
         .then(users => dispatch(receiveUsers(users)))
 );
 
-// thunk action creator to request users and dipatch them to the state
+// thunk action creator to request users and dispatch them to the state
 export const fetchUser = userId => dispatch => (
     getUser(userId)
         .then(user => dispatch(receiveUser(user)))

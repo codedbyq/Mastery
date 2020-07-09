@@ -5,7 +5,6 @@ class NewFileUpload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      description: "",
       selectedFile: null,
     };
   }
@@ -32,11 +31,16 @@ class NewFileUpload extends Component {
       .then(() => {
         document.location.reload(true);
       })
-    debugger
+  
   };
 
+  // componentDidMount(){
+  //   let user = this.props.fetchUser(this.props.currentUser.id);
+  //   console.log(user);
+  // }
+
   render() {
-    const { description, selectedFile } = this.state;
+    const { selectedFile } = this.state;
 
     return (
       <div>
