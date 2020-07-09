@@ -16,15 +16,13 @@ export default class SkillForm extends Component {
 
     // takes in a field to choose which key in the state is being updated
     handleInput(field) {
-        return e => {
-            this.setState({ [field]: e.target.value })
-        }
+      return e => this.setState({ [field]: e.currentTarget.value })
     }
-
+    
     handleSubmit(e) {
         e.preventDefault();
-
         this.props.newSkill(this.state)
+          .then((res) => this.props.history.push('/dashboard'))
     }
 
     handleCancel(e) {
@@ -62,8 +60,9 @@ export default class SkillForm extends Component {
 
                   <label>Category</label>
                   <select 
-                    onSelect={this.handleInput("category")}
                     className='skill-form-input'
+                    onChange={this.handleInput('category')}
+                    value={this.state.category}
                   >
                     <option value="">Select a category</option>
                     <option value="Art & Design">Art &amp; Design</option>

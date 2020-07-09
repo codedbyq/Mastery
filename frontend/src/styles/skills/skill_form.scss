@@ -8,7 +8,7 @@
 .skill-form {
     height: 600px;
     width: 800px;
-    border: 1px solid red;
+    background-color: $dark-green;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,10 +18,11 @@
 .skill-form-inputs {
     @extend %flex-col;
     justify-content: center;
+    margin-top: 20px;
     width: 400px;
     padding: 30px;
     border-radius: $border-rad;
-    border: 1px solid blue;
+    background-color: $light-green;
 }
 
 .skill-form-input {
@@ -41,7 +42,6 @@
 .skill-form-buttons {
     display: inline-flex;
     justify-content: flex-end;
-    border: 1px solid green;
 }
 
 .error {
