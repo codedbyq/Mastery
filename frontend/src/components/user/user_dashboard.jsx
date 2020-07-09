@@ -33,21 +33,24 @@ export default class user_dashboard extends Component {
               <section className="content-main">
                 <Tabs
                   id="dashboard-tabs"
-                //   activeKey={this.state.activeTab}
-                  defaultActiveKey='friends'
+                  //   activeKey={this.state.activeTab}
+                  defaultActiveKey="friends"
                   onSelect={this.handleSelect}
                 >
-                  <Tab eventKey="friends" title="Friends" >
-                    <p>Check out the latest tasks completed from the friends you're following:</p>
+                  <Tab eventKey="friends" title="Friends">
+                    <p>
+                      Check out the latest tasks completed from the friends
+                      you're following:
+                    </p>
+                    <div>The Social feed component will live here.</div>
                   </Tab>
                   <Tab eventKey="skills" title="My Skills">
-                    my skills
+                    <p>The logged in user's skills will live here.</p>
                   </Tab>
                   <Tab eventKey="tasks" title="My Tasks">
-                    my tasks
+                    <p>The logged in user's skills will live here in chronological order regardless of parent skill.</p>
                   </Tab>
                 </Tabs>
-
               </section>
               <section className="content-side"></section>
             </div>

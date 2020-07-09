@@ -5,14 +5,16 @@
     padding: 30px;
 }
 
+.dashboard-header {
+    border: 1px solid red;
+}
 .dashboard-header > h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 28px;
 }
 
 .dashboard-header > p {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .dash-content {
@@ -22,7 +24,7 @@
 }
 
 .content-main {
-    width: 65%;
+    width: 68%;
     height: 500px;
     border: 1px solid blue
 }
