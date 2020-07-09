@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import '../../styles/navbar.scss';
 import Modal from "../modal/modal"
 
 class NavBar extends React.Component {
@@ -20,9 +19,7 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <>
-          <Link to={"/skills"}>All Skills</Link>
           <Link to={"/profile"}>Profile</Link>
-          <Link to={"/new_skill"}>Add a Skill</Link>
           <button onClick={this.logoutUser}>Logout</button>
         </>
       );
@@ -39,21 +36,21 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div className='navbar'>
-        <div className='nav-left'>
-          <Link className='logo'>Mastery</Link>
-          <Link className='nav-left-btn'>Home</Link>
-          <Link className='nav-left-btn'>Explore</Link>
+      <div id='navbar'>
+        <div id='nav-left'>
+          <Link to='/' id='logo'>Mastery</Link>
+          <Link to='/dashboard' id='nav-left-btn'>Home</Link>
+          <Link to='/' id='nav-left-btn'>Explore</Link>
         </div>
 
-        <input className='search' type='search' placeholder="Search for a skill or user..."/>
+        <input id='search' type='search' placeholder="Search for a skill or user..."/>
 
-        <div className='nav-right'>
+        <div id='nav-right'>
           {this.getLinks()}
         </div>
 
-        <div className='timer'>
-          <span className='clock'>00:00</span>
+        <div id='timer'>
+          <span id='clock'>00:00</span>
         </div>
       </div>
     );

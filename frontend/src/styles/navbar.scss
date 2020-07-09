@@ -1,6 +1,6 @@
 @import 'variables';
 
-.navbar {
+#navbar {
     position: sticky;
     top: 0;
     display: inline-flex;
@@ -11,13 +11,13 @@
     border: 1px solid red;
 }
 
-.nav-left, .nav-right {
+#nav-left, #nav-right {
     border: 1px solid red;
     display: flex;
     align-items: center;
     height: 100%;
 }
-.nav-left > a, .nav-right > a {
+#nav-left > a, #nav-right > a {
     width: 104px;
     padding: 12px 0;
     text-align: center;
@@ -27,15 +27,15 @@
     overflow: hidden;
 }
 
-.nav-left > a {
+#nav-left > a {
     border-right: 1px solid black;
 }
 
-.nav-right > a {
+#nav-right > a {
     border-left: 1px solid black;
 }
 
-.search {
+#search {
     margin: 5px 15px;
     width: 322px;
     height: 27px;
@@ -48,7 +48,7 @@
     color: rgb(153, 153, 153);
 }
 
-.timer {
+#timer {
     display: flex;
     height: 100%;
     width: 100px;
@@ -58,7 +58,7 @@
     border-left: 1px solid black;
 }
 
-.clock {
+#clock {
     color: yellowgreen;
     font-size: 30px;
 }
