@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 
 import '../../styles/dashboard.scss';
-import "bootstrap/dist/css/bootstrap.css";
 
 
 export default class user_dashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = { activeTab: 0 };
+        this.state = { activeTab: 1 };
         this.handleSelect = this.handleSelect.bind(this);
     }
 
@@ -31,10 +30,11 @@ export default class user_dashboard extends Component {
               <section className="content-main">
                 <Tabs
                   id="dashboard-tabs"
-                  activeKey={this.state.activeTab}
+                //   activeKey={this.state.activeTab}
+                  defaultActiveKey='friends'
                   onSelect={this.handleSelect}
                 >
-                  <Tab eventKey="friends" title="Friends">
+                  <Tab eventKey="friends" title="Friends" >
                     <p>Check out the latest tasks completed from the friends you're following:</p>
                   </Tab>
                   <Tab eventKey="skills" title="My Skills">
@@ -44,7 +44,7 @@ export default class user_dashboard extends Component {
                     my tasks
                   </Tab>
                 </Tabs>
-              
+
               </section>
               <section className="content-side"></section>
             </div>
