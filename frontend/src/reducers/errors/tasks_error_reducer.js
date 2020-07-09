@@ -1,7 +1,7 @@
 import {
     RECEIVE_TASK_ERRORS, 
     CLEAR_TASK_ERRORS 
-} from '../actions/task_actions';
+} from '../../actions/task_actions';
 
 const _nullErrors = []
 
