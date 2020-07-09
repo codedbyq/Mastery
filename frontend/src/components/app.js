@@ -9,6 +9,7 @@ import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import DashboardContainer from './user/user_dash_container';
 
+import TaskContainer from './tasks/tasks_container';
 
 import "../styles/reset.scss";
 import "bootstrap/dist/css/bootstrap.css";
@@ -18,7 +19,7 @@ import "../styles/application.scss";
 
 
 const App = () => (
-  <div className='app'>
+  <div className="app">
     <NavBarContainer />
     <Switch>
       <ProtectedRoute path='/dashboard' component={DashboardContainer} />
