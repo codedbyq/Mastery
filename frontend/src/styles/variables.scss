@@ -1,5 +1,26 @@
+//colors
 $light-green: #D4E6B5;
 $dark-green: #AFC97E;
 $yellow: #E2D686;
 $bright-yellow: #FFDF64;
 $brown: #877B66;
+
+// flex extensions
+// use: @extend <extend-name>
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%flex-col {
+    display: flex;
+    flex-direction: column;
+}
+%flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+//misc 
+$border-rad: 4px; //border-radius
