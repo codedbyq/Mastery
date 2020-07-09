@@ -30,14 +30,16 @@ export default class SkillForm extends Component {
     renderErrors() {
         return (
         <ul>
-            {Object.keys(this.state.errors).map((error, i) => (
-            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            {Object.keys(this.props.errors).map((error, i) => (
+            <li className='error' key={`error-${i}`}>{this.state.errors[error]}</li>
             ))}
         </ul>
         );
     }
 
     render() {
+      const errors = this.props.errors ? this.renderErrors() : null;
+
         return (
           <div>
             <form className="skill-form" onSubmit={this.handleSubmit}>
@@ -76,7 +78,7 @@ export default class SkillForm extends Component {
               />
 
               <input type="submit" value='Start Skill'/>
-              {this.renderErrors}
+              {errors}
             </form>
           </div>
         );
