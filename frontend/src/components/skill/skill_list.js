@@ -7,15 +7,12 @@ class SkillList extends React.Component {
         this.props.getSkills();
     }
 
-    componentWillReceiveProps(newState) {
-        this.setState({ skills: newState.skills });
-    }
-
     render() {
-        const { skills, getSkills, getUserSkills, getSkill, newSkill, patchSkill, deleteSkill } = this.props;
+        const { skills, getSkills, getUserSkills, getSkill, newSkill,
+           patchSkill, deleteSkill } = this.props;
         const skillItems = skills.map(skill => (
             <Skill
-                key={skill.id}
+                key={skill._id}
                 skill={skill}
                 patchSkill={patchSkill} />
         )
