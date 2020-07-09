@@ -28,8 +28,8 @@ const App = () => (
       <ProtectedRoute path='/dashboard' component={DashboardContainer} />
       <AuthRoute exact path="/" component={MainPageContainer} />
     </Switch>
-    <ProtectedRoute path="/" component={FileUpload} />
-    <ProtectedRoute path="/" component={NewFileUploadContainer} />
+    {/* <ProtectedRoute path="/" component={FileUpload} />
+    <ProtectedRoute path="/" component={NewFileUploadContainer} /> */}
     <Footer />
   </div>
 );
