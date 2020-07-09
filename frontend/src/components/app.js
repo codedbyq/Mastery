@@ -12,9 +12,9 @@ import DashboardContainer from './user/user_dash_container';
 
 import "../styles/reset.scss";
 import "bootstrap/dist/css/bootstrap.css";
-// import "../styles/application.scss";
-import "../styles/modal.scss"
-import "../styles/navbar.scss";
+import "../styles/application.scss";
+// import "../styles/modal.scss"
+// import "../styles/navbar.scss";
 
 
 
