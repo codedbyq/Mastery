@@ -7,7 +7,6 @@ import NavBarContainer from "./nav/navbar_container";
 import MainPageContainer from "./main/main_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
-import SkillListContainer from "./skill/skill_list_container";
 import DashboardContainer from './user/user_dash_container';
 
 import TaskContainer from './tasks/tasks_container';
@@ -28,7 +27,6 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
     </Switch>
-    <SkillListContainer />
   </div>
 );
 
