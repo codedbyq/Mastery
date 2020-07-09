@@ -1,4 +1,4 @@
-import * as taskAction from '../actions/task_actions';
+import * as taskAction from '../../actions/task_actions';
 
 const tasksReducer = (state = {}, action) => {
     Object.freeze(state);
