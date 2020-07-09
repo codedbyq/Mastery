@@ -1,0 +1,8 @@
+@import '../variables.scss';
+
+.profile-img {
+  width: 50px; /* width of container */
+  height: 50px; /* height of container */
+  object-fit: cover;
+  border-radius: 50%;
+}
