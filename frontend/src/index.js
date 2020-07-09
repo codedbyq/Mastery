@@ -10,6 +10,8 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
+import { fetchUser, fetchUsers } from "./actions/user_actions";
+import { fetchSkills, fetchUserSkills, fetchSkill, createSkill, updateSkill, destroySkill } from "./util/skill_api_util";
 
 
 //testing - delete after
@@ -45,12 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
+
+  window.store = store;
+  window.createSkill = createSkill;
       
   const root = document.getElementById("root");
 
   ReactDOM.render(<Root store={store} />, root);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a38eda4f7f225b674502e47e3c061ade9b7b934c
   // testing
   
   window.getState = store.getState;
