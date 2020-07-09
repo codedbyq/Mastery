@@ -8,16 +8,22 @@ import MainPageContainer from "./main/main_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import SkillListContainer from "./skill/skill_list_container";
+import DashboardContainer from './user/user_dash_container';
 
+import TaskContainer from './tasks/tasks_container';
 
 import "../styles/reset.scss";
+import "bootstrap/dist/css/bootstrap.css";
 import "../styles/application.scss";
 
 
+
+
 const App = () => (
-  <div className='app'>
+  <div className="app">
     <NavBarContainer />
     <Switch>
+      <ProtectedRoute path='/dashboard' component={DashboardContainer} />
       <AuthRoute exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
