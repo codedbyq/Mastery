@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 
 import '../../styles/dashboard.scss';
+import SkillListContainer from "../skill/skill_list_container";
 
 
 export default class user_dashboard extends Component {
@@ -45,10 +46,13 @@ export default class user_dashboard extends Component {
                     <div>The Social feed component will live here.</div>
                   </Tab>
                   <Tab eventKey="skills" title="My Skills">
-                    <p>The logged in user's skills will live here.</p>
+                    <SkillListContainer />
                   </Tab>
                   <Tab eventKey="tasks" title="My Tasks">
-                    <p>The logged in user's skills will live here in chronological order regardless of parent skill.</p>
+                    <p>
+                      The logged in user's skills will live here in
+                      chronological order regardless of parent skill.
+                    </p>
                   </Tab>
                 </Tabs>
               </section>

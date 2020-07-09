@@ -10,7 +10,14 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
+import { fetchUser, fetchUsers } from "./actions/user_actions";
+import { fetchSkills, fetchUserSkills, fetchSkill, createSkill, updateSkill, destroySkill } from "./util/skill_api_util";
 
+
+//testing - delete after
+import {  fetchTask, fetchSkillTasks, fetchUserTasks, createTask, deleteTask, updateTask } from './actions/task_actions';
+import { getSkills } from './actions/skill_actions';
+import { fetchAllTasks} from './util/task_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -40,8 +47,24 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore({});
   }
+
+  window.store = store;
+  window.createSkill = createSkill;
       
   const root = document.getElementById("root");
 
   ReactDOM.render(<Root store={store} />, root);
+
+
+  // testing
+  
+  window.getState = store.getState;
+  window.getSkills = getSkills;
+  window.fetchAllTasks = fetchAllTasks;
+  window.fetchTask = fetchTask;
+  window.fetchSkillTasks = fetchSkillTasks;
+  window.UserTasks = fetchUserTasks;
+  window.createTask = createTask;
+  window.deleteTask = deleteTask;
+  window.updateTask = updateTask;
 });
