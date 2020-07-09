@@ -2,12 +2,9 @@ import * as APITaskUtil from '../util/task_api_util';
 
 export const RECEIVE_TASKS = 'RECEIVE_TASKS';
 export const RECEIVE_TASK = 'RECEIVE_TASK';
-export const RECEIVE_SKILL_TASKS = 'RECEIVE_SKILLS_TASKS';
-export const RECEIVE_USER_TASKS = 'RECEIVE_USER_TASKS';
 export const REMOVE_TASK = 'REMOVE_TASK';
 export const RECEIVE_TASK_ERRORS = "RECEIVE_TASK_ERRORS";
 export const CLEAR_TASK_ERRORS = "CLEAR_TASK_ERRORS";
-
 
 // action creators
 
@@ -49,7 +46,7 @@ export const removeTaskErrors = () => {
 
 export const fetchAllTasks = () => (dispatch) => {
     return APITaskUtil.fetchAllTasks()
-        .then((tasks) => dispatch(receiveTasks(tasks)));
+      .then((tasks) => dispatch(receiveTasks(tasks)));
 };
 
 export const fetchTask = (taskId) => (dispatch) => {
@@ -59,32 +56,33 @@ export const fetchTask = (taskId) => (dispatch) => {
 
 export const fetchSkillTasks = (skillId) => (dispatch) => {
     return APITaskUtil.fetchSkillTasks(skillId)
-        .then(tasks => dispatch(receiveTasks(tasks)));
+      .then((tasks) => dispatch(receiveTasks(tasks)));
 }
 
 export const fetchUserTasks = (userId) => (dispatch) => {
     return APITaskUtil.fetchUserTasks(userId)
-        .then((tasks) => dispatch(receiveTasks(tasks)));
+      .then((tasks) => dispatch(receiveTasks(tasks)));
 };
 
 export const createTask = (task) => (dispatch) => {
   return APITaskUtil.createTask(task)
-        .then((task) => dispatch(receiveTask(task)))
-        , (err) => dispatch(receiveTaskErrors(err.responseJSON))
+        .then((task) => dispatch(receiveTask(task))
+        , (err) => dispatch(receiveTaskErrors(err.responseJSON)));
 };
 
 export const deleteTask = (taskId) => (dispatch) => {
     return APITaskUtil.deleteTask(taskId)
-        .then(() => dispatch(removeTask(taskId)))
-        , (err) => dispatch(receiveTaskErrors(err.responseJSON));
+        .then(() => dispatch(removeTask(taskId))
+        , (err) => dispatch(receiveTaskErrors(err.responseJSON)));
 }
 
 export const updateTask = (task) => (dispatch) => {
     return APITaskUtil.updateTask(task)
-        .then((task) => dispatch(receiveTask(task)))
-        , (err) => dispatch(receiveTaskErrors(err.responseJSON));
+        .then((task) => dispatch(receiveTask(task))
+        , (err) => dispatch(receiveTaskErrors(err.responseJSON)));
 }
 
 export const clearTaskErrors = () => (dispatch) => {
     return dispatch(removeTaskErrors());
 }
+

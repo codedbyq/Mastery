@@ -17,13 +17,13 @@ export const fetchUserTasks = (userId) => {
 };
 
 export const createTask = (task) => {
-  return axios.post("/api/tasks/", task);
+  return axios.post(`/api/tasks/skill/${task.skillId}`, task);
 };
 
 export const updateTask = (task) => {
   return axios.patch(`/api/tasks/edit/${task.id}`, task);
 };
 
-export const deleteTask = (data) => {
-  return axios.delete(`/api/tasks/${task.id}`);
+export const deleteTask = (taskId) => {
+  return axios.delete(`/api/tasks/${taskId}`);
 };

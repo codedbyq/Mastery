@@ -8,15 +8,17 @@ import MainPageContainer from "./main/main_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 
+import TaskContainer from './tasks/tasks_container';
 
 import "../styles/reset.scss";
 import "../styles/application.scss";
 
 
 const App = () => (
-  <div className='app'>
+  <div className="app">
     <NavBarContainer />
     <Switch>
+      <TaskContainer />
       <AuthRoute exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
