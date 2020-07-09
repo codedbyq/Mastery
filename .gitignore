@@ -3,3 +3,4 @@
 package-lock.json
 /frontend/package-lock.json
 /config/keys_dev.js
+.DS_Store

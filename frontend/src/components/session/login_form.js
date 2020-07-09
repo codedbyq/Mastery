@@ -18,7 +18,7 @@ class LoginForm extends React.Component {
   // Once the user has been authenticated, redirect to the Skills page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/skills");
+      this.props.history.push("/");
     }
 
     // Set or clear errors
