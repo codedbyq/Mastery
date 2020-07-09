@@ -13,7 +13,6 @@ const usersReducer = (state = {}, action) => {
         // receive a single user that we can add to our state as key(user id) - 
         // value(user object) pair
         case RECEIVE_USER:
-            debugger
             newState[action.user.data._id] = action.user.data;
             return newState;
         

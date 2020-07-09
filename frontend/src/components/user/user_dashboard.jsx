@@ -21,11 +21,13 @@ export default class user_dashboard extends Component {
     }
 
     render() {
+      const user = this.props.user ? this.props.user : null;
+      const greeting = user ? `Welcome back, ${user.username}!` : 'Welcome back to Mastery!';
         return (
           <div className="dashboard">
             <div className="dashboard-header">
               <h1>Dashboard</h1>
-              <p>Welcome, user!</p>
+              <p>{greeting}</p>
             </div>
             <div className="dash-content">
               <section className="content-main">
