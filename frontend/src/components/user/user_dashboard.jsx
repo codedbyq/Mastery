@@ -13,6 +13,7 @@ export default class user_dashboard extends Component {
 
     componentDidMount() {
         console.log(this.props);
+        this.props.fetchUser(this.props.userId)
     }
 
     handleSelect(selected) {
