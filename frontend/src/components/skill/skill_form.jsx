@@ -10,8 +10,8 @@ export default class SkillForm extends Component {
             user: this.props.userId,
         }
         this.handleInput = this.handleInput.bind(this);
-        this.handleSelect = this.handleSelect.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     handleInput(field) {
@@ -25,10 +25,22 @@ export default class SkillForm extends Component {
         this.props.newSkill(this.state);
         this.props.push('/dashboard');
     }
+
+     // Render the form errors if there are any
+    renderErrors() {
+        return (
+        <ul>
+            {Object.keys(this.state.errors).map((error, i) => (
+            <li key={`error-${i}`}>{this.state.errors[error]}</li>
+            ))}
+        </ul>
+        );
+    }
+
     render() {
         return (
           <div>
-            <form className="skill-form">
+            <form className="skill-form" onSubmit={this.handleSubmit}>
               <label>Title</label>
               <input
                 type="text"
@@ -62,6 +74,9 @@ export default class SkillForm extends Component {
                 onChange={this.handleInput("description")}
                 placeholder="Describe your new skill"
               />
+
+              <input type="submit" value='Start Skill'/>
+              {this.renderErrors}
             </form>
           </div>
         );

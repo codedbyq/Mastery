@@ -8,6 +8,7 @@ import MainPageContainer from "./main/main_container";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import DashboardContainer from './user/user_dash_container';
+import SkillFormContainer from './skill/skill_form_container';
 
 
 import "../styles/reset.scss";
@@ -22,6 +23,7 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <ProtectedRoute path='/dashboard' component={DashboardContainer} />
+      <ProtectedRoute path='/newskill' component={SkillFormContainer} />
       <AuthRoute exact path="/" component={MainPageContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
