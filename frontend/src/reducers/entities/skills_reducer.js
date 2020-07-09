@@ -4,7 +4,7 @@ import {
     RECEIVE_USER_SKILLS,
     REMOVE_SKILL,
     RECEIVE_NEW_SKILL
-} from "../actions/skill_actions";
+} from "../../actions/skill_actions";
 
 const SkillsReducer = (
   state = { }, action ) => {

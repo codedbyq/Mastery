@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 import { setAuthToken } from "./util/session_api_util";
 
 import { logout } from "./actions/session_actions";
-import { fetchUser, fetchUsers } from "./actions/user_actions";
+
 
 //testing - delete after
 import {  fetchTask, fetchSkillTasks, fetchUserTasks, createTask, deleteTask, updateTask } from './actions/task_actions';

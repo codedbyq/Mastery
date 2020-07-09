@@ -6,5 +6,5 @@ export const getUsers = () => {
 };
 
 export const getUser = userId => {
-    return axios.get(`/api/users/${userId}`), userId;
+    return axios.get(`/api/users/${userId}`);
 };
