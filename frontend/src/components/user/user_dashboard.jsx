@@ -17,8 +17,7 @@ export default class user_dashboard extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.userId);
-        this.props.getUserSkills(this.props.userId);
+        this.props.fetchUser(this.props.userId).then(() => this.props.getUserSkills(this.props.userId));
     }
 
     handleSelect(selected) {
