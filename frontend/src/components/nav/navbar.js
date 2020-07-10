@@ -49,7 +49,7 @@ class NavBar extends React.Component {
             <Link to="/dashboard" id="nav-left-btn">
               Home
             </Link>
-            <a href="https://github.com/codedbyq/Mastery">GitHub</a>
+            <a target="_blank" href="https://github.com/codedbyq/Mastery">GitHub</a>
             
           </div>
 
