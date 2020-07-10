@@ -5,11 +5,13 @@ import Skill from './skill';
 class SkillList extends React.Component {
     componentDidMount() {
         this.props.getUserSkills(this.props.userId);
+        debugger;
     }
 
     render() {
         const { skills, getSkills, getUserSkills, getSkill, newSkill,
            patchSkill, deleteSkill } = this.props;
+          //  debugger;
         const skillItems = skills.map(skill => (
             <Skill
                 key={skill._id}

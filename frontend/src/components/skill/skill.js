@@ -6,16 +6,6 @@ class Skill extends React.Component {
         super(props);
         this.state = this.props;
     }
-    componentDidMount() {
-        // this.props.;
-    }
-
-    toggleDetail(e) {
-        e.preventDefault();
-        this.setState({
-            detail: !this.state.detail
-        });
-    }
 
     render() {
         const { skill, deleteSkill, patchSkill } = this.props;

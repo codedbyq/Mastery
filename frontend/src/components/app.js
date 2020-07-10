@@ -35,7 +35,7 @@ const App = () => (
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
       </Switch>
     </div>
-    <footer>Copyright &copy; 2019 Mastery</footer>
+    <Footer />
   </div>
 );
 
