@@ -1,13 +1,5 @@
 /frontend/package-lock.json
 /frontend/node_modules
-<<<<<<< HEAD
-/frontend/package-lock.json
-/config/keys_dev.js
-.DS_Store
-/node_modules
-
-=======
 /config/keys_dev.js
 package-lock.json
 /node_modules
->>>>>>> a38eda4f7f225b674502e47e3c061ade9b7b934c
