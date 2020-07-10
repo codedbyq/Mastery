@@ -1,15 +1,17 @@
 @import 'variables';
 
 .dashboard-container {
+    display: flex;
+    justify-content: center;
     padding: 30px 0;
     height: calc(100% - 30px);
-    max-width: 1920px;
+    margin: 0 30px;
 }
 
 .dashboard {
     border: 1px solid red;
-    height: 100%;
-    
+    height: calc(100% - 45px);
+    max-width: 1920px;
 }
 
 .dashboard-header {
@@ -25,6 +27,7 @@
 }
 
 .dash-content {
+    height: calc(100% - 82px);
     border: 1px solid red;
     display: flex;
     justify-content: space-between;
@@ -32,8 +35,10 @@
 
 .content-main {
     width: 68%;
-    height: 1000px;
-    border: 1px solid blue
+    max-height: 100%;
+    border: 1px solid blue;
+    position:relative;
+    overflow: auto;
 }
 
 .content-side {

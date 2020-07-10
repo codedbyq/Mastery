@@ -29,44 +29,46 @@ export default class user_dashboard extends Component {
       const user = this.props.user ? this.props.user : null;
       const greeting = user ? `Welcome back, ${user.username}!` : 'Welcome back to Mastery!';
         return (
-          <div className="dashboard">
-            <div className="dashboard-header">
-              <h1>Dashboard</h1>
-              <p>{greeting}</p>
-            </div>
-            <div className="dash-content">
-              <section className="content-main">
-                <Tabs
-                  id="dashboard-tabs"
-                  //   activeKey={this.state.activeTab}
-                  defaultActiveKey="friends"
-                  onSelect={this.handleSelect}
-                >
-                  <Tab eventKey="friends" title="Friends">
-                    <p>
-                      Check out the latest tasks completed from the friends
-                      you're following:
-                    </p>
-                    <SocialFeed />
-                    <div>The Social feed component will live here.</div>
-                  </Tab>
-                  <Tab eventKey="skills" title="My Skills">
-                    <SkillListContainer />
-                  </Tab>
-                  <Tab eventKey="tasks" title="My Tasks">
-                    <UserTasksContainer />
-                  </Tab>
-                </Tabs>
-              </section>
-              <section className="content-side">
-                <Modal />
-                <button
-                  className="new-skill-btn"
-                  onClick={() => this.props.openModal("create skill")}
-                >
-                  New Skill
-                </button>
-              </section>
+          <div className="dashboard-container">
+            <div className="dashboard">
+              <div className="dashboard-header">
+                <h1>Dashboard</h1>
+                <p>{greeting}</p>
+              </div>
+              <div className="dash-content">
+                <section className="content-main">
+                  <Tabs
+                    id="dashboard-tabs"
+                    //   activeKey={this.state.activeTab}
+                    defaultActiveKey="friends"
+                    onSelect={this.handleSelect}
+                  >
+                    <Tab eventKey="friends" title="Friends">
+                      <p>
+                        Check out the latest tasks completed from the friends
+                        you're following:
+                      </p>
+                      <SocialFeed />
+                      <div>The Social feed component will live here.</div>
+                    </Tab>
+                    <Tab eventKey="skills" title="My Skills">
+                      <SkillListContainer />
+                    </Tab>
+                    <Tab eventKey="tasks" title="My Tasks">
+                      <UserTasksContainer />
+                    </Tab>
+                  </Tabs>
+                </section>
+                <section className="content-side">
+                  <Modal />
+                  <button
+                    className="new-skill-btn"
+                    onClick={() => this.props.openModal("create skill")}
+                  >
+                    New Skill
+                  </button>
+                </section>
+              </div>
             </div>
           </div>
         );
