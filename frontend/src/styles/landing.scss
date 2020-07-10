@@ -7,6 +7,7 @@
     bottom: 0;
     height: 150vw;
     position: absolute;
+    z-index: 1px;
     background: rgb(146,191,67);
     background: linear-gradient(38deg, rgba(146,191,67,1) 40%, rgba(255,223,100,1) 100%);
     background-attachment: fixed;
