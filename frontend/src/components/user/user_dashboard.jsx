@@ -47,13 +47,13 @@ export default class user_dashboard extends Component {
                         Check out the latest tasks completed from the friends
                         you're following:
                       </p>
-                      {/* <SocialFeed /> */}
+                      <SocialFeed />
                     </Tab>
                     <Tab eventKey="skills" title="My Skills">
-                      {/* <SkillListContainer /> */}
+                      <SkillListContainer />
                     </Tab>
                     <Tab eventKey="tasks" title="My Tasks">
-                      {/* <UserTasksContainer /> */}
+                      <UserTasksContainer />
                     </Tab>
                   </Tabs>
                 </section>
