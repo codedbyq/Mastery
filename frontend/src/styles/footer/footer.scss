@@ -5,12 +5,12 @@
   height: 45px;
   bottom: 0;
   text-align: center;
-  background-color: $dark-green;
+  background-color: rgba(46, 58, 24, 0.687);
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 2px solid $yellow;
+  border-top: 2px solid $dark-green;
 }
 
 .footer-child {

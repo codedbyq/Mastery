@@ -4,7 +4,9 @@
     flex-flow: column;
     justify-content: space-between;
     align-content: center;
-    background-color: $light-green;
+    background: rgb(146,191,67);
+    background: linear-gradient(38deg, rgba(146,191,67,1) 40%, rgba(255,223,100,1) 100%);
+    background-attachment: fixed;
     margin-left: auto;
     margin-right: auto;
     height: 100%;
@@ -22,3 +24,18 @@
     flex: 1 1 auto;
 }
 
+
+a {
+    color: black;
+}
+
+ul.nav li a, ul.nav li a:visited {
+    color: black !important;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+    color: black !important;
+}
+
+ul.nav li.active a {
+    color: black !important;
