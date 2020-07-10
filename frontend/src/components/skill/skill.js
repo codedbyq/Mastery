@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion, Card, Button } from "react-bootstrap";
-
+import SkillTasksContainer from '../tasks/skill_tasks/skill_task_container';
 class Skill extends React.Component {
     constructor(props) {
         super(props);
@@ -36,7 +36,9 @@ class Skill extends React.Component {
                       <p>Description</p>
                       <p id="card-description">{description}</p>
                     </Card.Body>
-                    <h2>TaskListContainer goes here</h2>
+                    <div>
+                    <SkillTasksContainer skillTitle={title} skillId={_id}/>
+                    </div>
                     <Button
                       variant="danger"
                       className="delete-button"
