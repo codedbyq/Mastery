@@ -4,7 +4,8 @@ import SocialFeed from './social_feed/social_feed_container'
 
 import '../../styles/dashboard.scss';
 import SkillListContainer from "../skill/skill_list_container";
-import Modal from '../modal/modal'
+import UserInfoContainer from './user_info_container';
+import Modal from '../modal/modal';
 
 
 export default class user_dashboard extends Component {
@@ -61,6 +62,7 @@ export default class user_dashboard extends Component {
                   </Tabs>
                 </section>
                 <section className="content-side">
+                  <UserInfoContainer />
                   <Modal />
                   <button
                     className="new-skill-btn"
