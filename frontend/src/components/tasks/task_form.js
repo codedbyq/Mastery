@@ -35,12 +35,18 @@ class TaskForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const skill = Object.values(this.props.skills).filter((skill) => skill.title === this.state.skills)
+    let skillId;
+    if (skill.length === 1) {
+      skillId = skill[0]._id; 
+    } else {
+      skillId = "";
+    }
     let task = {
       title: this.state.title,
       details: this.state.details,
       user: this.props.userId,
       elapsedTime: "0",
-      skill: skill[0]._id
+      skill: skillId
     };
     this.props
       .taskFormAction(task).then((res) => {
@@ -60,12 +66,12 @@ class TaskForm extends React.Component {
   }
 
   render() {
-    // let modal = document.getElementById("mySignupModal");
-    // window.onclick = function (e) {
-    //   if (e.target === modal) {
-    //     modal.style.display = "none";
-    //   }
-    // };
+    let modal = document.getElementById("mySignupModal");
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    };
     const skillsTable = Object.values(this.props.skills).map((skill) => (
       <option value={skill.title}> {skill.title}</option>
     ));
@@ -119,7 +125,7 @@ class TaskForm extends React.Component {
           <div className="session-button-holder">
             <input type="submit" value="Create Task"/>
           </div>
-          {this.props.errors && this.renderErrors()}
+          {this.renderErrors()}
         </form>
       </div>
     );
