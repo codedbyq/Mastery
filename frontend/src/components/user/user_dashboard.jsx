@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import SocialFeed from './social_feed/social_feed_container'
 
 import '../../styles/dashboard.scss';
 import SkillListContainer from "../skill/skill_list_container";
@@ -43,6 +44,7 @@ export default class user_dashboard extends Component {
                       Check out the latest tasks completed from the friends
                       you're following:
                     </p>
+                    <SocialFeed />
                     <div>The Social feed component will live here.</div>
                   </Tab>
                   <Tab eventKey="skills" title="My Skills">
