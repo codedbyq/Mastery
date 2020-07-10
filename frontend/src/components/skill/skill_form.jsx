@@ -22,12 +22,7 @@ export default class SkillForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.newSkill(this.state)
-          .then((res) => this.props.history.push('/dashboard'))
-    }
-
-    handleCancel(e) {
-      e.preventDefault();
-      this.props.history.push('/dashboard');
+          .then((res) => this.props.closeModal())
     }
 
      // Render the form errors if there are any

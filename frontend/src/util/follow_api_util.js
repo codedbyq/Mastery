@@ -5,6 +5,10 @@ export const getUserFollows = (id) => {
   return axios.get(`/api/follows/user/${id}`);
 };
 
+export const getUserFollowers = (id) => {
+  return axios.get(`/api/follows/user/${id}`);
+};
+
 export const createFollow = (data) => {
   return axios.post("/api/follows/", data);
 };

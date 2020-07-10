@@ -1,0 +1,40 @@
+@import '../variables.scss';
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid $dark-green;
+    margin-bottom: 15px;
+}
+
+
+.profile-pic {
+    background-image: url("https://mastery.s3-us-west-1.amazonaws.com/cute-puppy.jpg");
+    background-repeat: no-repeat;
+    background-position-x: 35%;
+    background-position-y: 20%;
+    border-radius: 1000px;
+    height: 220px;
+    width: 220px;
+    margin-bottom: 5px;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.user-stats {
+    display: inline-flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

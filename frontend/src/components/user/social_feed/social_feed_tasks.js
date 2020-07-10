@@ -1,5 +1,5 @@
 import React from "react";
-import SocialFeedTaskItem from "./social_feed_task_item";
+import SocialFeedTaskItemContainer from "./social_feed_task_item_container";
 
 class SocialFeedTasks extends React.Component {
   constructor(props) {
@@ -11,18 +11,21 @@ class SocialFeedTasks extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchUserTasks(this.props.userId);
+    console.log(this.props.userId);
+    this.props.fetchUserTasks(this.props.userId).then((res)=>{
+      this.setState({ tasks: Object.values(res.tasks.data) });
+    });
   }
 
-  componentWillReceiveProps(newState) {
-    this.setState({ tasks: newState.tasks });
-  }
+  // componentWillReceiveProps(newState) {
+  //   this.setState({ tasks: newState.tasks });
+  // }
 
   render() {
     return (
       <div>
         {this.state.tasks.map((task) => (
-          <SocialFeedTaskItem key={task._id} task={task} />
+          <SocialFeedTaskItemContainer key={task._id} task={task} />
         ))}
       </div>
     );
