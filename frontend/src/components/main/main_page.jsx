@@ -4,6 +4,7 @@ import Modal from '../modal/modal';
 
 class MainPage extends React.Component {
  
+
   render() {
     return (
       <div className="landing-page">
