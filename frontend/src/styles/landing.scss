@@ -1,18 +1,53 @@
-@import 'variables';
+@import 'variables.scss';
 
 .landing-page {
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    height: 100vw;
     position: absolute;
     background: rgb(146,191,67);
     background: linear-gradient(38deg, rgba(146,191,67,1) 40%, rgba(255,223,100,1) 100%);
-}
-
-.landing-frame {
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-position: center;
+}
+
+.landing-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 700px;
+    width: 700px;
+}
+
+.landing-words {
+    display: inline-flex;
+}
+
+#bold {
+    font-weight: bold;
+}
+
+.text-left {
+    padding-top: 100px;
+    width: 300px;
+    font-size: 34px;
+}
+
+.bottom-text {
+    font-size: 34px;
+    width: 700px;
+}
+
+.landing-img {
+    height: 400px;
+    width: 400px;
+}
+
+.landing-ending {
+    display: flex;
+    flex-direction: column;
 }
