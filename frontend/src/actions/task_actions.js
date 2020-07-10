@@ -60,8 +60,11 @@ export const fetchSkillTasks = (skillId) => (dispatch) => {
 }
 
 export const fetchUserTasks = (userId) => (dispatch) => {
-    return APITaskUtil.fetchUserTasks(userId)
-      .then((tasks) => dispatch(receiveTasks(tasks)));
+    return APITaskUtil.fetchUserTasks(userId).then(
+      (tasks) => dispatch(receiveTasks(tasks)),
+      (err) => dispatch(receiveTaskErrors(err.responseJSON))
+    );
+      
 };
 
 export const createTask = (task) => (dispatch) => {

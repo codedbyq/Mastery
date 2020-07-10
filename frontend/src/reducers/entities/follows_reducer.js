@@ -2,10 +2,11 @@ import { RECEIVE_USER_FOLLOWS, RECEIVE_NEW_FOLLOW, REMOVE_FOLLOW } from "../../a
 
 const followsReducer = (state = {}, action) => {
   Object.freeze(state);
+
   let newState = Object.assign({}, state);
   switch (action.type) {
     case RECEIVE_USER_FOLLOWS:
-      newState[action.user.data.id] = action.follows.data;
+      newState = action.follows.data;
       return newState;
     case RECEIVE_NEW_FOLLOW:
       newState = action.follow.data;

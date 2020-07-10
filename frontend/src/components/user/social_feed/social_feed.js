@@ -1,30 +1,30 @@
 import React from "react";
 // Components
 // import Skill from "./skill";
+import SocialFeedTasksContainer from './social_feed_tasks_container'
 
-class SkillList extends React.Component {
+class SocialFeed extends React.Component {
   componentDidMount() {
     this.props.fetchUserFollows(this.props.userId);
   }
 
   render() {
-    debugger
     const {
       user,
       follows,
       fetchUserFollows,
     } = this.props;
-    const skillItems = follows.map((follow) => (
-      <li></li>
+    const followItems = follows.map((follow) => (
+      <SocialFeedTasksContainer id={follow._id} user={follow.followerId}/>
     ));
     return (
       <>
         <div>
-          <ul className="skill-list">{skillItems}</ul>
+          <ul className="socialFeed-list">{followItems}</ul>
         </div>
       </>
     );
   }
 }
 
-export default SkillList;
+export default SocialFeed;
