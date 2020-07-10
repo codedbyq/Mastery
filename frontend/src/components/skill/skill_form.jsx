@@ -45,11 +45,12 @@ export default class SkillForm extends Component {
       const errors = this.props.errors ? this.renderErrors() : null;
 
         return (
-          <div className='new-skill-div'>
-            <form className="skill-form" onSubmit={this.handleSubmit}>
-              <h1>What skill would you like to master?</h1>
-              <div className="skill-form-inputs">
-                <label>Title</label>
+          <div id="modal">
+            <div className="new-skill-div">
+              <form className="skill-form" onSubmit={this.handleSubmit}>
+                <h1>What skill would you like to master?</h1>
+                <div className="skill-form-inputs">
+                  <label>Title</label>
                   <input
                     type="text"
                     value={this.state.title}
@@ -59,9 +60,9 @@ export default class SkillForm extends Component {
                   />
 
                   <label>Category</label>
-                  <select 
-                    className='skill-form-input'
-                    onChange={this.handleInput('category')}
+                  <select
+                    className="skill-form-input"
+                    onChange={this.handleInput("category")}
                     value={this.state.category}
                   >
                     <option value="">Select a category</option>
@@ -91,13 +92,16 @@ export default class SkillForm extends Component {
                     placeholder="Describe your new skill"
                     className="skill-form-description"
                   />
-                <div className='skill-form-buttons'>
-                  <button>Cancel</button>
-                  <input type="submit" value="Start Skill" />
+
+                  <div className="skill-form-buttons">
+                    <button onClick={this.props.closeModal}>Cancel</button>
+                    <input type="submit" value="Start Skill" />
+                  </div>
+                  
                 </div>
-              </div>
-              {errors}
-            </form>
+                {errors}
+              </form>
+            </div>
           </div>
         );
     }

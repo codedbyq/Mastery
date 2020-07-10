@@ -6,6 +6,8 @@
     margin-top: 20px;
 }
 .skill-form {
+    position: relative;
+    z-index: 1;
     height: 600px;
     width: 800px;
     background-color: $dark-green;
