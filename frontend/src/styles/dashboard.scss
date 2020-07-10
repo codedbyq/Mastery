@@ -3,7 +3,7 @@
 .dashboard-container {
     display: flex;
     justify-content: center;
-    padding: 30px 0;
+    padding: 20px 0;
     height: calc(100% - 30px);
     margin: 0 30px;
 }
@@ -14,7 +14,6 @@
 }
 
 .dashboard-header {
-    padding-top: 20px;
     padding-left: 20px;
 }
 .dashboard-header > h1 {
