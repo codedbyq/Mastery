@@ -3,9 +3,10 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import TaskFormContainer from '../tasks/task_form_container';
 import SkillFormContainer from '../skill/skill_form_container';
 
-function Modal({ modal, closeModal }) {
+function Modal({ modal, closeModal, user }) {
   if (!modal) {
     return null;
   }
@@ -16,6 +17,9 @@ function Modal({ modal, closeModal }) {
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      break;
+    case "createTask":
+      component = <TaskFormContainer/>
       break;
     case 'create skill':
       component = <SkillFormContainer />;
@@ -32,9 +36,11 @@ function Modal({ modal, closeModal }) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  
   return {
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    user: ownProps.user
   };
 };
 

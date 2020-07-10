@@ -8,6 +8,7 @@ const validateTaskInput = require('../../validation/tasks');
 // get all tasks 
 router.get('/', (req, res) => {
   Task.find()
+    .sort({ creationDate: -1 })
     .then(tasks => {
       const allTasks = {}  
       // iterate over the tasks and format the response as an object of key-value pairs
@@ -20,6 +21,7 @@ router.get('/', (req, res) => {
 //get all tasks for a userID 
 router.get('/user/:user_id', (req, res) => {
   Task.find({ user: req.params.user_id })
+    .sort({ creationDate: -1 })
     .then(tasks => {
       const allTasks = {}
       tasks.forEach(task => { allTasks[task.id] = task; })
@@ -31,6 +33,7 @@ router.get('/user/:user_id', (req, res) => {
 // get all tasks attached to a skillID
 router.get('/skill/:skill_id', (req, res) => { 
   Task.find({ skill: req.params.skill_id })
+    .sort({ creationDate: -1 })
     .then(tasks => {
       const allTasks = {}
       tasks.forEach(task => {allTasks[task.id] = task;})
@@ -47,7 +50,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create new task - only user can
-router.post('/skill/:skill_id', 
+router.post('/', 
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateTaskInput(req.body);
@@ -55,9 +58,10 @@ router.post('/skill/:skill_id',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    
+
+    console.log(req.body)
     const newTask = new Task({
-      skill: req.params.skill_id,
+      skill: req.body.skill,
       user: req.user.id,
       title: req.body.title,
       details: req.body.details,

@@ -17,7 +17,7 @@ export const fetchUserTasks = (userId) => {
 };
 
 export const createTask = (task) => {
-  return axios.post(`/api/tasks/skill/${task.skillId}`, task);
+  return axios.post(`/api/tasks/`, task);
 };
 
 export const updateTask = (task) => {

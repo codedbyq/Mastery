@@ -69,20 +69,19 @@ export const fetchUserTasks = (userId) => (dispatch) => {
 
 export const createTask = (task) => (dispatch) => {
   return APITaskUtil.createTask(task)
-        .then((task) => dispatch(receiveTask(task))
-        , (err) => dispatch(receiveTaskErrors(err.responseJSON)));
+        .then((task) => dispatch(receiveTask(task)))
+        .catch((err) => console.log(err));
 };
 
 export const deleteTask = (taskId) => (dispatch) => {
     return APITaskUtil.deleteTask(taskId)
-        .then(() => dispatch(removeTask(taskId))
-        , (err) => dispatch(receiveTaskErrors(err.responseJSON)));
+        .then(() => dispatch(removeTask(taskId)));
 }
 
 export const updateTask = (task) => (dispatch) => {
     return APITaskUtil.updateTask(task)
-        .then((task) => dispatch(receiveTask(task))
-        , (err) => dispatch(receiveTaskErrors(err.responseJSON)));
+        .then((task) => dispatch(receiveTask(task)))
+        .catch((err) => console.log(err));
 }
 
 export const clearTaskErrors = () => (dispatch) => {

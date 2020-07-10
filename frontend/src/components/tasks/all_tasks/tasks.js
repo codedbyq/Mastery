@@ -26,7 +26,11 @@ class Task extends React.Component {
         <div>
           <h2>All Tasks</h2>
           {this.state.tasks.map((task) => (
-            <TaskItems key={task._id} task={task} />
+            <TaskItems
+              key={task._id}
+              task={task}
+              deleteTask={this.props.deleteTask}
+            />
           ))}
         </div>
       );

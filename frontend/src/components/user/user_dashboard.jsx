@@ -3,6 +3,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 import SocialFeed from './social_feed/social_feed_container'
 
 import '../../styles/dashboard.scss';
+import UserTasksContainer from "../tasks/user_tasks/user_tasks_container";
 import SkillListContainer from "../skill/skill_list_container";
 import UserInfoContainer from './user_info_container';
 import Modal from '../modal/modal';
@@ -17,7 +18,8 @@ export default class user_dashboard extends Component {
 
     componentDidMount() {
         console.log(this.props);
-        this.props.fetchUser(this.props.userId)
+        this.props.fetchUser(this.props.userId);
+        this.props.getUserSkills(this.props.userId);
     }
 
     handleSelect(selected) {
@@ -54,10 +56,7 @@ export default class user_dashboard extends Component {
                       <SkillListContainer />
                     </Tab>
                     <Tab eventKey="tasks" title="My Tasks">
-                      <p>
-                        The logged in user's skills will live here in
-                        chronological order regardless of parent skill.
-                      </p>
+                      <UserTasksContainer />
                     </Tab>
                   </Tabs>
                 </section>
