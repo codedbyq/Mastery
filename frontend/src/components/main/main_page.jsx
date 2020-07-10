@@ -11,12 +11,15 @@ class MainPage extends React.Component {
         <Modal />
 
         <div className="top-session-btns">
-          <button
-            className="top-session-btn"
-            onClick={() => this.props.openModal("signup")}
-          >
-            Sign Up
-          </button>
+          <div className="landing-left">
+            <img className='landing-logo' src="https://emilyschromm.com/wp-content/themes/emfit/assets/footer/footer-logo-2x.png"/>
+            <button
+              className="top-session-btn"
+              onClick={() => this.props.openModal("signup")}
+              >
+              Sign Up
+            </button>
+          </div>
 
           <button
             className="top-session-btn"
@@ -28,7 +31,8 @@ class MainPage extends React.Component {
 
         <div className="landing-frame">
           <MainClock />
-          <h1>Time's Ticking.</h1>
+          <h1> Welcome to Mastery</h1>
+          <h1 className='logo-text'>Time's Ticking.</h1>
         </div>
         <div className="landing-words">
           <p className="text-left">
