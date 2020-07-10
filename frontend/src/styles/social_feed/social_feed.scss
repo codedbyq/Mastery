@@ -1,0 +1,57 @@
+@import 'variables';
+
+// #skill-accordion{
+//     width: 100%;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+// }
+
+// .btn-link > p{
+//     width: fit-content;
+// }
+
+.social-task-container {
+    background-color: $yellow;
+    border: 1px solid $dark-green;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: .5s;
+}
+
+.social-task-container:hover {
+  transform: scale(1.02);
+  background: $dark-green;
+}
+
+.social-task-title {
+  -webkit-text-stroke: 1px $brown;
+  color: $brown;
+}
+
+.social-task-skill {
+    color: $brown;
+}
+
+#social-task-header {
+  // width: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid $dark-green;
+}
+
+.social-task-list {
+  margin: 10px;
+  box-sizing: border-box;
+
+}
+
+.time-and-date {
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

@@ -32,15 +32,18 @@ class SocialFeedTaskItem extends React.Component {
     const dateCreated = this.formatDate(task.creationDate);
     const dayOfWeek = this.getDay(task.creationDate);
     return (
-      <div>
-        <h3>{task.title}</h3>
-        <ul>
+      <div className="social-task-container">
+        <div id="social-task-header">
+          <h3 className="social-task-title">{task.title}</h3>
+          <h5 className="social-task-skill">{this.state.skill}</h5>
+        </div>
+        <ul className="social-task-list">
           <li> {task.details}</li>
-          <li> {task.elapsedTime} minutes</li>
-          <li> {this.state.skill}</li>
-          <li> {`${dayOfWeek} ${dateCreated}`}</li>
+          <div className="time-and-date">
+            <li> {task.elapsedTime} minutes</li>
+            <li> {`${dayOfWeek} ${dateCreated}`}</li>
+          </div>
         </ul>
-        <br />
       </div>
     );
   }
