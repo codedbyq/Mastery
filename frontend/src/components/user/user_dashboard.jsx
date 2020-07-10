@@ -49,7 +49,6 @@ export default class user_dashboard extends Component {
                         you're following:
                       </p>
                       <SocialFeed />
-                      <div>The Social feed component will live here.</div>
                     </Tab>
                     <Tab eventKey="skills" title="My Skills">
                       <SkillListContainer />
