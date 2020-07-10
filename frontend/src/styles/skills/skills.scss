@@ -1,3 +1,5 @@
+@import 'variables';
+
 #skill-accordion{
     width: 100%;
     display: flex;
@@ -30,6 +32,10 @@
     margin: 20px;
 }
 
-.show {
+.show, .collapsing {
     margin: 20px;
+}
+
+#card {
+    background-color: $yellow;
 }
