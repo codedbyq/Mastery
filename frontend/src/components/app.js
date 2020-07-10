@@ -10,6 +10,7 @@ import Footer from "./footer/footer"
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import DashboardContainer from './user/user_dash_container';
+import SkillFormContainer from './skill/skill_form_container';
 
 import TaskContainer from './tasks/tasks_container';
 
@@ -25,6 +26,7 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <ProtectedRoute path='/dashboard' component={DashboardContainer} />
+      <ProtectedRoute path='/newskill' component={SkillFormContainer} />
       <AuthRoute exact path="/" component={MainPageContainer} />
     </Switch>
     <Footer />
