@@ -34,7 +34,7 @@
 
 .content-main {
     width: 68%;
-    max-height: 96%;
+    max-height: 95%;
     border: solid 1px $dark-green;
     background-color: rgba(255, 255, 255, 0.9);
     position:relative;
@@ -44,7 +44,7 @@
 
 .content-side {
     width: 30%;
-    height: 96%;
+    height: 95%;
     border: solid 1px $dark-green;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
@@ -55,4 +55,19 @@
   .nav-item.show .nav-link {
     color: black;
     background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .create-new-btn {
+      display: flex;
+      justify-content: space-evenly;
+  }
+
+  .light-button:hover {
+        filter: brightness(90%);
+        background-color: greenyellow;
+        color: $brown;
+  }
+
+  .white-button:hover {
+      background-color: gainsboro;
   }

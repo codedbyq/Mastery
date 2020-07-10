@@ -1,6 +1,5 @@
 import React from "react";
 import SkillTaskItems from "../skill_tasks/skill_tasks_items";
-import Modal from "../../modal/modal"
 
 class SkillTasks extends React.Component {
     constructor(props) {
@@ -27,7 +26,7 @@ class SkillTasks extends React.Component {
             (<div>No tasks</div>)
             :
             (<div>
-                {this.state.tasks.map((task) => (
+                {this.state.tasks.reverse().map((task) => (
                     <SkillTaskItems
                         key={task._id}
                         task={task}

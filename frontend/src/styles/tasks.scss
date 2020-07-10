@@ -26,6 +26,7 @@ textarea {
 
 .task-delete-button {
     float: right;
-    background-color: white;
+    background-color: $dark-green;
+    padding: 5px 10px;
     border-radius: 10px;
 }

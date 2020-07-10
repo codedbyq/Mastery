@@ -11,6 +11,8 @@ const users = require("./routes/api/users");
 const skills = require("./routes/api/skills");
 const tasks = require("./routes/api/tasks");
 const follows = require("./routes/api/follows");
+const seed = require("./seeder");
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -40,6 +42,8 @@ app.use("/api/follows", follows);
 app.use("/api/document", fileUploadRoutes);
 
 const port = process.env.PORT || 5000;
+//seed mongo database - uncommenting will reset database from seeder.js
+seed();
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 
 // document.addEventListener("DOMContentLoaded", () => {

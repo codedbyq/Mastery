@@ -37,7 +37,7 @@ class SocialFeedTaskItem extends React.Component {
     const dayOfWeek = this.getDay(task.creationDate);
     return (
       <div className="social-task-container">
-        <div className="user-info">
+        <div className="social-user-info">
           <p className="social-username">{`${this.state.username} `}</p>
           <p className="social-user-message">just completed this task!</p>
         </div>

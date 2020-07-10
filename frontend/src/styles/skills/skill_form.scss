@@ -50,3 +50,12 @@
     color: red;
     font-weight: 600;
 }
+
+button {
+    background-color: rgba(46, 58, 24, 0.686);
+    border: 1px solid rgba(46, 58, 24, 0.686);
+    color: $pale-green;
+    border-radius: 4px;
+    border: none;
+    padding: 4px;
+}

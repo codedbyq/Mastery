@@ -17,7 +17,6 @@ export default class user_dashboard extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         this.props.fetchUser(this.props.userId);
         this.props.getUserSkills(this.props.userId);
     }
@@ -62,12 +61,17 @@ export default class user_dashboard extends Component {
                 <section className="content-side">
                   <UserInfoContainer />
                   <Modal />
+                  <div className="create-new-btn">
+                  <div>
                   <button
-                    className="new-skill-btn"
+                        className="new-skill-btn light-button"
                     onClick={() => this.props.openModal("create skill")}
                   >
                     New Skill
                   </button>
+                    </div>
+                    <div><button className="light-button" onClick={() => this.props.openModal("createTask")}> New Task </button></div>
+                  </div>
                 </section>
               </div>
             </div>

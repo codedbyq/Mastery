@@ -34,13 +34,8 @@ class NewFileUpload extends Component {
   
   };
 
-  // componentDidMount(){
-  //   let user = this.props.fetchUser(this.props.currentUser.id);
-  //   console.log(user);
-  // }
 
   render() {
-    const { selectedFile } = this.state;
 
     return (
       <div>

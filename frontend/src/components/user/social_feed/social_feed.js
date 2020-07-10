@@ -10,9 +10,7 @@ class SocialFeed extends React.Component {
 
   render() {
     const {
-      user,
-      follows,
-      fetchUserFollows,
+      follows
     } = this.props;
     const followItems = follows.map((follow) => (
       <SocialFeedTasksContainer key={follow._id} user={follow.followerId}/>

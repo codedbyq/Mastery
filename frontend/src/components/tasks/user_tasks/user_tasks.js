@@ -22,12 +22,11 @@ class UserTasks extends React.Component {
   }
 
   render() {
-    const takes = this.state.tasks.sort
     let show = this.state.tasks.length === 0 ?
       (<div>No tasks</div> )
         :
           ( <div>
-            {this.state.tasks.map((task) => (
+            {this.state.tasks.reverse().map((task) => (
             <UserTaskItems
               key={task._id}
               task={task}
@@ -40,7 +39,7 @@ class UserTasks extends React.Component {
           <div className="dashboard-task-header">
             <div><h2>My Tasks</h2></div>
             <Modal />
-            <div><button onClick={() => this.props.openModal("createTask")}> Create New Task </button></div>
+            <div><button className="light-button" onClick={() => this.props.openModal("createTask")}> Create New Task </button></div>
           </div>
           <div>
           {show}

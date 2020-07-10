@@ -19,8 +19,10 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: .8s;
+    transition: .5s;
+    margin-bottom: 10px;
 }
+
 
 .social-task-container:hover {
   transform: scale(1.02);
@@ -32,11 +34,15 @@
   .social-user-message{
     display:none;
   }
-  .user-info{
+  .social-user-info{
     justify-content: center;
   }
   .social-task-title, .social-task-skill{
     color: $light-green;
+  }
+  .task-delete-button {
+    color: $brown;
+    background-color: $bright-yellow;
   }
 }
 
@@ -56,8 +62,9 @@
   border-bottom: 2px solid $dark-green;
 }
 
-.user-info {
+.social-user-info {
   display:flex;
+  flex-direction: row;
   align-items: center;
 }
 

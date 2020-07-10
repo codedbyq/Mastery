@@ -16,6 +16,25 @@
     align-items: center;
 }
 
+.logo-text{
+    letter-spacing: 3px;
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+}
+
+.landing-logo {
+    max-height: 75px;
+    max-width: 75px;
+    display: flex;
+}
+
+.landing-left {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .landing-frame {
     display: flex;
     flex-direction: column;
@@ -69,6 +88,11 @@
     border: none;
     color: white;
     font-size: 20px;
+}
+
+.top-session-btn:hover, .bottom-session-btn:hover{
+    text-decoration: underline;
+    font-weight: bolder;
 }
 
 .bottom-session-btns {
