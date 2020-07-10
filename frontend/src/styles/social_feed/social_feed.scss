@@ -19,17 +19,30 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: .5s;
+    transition: .8s;
 }
 
 .social-task-container:hover {
   transform: scale(1.02);
   background: $dark-green;
+  .social-username {
+    transform: scale(1.02);
+    color: $bright-yellow;
+  }
+  .social-user-message{
+    display:none;
+  }
+  .user-info{
+    justify-content: center;
+  }
+  .social-task-title, .social-task-skill{
+    color: $light-green;
+  }
 }
 
 .social-task-title {
-  -webkit-text-stroke: 1px $brown;
   color: $brown;
+  font-weight: bolder;
 }
 
 .social-task-skill {
@@ -37,11 +50,27 @@
 }
 
 #social-task-header {
-  // width: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 2px solid $dark-green;
+}
+
+.user-info {
+  display:flex;
+  align-items: center;
+}
+
+.social-username {
+  font-size: 24px;
+  font-weight: bold;
+  color: $dark-green;
+  margin-right: 5px;
+
+}
+
+.social-user-message {
+  font-size: 14px;
 }
 
 .social-task-list {

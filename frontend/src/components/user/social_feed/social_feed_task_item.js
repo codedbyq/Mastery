@@ -38,7 +38,7 @@ class SocialFeedTaskItem extends React.Component {
     return (
       <div className="social-task-container">
         <div className="user-info">
-          <p className="social-username">{this.state.username}</p>
+          <p className="social-username">{`${this.state.username} `}</p>
           <p className="social-user-message">just completed this task!</p>
         </div>
         <div id="social-task-header">
@@ -47,7 +47,6 @@ class SocialFeedTaskItem extends React.Component {
         </div>
         <ul className="social-task-list">
           <li> {task.details}</li>
-          <li>{this.state.username}</li>
           <div className="time-and-date">
             <li> {task.elapsedTime} minutes</li>
             <li> {`${dayOfWeek} ${dateCreated}`}</li>
