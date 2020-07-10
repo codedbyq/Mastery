@@ -5,21 +5,21 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100vw;
+    height: 150vw;
     position: absolute;
     background: rgb(146,191,67);
     background: linear-gradient(38deg, rgba(146,191,67,1) 40%, rgba(255,223,100,1) 100%);
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-position: center;
 }
 
 .landing-frame {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 700px;
+    height: 800px;
     width: 700px;
 }
 
@@ -50,4 +50,28 @@
 .landing-ending {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.top-session-btns {
+    display: inline-flex;
+    justify-content: space-between;
+    min-width: 700px;
+}
+
+.top-session-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+
+.bottom-session-bts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 700px;
+
 }
