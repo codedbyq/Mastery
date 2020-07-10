@@ -11,7 +11,7 @@ class TaskForm extends React.Component {
     this.state = {
       title: "",
       details: "",
-      skills: "Choose Skill",
+      skills: "",
       errors: {},
     };
 
@@ -23,6 +23,7 @@ class TaskForm extends React.Component {
     this.setState({ errors: nextProps.errors });
   }
 
+  //update form fields depending on input
   update(field) {
     return (e) =>
       this.setState({
@@ -30,17 +31,20 @@ class TaskForm extends React.Component {
       });
   }
 
+  //form handle submit
   handleSubmit(e) {
     e.preventDefault();
+    const skill = Object.values(this.props.skills).filter((skill) => skill.title === this.state.skills)
+    debugger
     let task = {
       title: this.state.title,
       details: this.state.details,
-      user: this.props.user._id,
+      user: this.props.userId,
       elapsedTime: "0",
-      skill: "1"
+      skill: skill[0]._id
     };
     this.props
-      .taskFormAction(task, this.props.history);
+      .taskFormAction(task).then((res) => this.props.history.push('/dashboard'))
   }
 
   renderErrors() {
@@ -60,6 +64,18 @@ class TaskForm extends React.Component {
     //     modal.style.display = "none";
     //   }
     // };
+    const skillsTable = Object.values(this.props.skills).map((skill) => (
+      <option value={skill.title}> {skill.title}</option>
+    ));
+
+    const selectTable = 
+            (<select
+              onChange={this.update("skills")}
+              value={this.state.skills} >
+            
+            <option value="">Choose a Skill</option>
+            {skillsTable}
+              </select>)
     return (
       <div id="modal">
         <form className="modal-content animate">
@@ -68,16 +84,34 @@ class TaskForm extends React.Component {
           </div>
           <h3>Create Task</h3>
           <div className="modal-inputs">
-            <input
-              type="text"
-              value={this.state.title}
-              onChange={this.update("title")}
-              placeholder="Title"
-              className="session-input"
-            />
+            <label>
+              Title: <br />
+              <input
+                type="text"
+                value={this.state.title}
+                onChange={this.update("title")}
+                placeholder="Title"
+                className="session-input"
+              />
+            </label>
+            {selectTable}
+            {/* <select
+              onChange={this.update("skills")}
+              value={this.state.skills} >
+            
+            <option value="">Choose a Skill</option>
+            {skillsTable}
+            <select> */}
             <label>
               Details:
-              <textarea value={this.state.details} onChange={this.update("details")} />
+              <br />
+              <textarea
+                rows="7"
+                cols="30"
+                placeholder="add details or a note"
+                value={this.state.details}
+                onChange={this.update("details")}
+              />
             </label>
           </div>
           <div className="session-button-holder">
@@ -85,7 +119,7 @@ class TaskForm extends React.Component {
               Create
             </button>
           </div>
-          {this.renderErrors()}
+          {this.props.errors && this.renderErrors()}
         </form>
       </div>
     );

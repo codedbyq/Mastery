@@ -7,8 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     errors: state.errors.task,
     skills: state.entities.skills,
-    type: 'create',
-    user: ownProps.user
+    type: "create",
+    userId: state.session.user.id,
   };
 };
 

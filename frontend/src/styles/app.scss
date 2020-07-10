@@ -1,7 +1,24 @@
+@import 'variables';
 .app {
-    height: 100vw;
-    width: 972px;
-    background-color: white;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-content: center;
+    background-color: $light-green;
     margin-left: auto;
     margin-right: auto;
+    height: 100%;
 }
+
+.main-content {
+    height: 100%;
+}
+
+#navbar-container {
+    flex: 0 1 auto;
+}
+
+.dashboard {
+    flex: 1 1 auto;
+}
+

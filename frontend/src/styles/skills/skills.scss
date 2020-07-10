@@ -1,0 +1,35 @@
+#skill-accordion{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn-link > p{
+    width: fit-content;
+}
+
+#card-body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#card-body > p{
+    width: fit-content;
+    font-size: 20px;
+}
+
+#card-description {
+    width: auto;
+    margin: 10px 20px;
+}
+
+.accordion{
+    margin: 20px;
+}
+
+.show {
+    margin: 20px;
+}

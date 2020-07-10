@@ -2,6 +2,7 @@ import { fetchSkills, fetchUserSkills, fetchSkill, createSkill, updateSkill, des
 
 export const RECEIVE_SKILLS = "RECEIVE_SKILLS";
 export const RECEIVE_SKILL = "RECEIVE_SKILL";
+export const RECEIVE_SKILL_ERRORS = "RECEIVE_SKILL_ERRORS";
 export const RECEIVE_USER_SKILLS = "RECEIVE_USER_SKILLS";
 export const REMOVE_SKILL = "REMOVE_SKILL";
 export const RECEIVE_NEW_SKILL = "RECEIVE_NEW_SKILL";
@@ -31,14 +32,21 @@ export const removeSkill = (skill) => ({
   skill
 });
 
+// We dispatch this one to show authentication errors on the frontend
+export const receiveErrors = (errors) => ({
+  type: RECEIVE_SKILL_ERRORS,
+  errors,
+});
+
 export const getSkills = () => (dispatch) => {
   return fetchSkills()
     .then((skills) => dispatch(receiveSkills(skills)));
 }
 
-export const getUserSkills = (id) => (dispatch) =>
-    fetchUserSkills(id)
-    .then((skills) => dispatch(receiveUserSkills(skills)));
+export const getUserSkills = (id) => (dispatch) => {
+  return fetchUserSkills(id).then((skills) => dispatch(receiveUserSkills(skills)));
+}
+    
 
 export const getSkill = (id) => (dispatch) =>
     fetchSkill(id)
@@ -46,8 +54,9 @@ export const getSkill = (id) => (dispatch) =>
 
 export const newSkill = (data) => (dispatch) =>
   createSkill(data)
-    .then((skill) => dispatch(receiveNewSkill(skill)))
-    .catch((err) => console.log(err));
+    .then((skill) => dispatch(receiveNewSkill(skill)),
+    (err) => dispatch(receiveErrors(err.response.data))
+  );
 
 export const patchSkill = (data) => (dispatch) =>
   updateSkill(data)

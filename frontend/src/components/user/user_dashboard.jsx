@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import SocialFeed from './social_feed/social_feed_container'
 
 import '../../styles/dashboard.scss';
 import UserTasksContainer from "../tasks/user_tasks/user_tasks_container";
+import SkillListContainer from "../skill/skill_list_container";
+import Modal from '../modal/modal'
 
 
 export default class user_dashboard extends Component {
@@ -15,7 +18,7 @@ export default class user_dashboard extends Component {
     componentDidMount() {
         console.log(this.props);
         this.props.fetchUser(this.props.userId);
-        // this.props.getUserSkills(this.props.userId);
+        this.props.getUserSkills(this.props.userId);
     }
 
     handleSelect(selected) {
@@ -44,18 +47,26 @@ export default class user_dashboard extends Component {
                       Check out the latest tasks completed from the friends
                       you're following:
                     </p>
+                    <SocialFeed />
                     <div>The Social feed component will live here.</div>
                   </Tab>
                   <Tab eventKey="skills" title="My Skills">
-                    <p>The logged in user's skills will live here.</p>
+                    <SkillListContainer />
                   </Tab>
                   <Tab eventKey="tasks" title="My Tasks">
-                    <p>The logged in user's skills will live here in chronological order regardless of parent skill.</p>
-                    <UserTasksContainer user={user} skills={this.props.skills} />
+                    <UserTasksContainer />
                   </Tab>
                 </Tabs>
               </section>
-              <section className="content-side"></section>
+              <section className="content-side">
+                <Modal />
+                <button
+                  className="new-skill-btn"
+                  onClick={() => this.props.openModal("create skill")}
+                >
+                  New Skill
+                </button>
+              </section>
             </div>
           </div>
         );

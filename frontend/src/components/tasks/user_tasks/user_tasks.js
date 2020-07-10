@@ -38,7 +38,7 @@ class UserTasks extends React.Component {
         <div>
           <div>
             <h2>Tasks</h2>
-            <Modal user={this.props.user} skills={this.props.skills}/>
+            <Modal />
             <button onClick={() => this.props.openModal("createTask")}> Create New Task </button>
           </div>
           <div>

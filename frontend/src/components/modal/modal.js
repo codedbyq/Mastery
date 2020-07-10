@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import TaskFormContainer from '../tasks/task_form_container';
+import SkillFormContainer from '../skill/skill_form_container';
 
 function Modal({ modal, closeModal, user }) {
   if (!modal) {
@@ -18,7 +19,10 @@ function Modal({ modal, closeModal, user }) {
       component = <SignupFormContainer />;
       break;
     case "createTask":
-      component = <TaskFormContainer user={user}/>
+      component = <TaskFormContainer/>
+      break;
+    case 'create skill':
+      component = <SkillFormContainer />;
       break;
     default:
       return null;

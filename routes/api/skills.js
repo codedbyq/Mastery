@@ -22,8 +22,7 @@ router.get('/', (req, res) => {
 
 // get all skills attached to a userID
 router.get('/user/:user_id', (req, res) => {
-    console.log(req);
-    Skill.find({ user: req.params.id })
+    Skill.find({ user: req.params.user_id })
       .then((skills) => {
         const allSkills = {};
         // iterate over the users and format the response as an object of key-value pairs
