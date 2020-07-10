@@ -19,6 +19,7 @@ class LoginForm extends React.Component {
   // Once the user has been authenticated, redirect to the Dashboard page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
+      this.props.closeModal();
       this.props.history.push("/dashboard");
     }
 
@@ -42,8 +43,12 @@ class LoginForm extends React.Component {
       email: this.state.email,
       password: this.state.password,
     };
-
-    this.props.login(user);
+    this.props.login(user)
+      .then((res) => {
+        this.props.closeModal();
+        this.props.history.push("/dashboard");
+      }
+      );
   }
 
   // Handle Demo Login
@@ -56,6 +61,10 @@ class LoginForm extends React.Component {
     }
 
     this.props.login(demo)
+      .then((res) => {
+        this.props.closeModal();
+        this.props.history.push("/dashboard");
+      });
   }
 
   // Render the session errors if there are any
