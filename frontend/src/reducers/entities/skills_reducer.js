@@ -15,16 +15,17 @@ const SkillsReducer = (
       newState = action.skills.data;
       return newState;
     case RECEIVE_SKILL:
-      newState[action.skill.data.id] = action.skill.data;
+      newState[action.skill.data._id] = action.skill.data;
       return newState;
     case RECEIVE_USER_SKILLS:
-      newState[action.user.data.id] = action.skills.data;
+      debugger;
+      newState[action.skills.data._id] = action.skills.data;
       return newState;
     case RECEIVE_NEW_SKILL:
       newState = action.skill.data;
       return newState;
     case REMOVE_SKILL:
-      delete newState[action.todo.id];
+      delete newState[action.skill._id];
       return newState;
     default:
       return state;

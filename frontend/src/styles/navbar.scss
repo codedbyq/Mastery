@@ -1,12 +1,19 @@
 @import 'variables';
 
+#navbar-container{
+    height: 45px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
 #navbar {
     position: sticky;
     top: 0;
     display: inline-flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    width: 972px;
+    width: 1920px;
     height: 45px;
     border: 1px solid red;
 }

@@ -20,13 +20,16 @@ import "../styles/application.scss";
 
 const App = () => (
   <div className="app">
-    <NavBarContainer />
-    <Switch>
-      <ProtectedRoute path='/dashboard' component={DashboardContainer} />
-      <AuthRoute exact path="/" component={MainPageContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
-    </Switch>
+    <div className="main-content">
+      <NavBarContainer />
+      <Switch>
+        <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+        <AuthRoute exact path="/" component={MainPageContainer} />
+        <AuthRoute exact path="/login" component={LoginFormContainer} />
+        <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      </Switch>
+    </div>
+    <footer>Copyright &copy; 2019 Mastery</footer>
   </div>
 );
 

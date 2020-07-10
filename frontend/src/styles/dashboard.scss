@@ -1,8 +1,15 @@
+@import 'variables';
+
+.dashboard-container {
+    padding: 30px 0;
+    height: calc(100% - 30px);
+    width: 1920px;
+}
+
 .dashboard {
     border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    padding: 30px;
+    height: 100%;
+    
 }
 
 .dashboard-header {
@@ -25,7 +32,7 @@
 
 .content-main {
     width: 68%;
-    height: 500px;
+    height: 1000px;
     border: 1px solid blue
 }
 
