@@ -12,7 +12,7 @@ class MainPage extends React.Component {
 
         <div className="top-session-btns">
           <div className="landing-left">
-            <img className='landing-logo' src="https://emilyschromm.com/wp-content/themes/emfit/assets/footer/footer-logo-2x.png"/>
+            <img className='landing-logo' src="https://emilyschromm.com/wp-content/themes/emfit/assets/footer/footer-logo-2x.png" alt='footer-logo'/>
             <button
               className="top-session-btn"
               onClick={() => this.props.openModal("signup")}
@@ -42,6 +42,7 @@ class MainPage extends React.Component {
           <img
             className="landing-img"
             src="https://mastery.s3.us-west-1.amazonaws.com/education.png"
+            alt='landing'
           />
         </div>
         <p className="bottom-text">

@@ -1,7 +1,5 @@
 import { connect } from "react-redux";
-import React from "react";
 import { fetchUser } from "../../actions/user_actions";
-import { openModal, closeModal } from "../../actions/modal_actions";
 import NewFileUpload from "./new_file_upload";
 
 const mapStateToProps = (state) => {
