@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const passport = require('passport');
 const path = require("path");
+const fileUploadRoutes = require("./routes/api/fileUploadRoutes");
 
 const users = require("./routes/api/users");
 const skills = require("./routes/api/skills");
@@ -36,6 +37,7 @@ app.use("/api/users", users);
 app.use("/api/skills", skills);
 app.use("/api/tasks", tasks);
 app.use("/api/follows", follows);
+app.use("/api/document", fileUploadRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
