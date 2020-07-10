@@ -5,7 +5,8 @@ import { getSkills, getUserSkills, getSkill, newSkill, patchSkill, deleteSkill }
 
 const mSTP = state => {
     return{
-    skills: Object.values(state.entities.skills)
+    skills: Object.values(state.entities.skills),
+    userId: state.session.user.id
 }}
 
 const mDTP = dispatch => ({

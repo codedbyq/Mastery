@@ -43,9 +43,10 @@ export const getSkills = () => (dispatch) => {
     .then((skills) => dispatch(receiveSkills(skills)));
 }
 
-export const getUserSkills = (id) => (dispatch) =>
-    fetchUserSkills(id)
-    .then((skills) => dispatch(receiveUserSkills(skills)));
+export const getUserSkills = (id) => (dispatch) => {
+  return fetchUserSkills(id).then((skills) => dispatch(receiveUserSkills(skills)));
+}
+    
 
 export const getSkill = (id) => (dispatch) =>
     fetchSkill(id)

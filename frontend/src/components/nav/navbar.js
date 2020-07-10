@@ -37,33 +37,36 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div id="navbar">
-        <div id="nav-left">
-          <Link to="/" id="logo">
-            Mastery
-          </Link>
-          <Link to="/dashboard" id="nav-left-btn">
-            Home
-          </Link>
-          <Link to="/" id="nav-left-btn">
-            Explore
-          </Link>
+      <div id="navbar-container">
+        <div id="navbar">
+          <div id="nav-left">
+            <Link to="/" id="logo">
+              Mastery
+            </Link>
+            <Link to="/dashboard" id="nav-left-btn">
+              Home
+            </Link>
+            <Link to="/" id="nav-left-btn">
+              Explore
+            </Link>
+          </div>
+
+          <input
+            id="search"
+            type="search"
+            placeholder="Search for a skill or user..."
+          />
+
+          <div id="nav-right">{this.getLinks()}</div>
+
+          <div id="timer">
+            {/* <span id='clock'>00:00</span> */}
+            <span id="timer">
+              <MyTimer size={"small"}/>
+            </span>
+          </div>
         </div>
 
-        <input
-          id="search"
-          type="search"
-          placeholder="Search for a skill or user..."
-        />
-
-        <div id="nav-right">{this.getLinks()}</div>
-
-        <div id="timer">
-          {/* <span id='clock'>00:00</span> */}
-          <span id="timer">
-            <MyTimer size={"small"}/>
-          </span>
-        </div>
       </div>
     );
   }

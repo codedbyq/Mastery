@@ -4,7 +4,7 @@ import Skill from './skill';
 
 class SkillList extends React.Component {
     componentDidMount() {
-        this.props.getSkills();
+        this.props.getUserSkills(this.props.userId);
     }
 
     render() {

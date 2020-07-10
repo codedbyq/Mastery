@@ -1,8 +1,7 @@
 @import '../variables.scss';
 
 .footer-field {
-  position: fixed;
-  width: 972px;
+  width: 100%;
   height: 45px;
   bottom: 0;
   text-align: center;
@@ -18,7 +17,7 @@
   margin: 20px;
 }
 
-a {
+.footer-child > a {
   color: $light-green;
 }
 
