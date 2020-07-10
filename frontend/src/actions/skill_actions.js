@@ -44,7 +44,6 @@ export const getSkills = () => (dispatch) => {
 }
 
 export const getUserSkills = (id) => (dispatch) => {
-  debugger;
   return fetchUserSkills(id).then((skills) => dispatch(receiveUserSkills(skills)));
 }
     

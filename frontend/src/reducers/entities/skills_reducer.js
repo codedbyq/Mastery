@@ -18,7 +18,6 @@ const SkillsReducer = (
       newState[action.skill.data._id] = action.skill.data;
       return newState;
     case RECEIVE_USER_SKILLS:
-      debugger;
       newState = action.skills.data;
       return newState;
     case RECEIVE_NEW_SKILL:
