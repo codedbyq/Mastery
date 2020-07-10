@@ -25,6 +25,7 @@
 }
 
 .dash-content {
+    height: 80vh;
     border: 1px solid red;
     display: flex;
     justify-content: space-between;
@@ -32,8 +33,10 @@
 
 .content-main {
     width: 68%;
-    height: 1000px;
-    border: 1px solid blue
+    max-height: 100%;
+    border: 1px solid blue;
+    position:relative;
+    overflow: auto;
 }
 
 .content-side {
