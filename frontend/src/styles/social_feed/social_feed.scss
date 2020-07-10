@@ -32,7 +32,7 @@
   .social-user-message{
     display:none;
   }
-  .user-info{
+  .social-user-info{
     justify-content: center;
   }
   .social-task-title, .social-task-skill{
@@ -56,8 +56,9 @@
   border-bottom: 2px solid $dark-green;
 }
 
-.user-info {
+.social-user-info {
   display:flex;
+  flex-direction: row;
   align-items: center;
 }
 
