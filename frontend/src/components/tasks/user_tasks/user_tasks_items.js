@@ -34,7 +34,7 @@ class UserTaskItems extends React.Component {
     const taskDetails = task.details ? task.details : "no description";
     return (
       <div>
-        <div className="task-card">
+        <div className="social-task-container">
           <div className="task-card-content">
             <div className="task-card-header">
               <h3>{task.title}</h3>

@@ -59,7 +59,6 @@ router.post('/',
       return res.status(400).json(errors);
     }
 
-    console.log(req.body)
     const newTask = new Task({
       skill: req.body.skill,
       user: req.user.id,
