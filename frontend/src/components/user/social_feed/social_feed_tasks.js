@@ -11,10 +11,11 @@ class SocialFeedTasks extends React.Component {
   }
 
   componentWillMount() {
-    console.log(this.props.userId);
-    this.props.fetchUserTasks(this.props.userId).then((res)=>{
-      this.setState({ tasks: Object.values(res.tasks.data) });
-    });
+    if (this.props.userId) {
+      this.props.fetchUserTasks(this.props.userId).then((res)=>{
+        this.setState({ tasks: Object.values(res.tasks.data) });
+      });
+    }
   }
 
   // componentWillReceiveProps(newState) {

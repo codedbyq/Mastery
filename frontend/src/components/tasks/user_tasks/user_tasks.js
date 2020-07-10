@@ -13,7 +13,7 @@ class UserTasks extends React.Component {
 
   componentWillMount() {
     if (this.props.user) {
-    this.props.fetchUserTasks(this.props.user._id);
+    this.props.fetchUserTasks(this.props.user.id);
     }
   }
 

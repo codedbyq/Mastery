@@ -10,10 +10,10 @@ const receiveUsers = users =>  ({
 });
 
 // action creator to receive a single user
-const receiveUser = user => ({
-    type: RECEIVE_USER,
-    user
-});
+const receiveUser = user => {
+    return {type: RECEIVE_USER,
+    user}
+};
 
 // thunk action creator to request users and dispatch them to the state
 export const fetchUsers = () => dispatch => (
@@ -22,7 +22,7 @@ export const fetchUsers = () => dispatch => (
 );
 
 // thunk action creator to request users and dispatch them to the state
-export const fetchUser = userId => dispatch => (
-    getUser(userId)
+export const fetchUser = userId => dispatch => {
+    return getUser(userId)
         .then(user => dispatch(receiveUser(user)))
-);
+};
