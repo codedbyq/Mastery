@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/user_actions';
-import MainPage from './main_page';
+import MainPage from './main_page.jsx';
 
 const mapStateToProps = state => ({
     users: Object.values(state.entities.users)

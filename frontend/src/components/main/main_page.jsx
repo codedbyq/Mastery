@@ -1,12 +1,15 @@
 import React from 'react'
+import MainClock from './main_clock'
 
 class MainPage extends React.Component {
  
   render() {
     return (
       <div className="main-session-field">
-        <h1>Welcome to Mastery</h1>
-        <footer>Copyright &copy; 2020 Mastery</footer>
+        <div className='landing-frame'>
+          <MainClock /> 
+          <h1>Time's Ticking.</h1>
+        </div>
       </div>
     );
   }
