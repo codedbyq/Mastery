@@ -1,12 +1,20 @@
 @import 'variables';
 
+#navbar-container{
+    height: 45px;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    background-color: $dark-green;
+}
+
 #navbar {
     position: sticky;
     top: 0;
     display: inline-flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    width: 972px;
+    max-width: 1920px;
     height: 45px;
     border: 1px solid red;
 }
@@ -25,6 +33,7 @@
     display: inline-block;
     font-size:  14px;
     overflow: hidden;
+    color: $pale-green;
 }
 
 #nav-left > a {
@@ -61,4 +70,8 @@
 #clock {
     color: yellowgreen;
     font-size: 30px;
+}
+
+#dashboard-tabs.active {
+    background-color: $bright-yellow;
 }

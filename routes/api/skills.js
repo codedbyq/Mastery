@@ -23,10 +23,17 @@ router.get('/', (req, res) => {
 // get all skills attached to a userID
 router.get('/user/:user_id', (req, res) => {
     Skill.find({ user: req.params.user_id })
-        .then(skills => res.json(skills))
-        .catch(err =>
-            res.status(404).json({ noskillsfound: 'No skills found for that user' })
-        )
+      .then((skills) => {
+        const allSkills = {};
+        // iterate over the users and format the response as an object of key-value pairs
+        skills.forEach((skill) => {
+          allSkills[skill.id] = skill;
+        });
+        return res.send(allSkills);
+      })
+      .catch((err) =>
+        res.status(404).json({ noskillsfound: "No skills found for that user" })
+      );
 })
 
 // get a single skill
