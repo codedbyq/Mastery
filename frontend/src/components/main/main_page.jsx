@@ -45,17 +45,17 @@ class MainPage extends React.Component {
           or skills of your choice.
         </p>
         <div className="landing-end">
-          <p className="bottom-text">Time's still ticking. Get started today</p>
+          <p className="closing-text">Time's still ticking. Get started today.</p>
           <div className="bottom-session-btns">
             <button
-              className="top-session-btn"
+              className="bottom-session-btn"
               onClick={() => this.props.openModal("signup")}
             >
               Sign Up
             </button>
 
             <button
-              className="top-session-btn"
+              className="bottom-session-btn"
               onClick={() => this.props.openModal("login")}
             >
               Login

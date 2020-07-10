@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 150vw;
+    height: 1900px;
     position: absolute;
     z-index: 1px;
     background: rgb(146,191,67);
@@ -19,9 +19,11 @@
 .landing-frame {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     height: 800px;
     width: 700px;
+    margin-bottom: 200px;
 }
 
 .landing-words {
@@ -69,10 +71,23 @@
     font-size: 20px;
 }
 
-.bottom-session-bts {
+.bottom-session-btns {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     min-width: 700px;
+}
 
+.bottom-session-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.closing-text {
+    font-size: 35px;
+    margin-top: 30px;
+    text-align: center;
 }
