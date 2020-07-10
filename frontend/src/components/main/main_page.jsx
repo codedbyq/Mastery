@@ -5,10 +5,13 @@ class MainPage extends React.Component {
  
   render() {
     return (
-      <div className="main-session-field">
-        <div className='landing-frame'>
-          <MainClock /> 
+      <div className="landing-page">
+        <div className="landing-frame">
+          <MainClock />
           <h1>Time's Ticking.</h1>
+        </div>
+        <div>
+          <p>Study's suggest that it takes 10,000 hours for a human to master a skill.</p>
         </div>
       </div>
     );
