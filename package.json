@@ -40,6 +40,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react-bootstrap": "^1.1.1",
+    "react-compound-timer": "^1.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^9.0.1",

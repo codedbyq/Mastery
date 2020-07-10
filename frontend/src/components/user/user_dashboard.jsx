@@ -3,6 +3,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 
 import '../../styles/dashboard.scss';
 import SkillListContainer from "../skill/skill_list_container";
+import Modal from '../modal/modal'
 
 
 export default class user_dashboard extends Component {
@@ -56,7 +57,15 @@ export default class user_dashboard extends Component {
                   </Tab>
                 </Tabs>
               </section>
-              <section className="content-side"></section>
+              <section className="content-side">
+                <Modal />
+                <button
+                  className="new-skill-btn"
+                  onClick={() => this.props.openModal("create skill")}
+                >
+                  New Skill
+                </button>
+              </section>
             </div>
           </div>
         );
