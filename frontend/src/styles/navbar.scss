@@ -1,7 +1,7 @@
 @import 'variables';
 
 #navbar-container{
-    height: 45px;
+    height: 50px;
     justify-content: center;
     display: flex;
     width: 100%;
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: 1920px;
-    height: 45px;
+    height: 50px;
     border-left: 1px solid black;
 }
 
@@ -36,12 +36,24 @@
     border-right: 1px solid black;
 }
 
+#navbar-logo{
+  height: 40px;
+  width: 45px;
+  margin: 3px;
+}
+
 #nav-left > a {
     border-right: 1px solid black;
 }
 
 #nav-right > a {
     border-left: 1px solid black;
+}
+
+#navbar-container{
+  Link:hover, a:hover{
+    text-decoration: underline;
+  }
 }
 
 #search {

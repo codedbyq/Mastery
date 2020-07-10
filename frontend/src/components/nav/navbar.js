@@ -40,6 +40,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div id="navbar-container">
+        <img id='navbar-logo' src="https://emilyschromm.com/wp-content/themes/emfit/assets/footer/footer-logo-2x.png" />
         <div id="navbar">
           <div id="nav-left">
             <Link to="/" id="logo">
@@ -48,9 +49,8 @@ class NavBar extends React.Component {
             <Link to="/dashboard" id="nav-left-btn">
               Home
             </Link>
-            <Link to="/" id="nav-left-btn">
-              Explore
-            </Link>
+            <a href="https://github.com/codedbyq/Mastery">GitHub</a>
+            
           </div>
 
           <input
@@ -68,7 +68,6 @@ class NavBar extends React.Component {
             </span>
           </div>
         </div>
-
       </div>
     );
   }
