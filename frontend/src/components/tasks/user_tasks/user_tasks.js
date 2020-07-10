@@ -22,6 +22,7 @@ class UserTasks extends React.Component {
   }
 
   render() {
+    const takes = this.state.tasks.sort
     let show = this.state.tasks.length === 0 ?
       (<div>No tasks</div> )
         :
@@ -36,10 +37,10 @@ class UserTasks extends React.Component {
         </div> )
       return (
         <div>
-          <div>
-            <h2>Tasks</h2>
+          <div className="dashboard-task-header">
+            <div><h2>My Tasks</h2></div>
             <Modal />
-            <button onClick={() => this.props.openModal("createTask")}> Create New Task </button>
+            <div><button onClick={() => this.props.openModal("createTask")}> Create New Task </button></div>
           </div>
           <div>
           {show}

@@ -38,16 +38,18 @@ class UserTaskItems extends React.Component {
           <div className="task-card-content">
             <div className="task-card-header">
               <h3>{task.title}</h3>
-            </div>
-            <h6>Skill</h6>
-            <div>
+              <div>
               <span>
-                {dayOfWeek} {dateCreated}{" "}
+                {dayOfWeek} {dateCreated}
               </span>
+              <br />
+              <p>Total time: {task.elapsedTime}</p>
+              </div>
             </div>
-            <p>Total time: {task.elapsedTime}</p>
+            <div>
+            </div>
             <p>{taskDetails}</p>
-            <button onClick={this.handleDelete}>Delete Task</button>
+            <button className="task-delete-button" onClick={this.handleDelete}>Delete Task</button>
           </div>
         </div>
       </div>

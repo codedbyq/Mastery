@@ -8,6 +8,7 @@ const validateTaskInput = require('../../validation/tasks');
 // get all tasks 
 router.get('/', (req, res) => {
   Task.find()
+    .sort({ creationDate: -1 })
     .then(tasks => {
       const allTasks = {}  
       // iterate over the tasks and format the response as an object of key-value pairs
@@ -20,6 +21,7 @@ router.get('/', (req, res) => {
 //get all tasks for a userID 
 router.get('/user/:user_id', (req, res) => {
   Task.find({ user: req.params.user_id })
+    .sort({ creationDate: -1 })
     .then(tasks => {
       const allTasks = {}
       tasks.forEach(task => { allTasks[task.id] = task; })
@@ -31,6 +33,7 @@ router.get('/user/:user_id', (req, res) => {
 // get all tasks attached to a skillID
 router.get('/skill/:skill_id', (req, res) => { 
   Task.find({ skill: req.params.skill_id })
+    .sort({ creationDate: -1 })
     .then(tasks => {
       const allTasks = {}
       tasks.forEach(task => {allTasks[task.id] = task;})

@@ -7,9 +7,25 @@
 }
 
 .task-card-content {
-    padding: 10px;
+    padding: 12px 30px;
 }
 
 textarea {
     resize: none;
+}
+
+.dashboard-task-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+}
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-delete-button {
+    float: right;
+    background-color: white;
+    border-radius: 10px;
 }

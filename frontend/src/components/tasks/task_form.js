@@ -35,7 +35,6 @@ class TaskForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const skill = Object.values(this.props.skills).filter((skill) => skill.title === this.state.skills)
-    debugger
     let task = {
       title: this.state.title,
       details: this.state.details,
@@ -44,7 +43,10 @@ class TaskForm extends React.Component {
       skill: skill[0]._id
     };
     this.props
-      .taskFormAction(task).then((res) => this.props.history.push('/dashboard'))
+      .taskFormAction(task).then((res) => {
+        this.props.closeModal();
+        this.props.history.push("/dashboard");
+      });
   }
 
   renderErrors() {
@@ -78,7 +80,7 @@ class TaskForm extends React.Component {
               </select>)
     return (
       <div id="modal">
-        <form className="modal-content animate">
+        <form className="modal-content animate" onSubmit={this.handleSubmit}>
           <div onClick={this.props.closeModal} className="close-x">
             X
           </div>
@@ -115,9 +117,7 @@ class TaskForm extends React.Component {
             </label>
           </div>
           <div className="session-button-holder">
-            <button className="session-button" onClick={this.handleSubmit}>
-              Create
-            </button>
+            <input type="submit" value="Create Task"/>
           </div>
           {this.props.errors && this.renderErrors()}
         </form>
