@@ -19,7 +19,7 @@
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: .8s;
+    transition: .5s;
     margin-bottom: 10px;
 }
 
@@ -39,6 +39,10 @@
   }
   .social-task-title, .social-task-skill{
     color: $light-green;
+  }
+  .task-delete-button {
+    color: $brown;
+    background-color: $bright-yellow;
   }
 }
 
