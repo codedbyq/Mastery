@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 
 import '../../styles/dashboard.scss';
+import UserTasksContainer from "../tasks/user_tasks/user_tasks_container";
 
 
 export default class user_dashboard extends Component {
@@ -13,7 +14,8 @@ export default class user_dashboard extends Component {
 
     componentDidMount() {
         console.log(this.props);
-        this.props.fetchUser(this.props.userId)
+        this.props.fetchUser(this.props.userId);
+        // this.props.getUserSkills(this.props.userId);
     }
 
     handleSelect(selected) {
@@ -49,6 +51,7 @@ export default class user_dashboard extends Component {
                   </Tab>
                   <Tab eventKey="tasks" title="My Tasks">
                     <p>The logged in user's skills will live here in chronological order regardless of parent skill.</p>
+                    <UserTasksContainer user={user} skills={this.props.skills} />
                   </Tab>
                 </Tabs>
               </section>

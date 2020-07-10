@@ -13,9 +13,7 @@ import { logout } from "./actions/session_actions";
 
 
 //testing - delete after
-import {  fetchTask, fetchSkillTasks, fetchUserTasks, createTask, deleteTask, updateTask } from './actions/task_actions';
-import { getSkills } from './actions/skill_actions';
-import { fetchAllTasks} from './util/task_api_util';
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -52,14 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // testing
-  
+
   window.getState = store.getState;
-  window.getSkills = getSkills;
-  window.fetchAllTasks = fetchAllTasks;
-  window.fetchTask = fetchTask;
-  window.fetchSkillTasks = fetchSkillTasks;
-  window.UserTasks = fetchUserTasks;
-  window.createTask = createTask;
-  window.deleteTask = deleteTask;
-  window.updateTask = updateTask;
+  
+
 });

@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create new task - only user can
-router.post('/skill/:skill_id', 
+router.post('/', 
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateTaskInput(req.body);
@@ -55,9 +55,10 @@ router.post('/skill/:skill_id',
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    
+
+    console.log(req.body)
     const newTask = new Task({
-      skill: req.params.skill_id,
+      skill: req.body.skill,
       user: req.user.id,
       title: req.body.title,
       details: req.body.details,

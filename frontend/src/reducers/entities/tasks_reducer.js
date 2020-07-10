@@ -1,4 +1,4 @@
-import * as taskAction from '../actions/task_actions';
+import * as taskAction from '../../actions/task_actions';
 
 const tasksReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -10,7 +10,7 @@ const tasksReducer = (state = {}, action) => {
             newState[action.tasks.data._id] = action.tasks.data;
             return newState;
         case taskAction.REMOVE_TASK:
-            delete newState[action.task.data.id]
+            delete newState[action.taskId]
             return newState
       default:
         return state;
