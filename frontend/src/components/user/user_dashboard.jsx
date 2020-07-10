@@ -61,12 +61,17 @@ export default class user_dashboard extends Component {
                 </section>
                 <section className="content-side">
                   <Modal />
+                  <div className="create-new-btn">
+                  <div>
                   <button
-                    className="new-skill-btn"
+                        className="new-skill-btn light-button"
                     onClick={() => this.props.openModal("create skill")}
                   >
                     New Skill
                   </button>
+                    </div>
+                    <div><button className="light-button" onClick={() => this.props.openModal("createTask")}> New Task </button></div>
+                  </div>
                 </section>
               </div>
             </div>

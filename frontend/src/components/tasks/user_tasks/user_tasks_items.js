@@ -49,7 +49,7 @@ class UserTaskItems extends React.Component {
             <div>
             </div>
             <p>{taskDetails}</p>
-            <button className="task-delete-button" onClick={this.handleDelete}>Delete Task</button>
+            <button className="task-delete-button white-button" onClick={this.handleDelete}>Delete Task</button>
           </div>
         </div>
       </div>

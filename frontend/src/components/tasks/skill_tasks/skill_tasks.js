@@ -27,7 +27,7 @@ class SkillTasks extends React.Component {
             (<div>No tasks</div>)
             :
             (<div>
-                {this.state.tasks.map((task) => (
+                {this.state.tasks.reverse().map((task) => (
                     <SkillTaskItems
                         key={task._id}
                         task={task}
