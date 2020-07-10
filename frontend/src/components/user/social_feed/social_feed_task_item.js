@@ -6,6 +6,10 @@ class SocialFeedTaskItem extends React.Component {
     this.state = {}
   }
   componentDidMount(){
+    this.props.fetchUser(this.props.userId)
+      .then((res)=>{
+        this.setState({username: res.user.data.username})
+      });
     this.props.getSkill(this.props.skillId)
       .then((res)=>{
         this.setState(Object.assign({}, {skill: res.skill.data.category}));
@@ -33,12 +37,17 @@ class SocialFeedTaskItem extends React.Component {
     const dayOfWeek = this.getDay(task.creationDate);
     return (
       <div className="social-task-container">
+        <div className="user-info">
+          <p className="social-username">{this.state.username}</p>
+          <p className="social-user-message">just completed this task!</p>
+        </div>
         <div id="social-task-header">
           <h3 className="social-task-title">{task.title}</h3>
           <h5 className="social-task-skill">{this.state.skill}</h5>
         </div>
         <ul className="social-task-list">
           <li> {task.details}</li>
+          <li>{this.state.username}</li>
           <div className="time-and-date">
             <li> {task.elapsedTime} minutes</li>
             <li> {`${dayOfWeek} ${dateCreated}`}</li>
