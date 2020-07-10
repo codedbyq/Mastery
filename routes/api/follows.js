@@ -12,6 +12,13 @@ router.get('/user/:user_id', passport.authenticate('jwt', { session: false }),
         .then((follows) => res.json(follows))
 })
 
+//api/follows/user/:userId - find all users that follow a user
+router.get('/user/:follower_id', passport.authenticate('jwt', { session: false }),
+    (req, res) => {
+        Follow.find({followerId: req.params.user_id })
+        .then((followers) => res.json(followers))
+})
+
 //api/follows/ - gets all follows (testing purposes)
 router.get('/', (req, res) => {
     Follow.find()

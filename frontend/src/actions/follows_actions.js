@@ -1,8 +1,19 @@
-import { getUserFollows, createFollow, destroyFollow } from '../util/follow_api_util'
+import { 
+  getUserFollowers, 
+  getUserFollows, 
+  destroyFollow,
+  createFollow 
+} from '../util/follow_api_util'
 
+export const RECEIVE_USER_FOLLOWERS = "RECEIVE_USER_FOLLOWERS";
 export const RECEIVE_USER_FOLLOWS = "RECEIVE_USER_FOLLOWS";
 export const RECEIVE_NEW_FOLLOW = "RECEIVE_NEW_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
+
+export const receiveUserFollowers = (followers) => ({
+  type: RECEIVE_USER_FOLLOWERS,
+  followers,
+});
 
 export const receiveUserFollows = (follows) => ({
   type: RECEIVE_USER_FOLLOWS,
@@ -18,6 +29,9 @@ export const removeFollow = (follow) => ({
   type: REMOVE_FOLLOW,
   follow,
 });
+
+export const fetchUserFollowers = (id) => (dispatch) =>
+  getUserFollowers(id).then((followers) => dispatch(receiveUserFollowers(followers)));
 
 export const fetchUserFollows = (id) => (dispatch) =>
   getUserFollows(id).then((follows) => dispatch(receiveUserFollows(follows)));
