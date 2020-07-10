@@ -3,19 +3,18 @@
 .dashboard-container {
     display: flex;
     justify-content: center;
-    padding: 30px 0;
+    padding: 20px 0;
     height: calc(100% - 30px);
     margin: 0 30px;
 }
 
 .dashboard {
-    border: 1px solid red;
-    height: calc(100% - 45px);
-    max-width: 1920px;
+    height: 100%;
+    
 }
 
 .dashboard-header {
-    border: 1px solid red;
+    padding-left: 20px;
 }
 .dashboard-header > h1 {
     font-size: 28px;
@@ -27,23 +26,33 @@
 }
 
 .dash-content {
-    height: calc(100% - 82px);
-    border: 1px solid red;
+    height: 80vh;
     display: flex;
     justify-content: space-between;
+    padding: 20px;
 }
 
 .content-main {
     width: 68%;
     max-height: 100%;
-    border: 1px solid blue;
+    border: solid 1px $dark-green;
+    background-color: rgba(255, 255, 255, 0.9);
     position:relative;
     overflow: auto;
+    border-radius: 8px;
 }
 
 .content-side {
     width: 30%;
-    height: 500px;
-    border: solid 1px green;
+    height: 100%;
+    border: solid 1px $dark-green;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
 }
 
+.nav-link.active,
+  .nav-item.show .nav-link {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
