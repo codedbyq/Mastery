@@ -5,9 +5,15 @@ import '../styles/app.scss'
 
 import NavBarContainer from "./nav/navbar_container";
 import MainPageContainer from "./main/main_container";
+
+import Footer from "./footer/footer"
+
+import NewFileUploadContainer from "./upload/new_file_upload_container";
+import FileUpload from "./upload/file_upload";
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import DashboardContainer from './user/user_dash_container';
+import SkillFormContainer from './skill/skill_form_container';
 
 import TaskContainer from './tasks/tasks_container';
 

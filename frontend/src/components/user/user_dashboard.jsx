@@ -3,6 +3,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 
 import '../../styles/dashboard.scss';
 import SkillListContainer from "../skill/skill_list_container";
+import Modal from '../modal/modal'
 
 
 export default class user_dashboard extends Component {
@@ -25,40 +26,46 @@ export default class user_dashboard extends Component {
       const user = this.props.user ? this.props.user : null;
       const greeting = user ? `Welcome back, ${user.username}!` : 'Welcome back to Mastery!';
         return (
-          <div className="dashboard-container">
-            <div className="dashboard">
-              <div className="dashboard-header">
-                <h1>Dashboard</h1>
-                <p>{greeting}</p>
-              </div>
-              <div className="dash-content">
-                <section className="content-main">
-                  <Tabs
-                    id="dashboard-tabs"
-                    //   activeKey={this.state.activeTab}
-                    defaultActiveKey="friends"
-                    onSelect={this.handleSelect}
-                  >
-                    <Tab eventKey="friends" title="Friends">
-                      <p>
-                        Check out the latest tasks completed from the friends
-                        you're following:
-                      </p>
-                      <div>The Social feed component will live here.</div>
-                    </Tab>
-                    <Tab eventKey="skills" title="My Skills">
-                      <SkillListContainer userId={this.props.userId} />
-                    </Tab>
-                    <Tab eventKey="tasks" title="My Tasks">
-                      <p>
-                        The logged in user's skills will live here in
-                        chronological order regardless of parent skill.
-                      </p>
-                    </Tab>
-                  </Tabs>
-                </section>
-                <section className="content-side"></section>
-              </div>
+          <div className="dashboard">
+            <div className="dashboard-header">
+              <h1>Dashboard</h1>
+              <p>{greeting}</p>
+            </div>
+            <div className="dash-content">
+              <section className="content-main">
+                <Tabs
+                  id="dashboard-tabs"
+                  //   activeKey={this.state.activeTab}
+                  defaultActiveKey="friends"
+                  onSelect={this.handleSelect}
+                >
+                  <Tab eventKey="friends" title="Friends">
+                    <p>
+                      Check out the latest tasks completed from the friends
+                      you're following:
+                    </p>
+                    <div>The Social feed component will live here.</div>
+                  </Tab>
+                  <Tab eventKey="skills" title="My Skills">
+                    <SkillListContainer />
+                  </Tab>
+                  <Tab eventKey="tasks" title="My Tasks">
+                    <p>
+                      The logged in user's skills will live here in
+                      chronological order regardless of parent skill.
+                    </p>
+                  </Tab>
+                </Tabs>
+              </section>
+              <section className="content-side">
+                <Modal />
+                <button
+                  className="new-skill-btn"
+                  onClick={() => this.props.openModal("create skill")}
+                >
+                  New Skill
+                </button>
+              </section>
             </div>
           </div>
         );

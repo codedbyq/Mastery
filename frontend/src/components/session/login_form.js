@@ -16,10 +16,10 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Skills page
+  // Once the user has been authenticated, redirect to the Dashboard page
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
-      this.props.history.push("/skills");
+      this.props.history.push("/dashboard");
     }
 
     // Set or clear errors
