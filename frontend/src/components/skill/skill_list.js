@@ -1,7 +1,7 @@
 import React from 'react';
 // Components
 import Skill from './skill';
-import { Accordion} from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 
 class SkillList extends React.Component {
     componentDidMount() {
@@ -9,7 +9,7 @@ class SkillList extends React.Component {
     }
 
     render() {
-        const { skills, patchSkill} = this.props;
+        const { skills, patchSkill } = this.props;
         const skillItems = skills.map(skill => (
             <Skill
                 key={skill._id}

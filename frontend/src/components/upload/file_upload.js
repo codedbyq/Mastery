@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 class FileUpload extends Component {
@@ -28,15 +27,20 @@ class FileUpload extends Component {
     return (
       <div className="profile-section">
         {this.state.documents.map((document) => (
-            <div>
-              <img className="profile-img" src={document.fileLink} target="_blank"/>
-              <button
-                  onClick={this.deleteDocument.bind(this,document._id)}
-                  className=""
-              >
-                Delete
-              </button>
-            </div>
+          <div>
+            <img
+              className="profile-img"
+              src={document.fileLink}
+              alt="profile"
+              target="_blank"
+            />
+            <button
+              onClick={this.deleteDocument.bind(this, document._id)}
+              className=""
+            >
+              Delete
+            </button>
+          </div>
         ))}
       </div>
     );

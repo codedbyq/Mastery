@@ -1,6 +1,5 @@
 import React from "react";
 import SkillTaskItems from "../skill_tasks/skill_tasks_items";
-import Modal from "../../modal/modal"
 
 class SkillTasks extends React.Component {
     constructor(props) {
