@@ -23,6 +23,7 @@ class SignupForm extends React.Component {
         email: this.state.email,
         password: this.state.password,
       };
+      this.props.closeModal();
       this.props.login(user);
     }
     this.setState({ errors: nextProps.errors });
@@ -45,6 +46,10 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history)
+      .then((res) => {
+        this.props.closeModal();
+        this.props.history.push("/dashboard");
+      });
   }
 
   // Handle Demo Login
@@ -56,7 +61,11 @@ class SignupForm extends React.Component {
       password: "123456",
     };
 
-    this.props.login(demo);
+    this.props.login(demo)
+      .then((res) => {
+        this.props.closeModal();
+        this.props.history.push("/dashboard");
+      });
   }
 
   renderErrors() {
