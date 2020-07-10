@@ -8,7 +8,7 @@ class Skill extends React.Component {
     }
 
     render() {
-        const { skill, deleteSkill, patchSkill } = this.props;
+        const { skill, deleteSkill } = this.props;
         const { title, description, _id } = skill;
         return (
           <>
