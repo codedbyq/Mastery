@@ -25,7 +25,7 @@ class UserTasks extends React.Component {
     let show = this.state.tasks.length === 0 ?
       (<div>No tasks</div> )
         :
-          ( <div classname="task-solo-items">
+          ( <div className="task-solo-items">
             {this.state.tasks.reverse().map((task) => (
             <UserTaskItems
               key={task._id}

@@ -15,6 +15,7 @@ class UserTaskItems extends React.Component {
     justDate.shift();
     return justDate.join(" ");
   }
+  
   getDay(timeStr) {
     let splitStr = timeStr.split("T");
     let dates = splitStr[0].split("-");
@@ -26,6 +27,21 @@ class UserTaskItems extends React.Component {
   handleDelete() {
     this.props.deleteTask(this.props.task._id)
   }
+
+  getFormattedTime(elapsedMinutes){
+      let time = ""
+      let hours = Math.round(elapsedMinutes/60);
+      if (hours === 1){
+        time += '1 hour';
+      } else if (hours > 1){
+        time += hours + ' hours';
+      }
+
+      let minutes = elapsedMinutes % 60;
+      if (minutes > 0) time += " " + minutes + ' minutes';
+
+      return time;
+    }
 
   render() {
     const { task } = this.props;
@@ -43,7 +59,8 @@ class UserTaskItems extends React.Component {
                 {dayOfWeek} {dateCreated}
               </span>
               <br />
-              <p>Total time: {task.elapsedTime}</p>
+              <p>Total time: {this.getFormattedTime(task.elapsedTime)}</p>
+
               </div>
             </div>
             <div>

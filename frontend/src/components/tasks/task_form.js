@@ -21,7 +21,6 @@ class TaskForm extends React.Component {
       details: "",
       skills: "",
       errors: {},
-      // elapsedtime: "",
       hour: h,
       min: m,
       sec: s
@@ -54,7 +53,7 @@ class TaskForm extends React.Component {
     } else {
       skillId = "";
     }
-    let totalMinutes = parseFloat((this.state.hour * 60) + parseInt((this.state.min)) + '.' +parseInt(this.state.sec));
+    let totalMinutes = parseFloat((this.state.hour * 60) + parseInt((this.state.min)) + '.' + parseInt(this.state.sec));
     let task = {
       title: this.state.title,
       details: this.state.details,

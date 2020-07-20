@@ -1,15 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Modal from "../modal/modal"
 import TimerContainer from './timer_container'
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { search: '' }
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
+    this.search = this.search.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
+ 
   logoutUser(e) {
     e.preventDefault();
     this.props.logout();
@@ -37,10 +41,18 @@ class NavBar extends React.Component {
     }
   }
 
+  handleInput(e) {
+    this.setState({ search: e.target.value });
+  }
+
+  search(e) {
+    this.props.history.push(`/search/${this.state.search}`);
+  }
+
   render() {
     return (
       <div id="navbar-container">
-        <img id='navbar-logo' src="https://emilyschromm.com/wp-content/themes/emfit/assets/footer/footer-logo-2x.png" alt='footer-logo'/>
+        <img id='navbar-logo' src="https://tinyurl.com/y35mx8se" alt='footer-logo'/>
         <div id="navbar">
           <div id="nav-left">
             <Link to="/" id="logo">
@@ -53,11 +65,14 @@ class NavBar extends React.Component {
             
           </div>
 
-          <input
-            id="search"
-            type="search"
-            placeholder="Search for a skill or user..."
-          />
+          <form onSubmit={this.search}> 
+            <input
+              id="search"
+              type="search"
+              placeholder="Search for a skill or user..."
+              onChange={this.handleInput}
+            />
+          </form>
 
           <div id="nav-right">{this.getLinks()}</div>
 

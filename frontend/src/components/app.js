@@ -11,6 +11,7 @@ import Footer from "./footer/footer"
 import LoginFormContainer from "./session/login_form_container";
 import SignupFormContainer from "./session/signup_form_container";
 import DashboardContainer from './user/user_dash_container';
+import SearchIndexContainer from './search/search_index_container';
 
 
 import "../styles/reset.scss";
@@ -26,6 +27,7 @@ const App = () => (
       <NavBarContainer />
       <Switch>
         <ProtectedRoute path="/dashboard" component={DashboardContainer} />
+        <ProtectedRoute path="/search/:input" component={SearchIndexContainer} />
         <AuthRoute exact path="/" component={MainPageContainer} />
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
