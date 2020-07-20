@@ -13,7 +13,9 @@ class SearchIndex extends React.Component {
     }
 
     render() {
-        const searchResult = this.props.users ? this.props.users : 'No results found... narrow down your search and try again.'
+        const searchResult = this.props.users ? this.props.users.map(user => (
+            <li>{user.username}</li> 
+        )) : 'No results found... narrow down your search and try again.'
 
         return (
             <div className='search-index'>
