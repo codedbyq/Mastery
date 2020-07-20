@@ -155,6 +155,26 @@ const seed = () => {
   })
   wizardTask.save();
 
+  const marquisTask = new Task({
+    user: user5,
+    skill: user5skill,
+    title: 'JavaScript Practice',
+    details: 'Worked through leet code problems',
+    elapsedTime: 55,
+    creationDate: date.setDate(date.getDate() + 500),
+  })
+  marquisTask.save();
+
+  const marquisTask2 = new Task({
+    user: user5,
+    skill: user5skill,
+    title: 'DS&A',
+    details: 'Data structures & algo practice',
+    elapsedTime: 55,
+    creationDate: date.setDate(date.getDate() - 1),
+  })
+  marquisTask2.save();
+
   const task1 = new Task ({
     user: demo,
     skill: skillDemo1,

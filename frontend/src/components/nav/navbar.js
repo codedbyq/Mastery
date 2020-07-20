@@ -52,7 +52,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div id="navbar-container">
-        <img id='navbar-logo' src="https://emilyschromm.com/wp-content/themes/emfit/assets/footer/footer-logo-2x.png" alt='footer-logo'/>
+        <img id='navbar-logo' src="https://tinyurl.com/y35mx8se" alt='footer-logo'/>
         <div id="navbar">
           <div id="nav-left">
             <Link to="/" id="logo">
