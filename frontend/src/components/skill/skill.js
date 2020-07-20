@@ -19,6 +19,7 @@ class Skill extends React.Component {
       this.setState({ tasks: newState.tasks });
     }
 
+
     render() {
         const { skill, deleteSkill, tasks } = this.props;
         const { title, description, _id } = skill;
@@ -45,7 +46,7 @@ class Skill extends React.Component {
                     eventKey={_id}
                   >
                     <p>{title}</p>
-                    <p>{totalTime}</p>
+                    <p>{Math.floor(totalTime / 60)} hours {Math.floor(totalTime % 60)} minutes </p>
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey={_id}>

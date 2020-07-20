@@ -34,7 +34,7 @@ class SkillTaskItems extends React.Component {
         const taskDetails = task.details ? task.details : "no description";
         return (
             <div>
-                <div className="task-card">
+                <div className="social-task-container skill-task">
                     <div className="task-card-content">
                         <div className="task-card-header">
                             <h3>{task.title}</h3>
@@ -49,7 +49,7 @@ class SkillTaskItems extends React.Component {
                         <div>
                         </div>
                         <p>{taskDetails}</p>
-                        <button className="task-delete-button" onClick={this.handleDelete}>Delete Task</button>
+                        <button className="task-delete-button white-button" onClick={this.handleDelete}>Delete Task</button>
                     </div>
                 </div>
             </div>
