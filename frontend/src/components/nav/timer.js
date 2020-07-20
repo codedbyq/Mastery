@@ -28,7 +28,6 @@ class MyTimer extends React.Component {
     }, 1000);
   };
   stopTimer = () => {
-    debugger
     this.setState({ timerOn: false });
     clearInterval(this.timer);
   };
@@ -40,12 +39,10 @@ class MyTimer extends React.Component {
   };
 
   createTask = (seconds, minutes, hours) => {
-    debugger
     let time = { seconds: seconds,
                  minutes: minutes,
                  hours: hours};
     this.props.updateTimer(time);
-    console.log("hello");
     this.props.openModal("createTask");
   }
 
