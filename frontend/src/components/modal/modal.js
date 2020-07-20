@@ -6,7 +6,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import TaskFormContainer from '../tasks/task_form_container';
 import SkillFormContainer from '../skill/skill_form_container';
 
-function Modal({ modal, closeModal, user }) {
+function Modal({ modal, time, closeModal, user }) {
   if (!modal) {
     return null;
   }
@@ -19,7 +19,11 @@ function Modal({ modal, closeModal, user }) {
       component = <SignupFormContainer />;
       break;
     case "createTask":
-      component = <TaskFormContainer/>
+      if (time){
+        component = <TaskFormContainer time={time}/>
+      } else {
+        component = <TaskFormContainer/>
+      }
       break;
     case 'create skill':
       component = <SkillFormContainer />;

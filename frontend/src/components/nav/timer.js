@@ -1,24 +1,5 @@
-// import React from "react";
-// import Timer from 'react-compound-timer';
-
-// class MyTimer extends React.Component {
-//   render() {
-//     return (
-//       <Timer>
-//         <span onclick={() => (
-//           <React.Fragment>
-//             <Timer.Hours /> : 
-//             <Timer.Minutes /> : 
-//             <Timer.Seconds />
-//           </React.Fragment>
-//         )}></span>
-//       </Timer>
-//     );
-//   }
-// }
-
-
 import React from "react";
+import Modal from '../modal/modal'
 
 class MyTimer extends React.Component {
   constructor(props) {
@@ -32,6 +13,7 @@ class MyTimer extends React.Component {
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
+    this.createTask = this.createTask.bind(this);
   }
 
   startTimer = () => {
@@ -57,49 +39,64 @@ class MyTimer extends React.Component {
     });
   };
 
+  createTask = () => {
+    this.props.openModal("createTask");
+  }
+
   render() {
     const { timerTime } = this.state;
-    const { size } = this.props
     let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
     return (
-      <div className={`timer-field-${size}`}>
-        <div className={`timer-numbers-${size}`}>
-          {hours} : {minutes} : {seconds}
+      <>
+        <Modal />
+        <div className={`timer-field-${this.props.size}`}>
+          <div className={`timer-numbers-${this.props.size}`}>
+            {hours} : {minutes} : {seconds}
+          </div>
+          <div className='empty-space'></div>
+          <div className={`timer-buttons-${this.props.size}`}>
+            {this.state.timerOn === false && this.state.timerTime === 0 && (
+              <button
+                className={`timer-button-${this.props.size}`}
+                onClick={this.startTimer}
+              >
+                Start
+              </button>
+            )}
+            {this.state.timerOn === true && (
+              <button className={`timer-button-${this.props.size}`} onClick={this.stopTimer}>
+                Stop
+              </button>
+            )}
+            {this.state.timerOn === false && this.state.timerTime > 0 && (
+              <button
+                className={`timer-button-${this.props.size}`}
+                onClick={this.startTimer}
+              >
+                Resume
+              </button>
+            )}
+            {this.state.timerOn === false && this.state.timerTime > 0 && (
+              <button
+                className={`timer-button-${this.props.size}`}
+                onClick={this.resetTimer}
+              >
+                Reset
+              </button>
+            )}
+            {this.state.timerOn === false && this.state.timerTime > 0 && (
+              <button
+                className={`timer-button-${this.props.size}`}
+                onClick={this.createTask}
+              >
+                Create Task
+              </button>
+            )}
+          </div>
         </div>
-        <div className={`timer-buttons-${size}`}>
-          {this.state.timerOn === false && this.state.timerTime === 0 && (
-            <button
-              className={`timer-button-${size}`}
-              onClick={this.startTimer}
-            >
-              Start
-            </button>
-          )}
-          {this.state.timerOn === true && (
-            <button className={`timer-button-${size}`} onClick={this.stopTimer}>
-              Stop
-            </button>
-          )}
-          {this.state.timerOn === false && this.state.timerTime > 0 && (
-            <button
-              className={`timer-button-${size}`}
-              onClick={this.startTimer}
-            >
-              Resume
-            </button>
-          )}
-          {this.state.timerOn === false && this.state.timerTime > 0 && (
-            <button
-              className={`timer-button-${size}`}
-              onClick={this.resetTimer}
-            >
-              Reset
-            </button>
-          )}
-        </div>
-      </div>
+      </>
     );
   }
 }
