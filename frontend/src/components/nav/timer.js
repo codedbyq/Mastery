@@ -1,5 +1,4 @@
 import React from "react";
-import Modal from '../modal/modal'
 
 class MyTimer extends React.Component {
   constructor(props) {
@@ -29,6 +28,7 @@ class MyTimer extends React.Component {
     }, 1000);
   };
   stopTimer = () => {
+    debugger
     this.setState({ timerOn: false });
     clearInterval(this.timer);
   };
@@ -40,10 +40,12 @@ class MyTimer extends React.Component {
   };
 
   createTask = (seconds, minutes, hours) => {
+    debugger
     let time = { seconds: seconds,
                  minutes: minutes,
                  hours: hours};
     this.props.updateTimer(time);
+    console.log("hello");
     this.props.openModal("createTask");
   }
 
@@ -69,7 +71,10 @@ class MyTimer extends React.Component {
               </button>
             )}
             {this.state.timerOn === true && (
-              <button className={`timer-button-${this.props.size}`} onClick={this.stopTimer}>
+              <button 
+                className={`timer-button-${this.props.size}`} 
+                onClick={this.stopTimer}
+              >
                 Stop
               </button>
             )}
@@ -92,7 +97,7 @@ class MyTimer extends React.Component {
             {this.state.timerOn === false && this.state.timerTime > 0 && (
               <button
                 className={`timer-button-${this.props.size}`}
-                onClick={this.createTask(seconds, minutes, hours)}
+                onClick={() => this.createTask(seconds, minutes, hours)}
               >
                 Create Task
               </button>
