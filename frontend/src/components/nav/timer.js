@@ -1,5 +1,4 @@
 import React from "react";
-import Modal from '../modal/modal'
 
 class MyTimer extends React.Component {
   constructor(props) {
@@ -69,7 +68,10 @@ class MyTimer extends React.Component {
               </button>
             )}
             {this.state.timerOn === true && (
-              <button className={`timer-button-${this.props.size}`} onClick={this.stopTimer}>
+              <button 
+                className={`timer-button-${this.props.size}`} 
+                onClick={this.stopTimer}
+              >
                 Stop
               </button>
             )}
@@ -92,7 +94,7 @@ class MyTimer extends React.Component {
             {this.state.timerOn === false && this.state.timerTime > 0 && (
               <button
                 className={`timer-button-${this.props.size}`}
-                onClick={this.createTask(seconds, minutes, hours)}
+                onClick={() => this.createTask(seconds, minutes, hours)}
               >
                 Create Task
               </button>

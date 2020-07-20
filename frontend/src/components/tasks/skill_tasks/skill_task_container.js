@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
         skills: state.entities.skills,
         user: state.session.user,
         skillId: ownProps.skillId,
-        skillTitle: ownProps.skillTitle
+        skillTitle: ownProps.skillTitle,
         
     };
 };
