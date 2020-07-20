@@ -38,7 +38,12 @@ class UserTaskItems extends React.Component {
       }
 
       let minutes = elapsedMinutes % 60;
-      if (minutes > 0) time += " " + minutes + ' minutes';
+      let seconds;
+      if (Math.ceil(minutes) === 1) {
+        time += " " + Math.ceil(minutes) + ' minute';
+      } else {
+        time += " " + Math.ceil(minutes) + ' minutes';
+      }
 
       return time;
     }
