@@ -20,7 +20,6 @@ class LoginForm extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.currentUser === true) {
       this.props.closeModal();
-      this.props.history.push("/dashboard");
     }
 
     // Set or clear errors
@@ -46,7 +45,6 @@ class LoginForm extends React.Component {
     this.props.login(user)
       .then((res) => {
         this.props.closeModal();
-        this.props.history.push("/dashboard");
       }
       );
   }
@@ -59,7 +57,6 @@ class LoginForm extends React.Component {
       email: 'demo@demo.com',
       password: '123456'
     }
-
     this.props.login(demo)
       .then((res) => {
         this.props.closeModal();
