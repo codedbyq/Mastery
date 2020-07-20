@@ -4,8 +4,9 @@ import SkillTasksContainer from '../tasks/skill_tasks/skill_task_container';
 class Skill extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props;
+  
     }
+
 
     render() {
         const { skill, deleteSkill } = this.props;
@@ -27,7 +28,7 @@ class Skill extends React.Component {
                     eventKey={_id}
                   >
                     <p>{title}</p>
-                    <p>Place Total Time Here</p>
+                    <p>{ 0}</p>
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey={_id}>
