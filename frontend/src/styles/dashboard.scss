@@ -13,19 +13,19 @@
     
 }
 
-.dashboard-header {
+.dashboard-header, .result-header {
     padding-left: 20px;
 }
-.dashboard-header > h1 {
+.dashboard-header > h1, .result-header > h1 {
     font-size: 28px;
 }
 
-.dashboard-header > p {
+.dashboard-header > p, .result-header > p {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.dash-content {
+.dash-content, .results-content {
     height: 80vh;
     display: flex;
     justify-content: space-between;
