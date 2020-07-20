@@ -13,7 +13,7 @@ class SearchIndex extends React.Component {
     }
 
     render() {
-        const resultsFound = `There were ${this.props.users.length} results found.`
+        const resultsFound = `There were ${this.props.users.length} results found for "${this.props.match.params.input}".`
         const searchResult = this.props.users ? this.props.users.map(user => (
             <li>{user.username}</li> 
         )) : 'No results found... narrow down your search and try again.'

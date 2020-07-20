@@ -6,7 +6,7 @@ import { openModal } from '../../actions/modal_actions';
 const mapStateToProps = (state, ownProps) => {
     const users = Object.values(state.entities.users);
     const input = ownProps.match.params.input;
-    const filtered = users.filter(user => user.username.toLowerCase().includes(input));
+    const filtered = users ? users.filter(user => user.username.toLowerCase().includes(input)) : null;
 
     return {
         users: filtered
