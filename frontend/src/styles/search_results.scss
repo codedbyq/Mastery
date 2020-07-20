@@ -1,0 +1,12 @@
+@import 'variables';
+
+#results-index {
+    padding: 20px;
+}
+
+.content-main > h1 {
+    font-size: 28px;
+    color: grey;
+    padding-bottom: 4px;
+    border-bottom: 1px solid $dark-green;
+}
