@@ -14,9 +14,9 @@ class TaskForm extends React.Component {
       skills: "",
       errors: {},
       // elapsedtime: "",
-      hour: "",
-      min: "",
-      sec: ""
+      hour: "0",
+      min: "0",
+      sec: "0"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
