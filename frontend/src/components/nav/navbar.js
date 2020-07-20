@@ -6,6 +6,7 @@ import MyTimer from './timer'
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { search: '' }
     this.logoutUser = this.logoutUser.bind(this);
     this.getLinks = this.getLinks.bind(this);
   }
@@ -37,6 +38,14 @@ class NavBar extends React.Component {
     }
   }
 
+  handleInput(e) {
+    this.setState({ search: e.target.value });
+  }
+
+  search(e) {
+    this.props.history.push(`/search/${this.state.search}`);
+  }
+
   render() {
     return (
       <div id="navbar-container">
@@ -57,6 +66,7 @@ class NavBar extends React.Component {
             id="search"
             type="search"
             placeholder="Search for a skill or user..."
+            onSubmit={this.search}
           />
 
           <div id="nav-right">{this.getLinks()}</div>
