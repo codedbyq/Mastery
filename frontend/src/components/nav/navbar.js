@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import Modal from "../modal/modal"
-import MyTimer from './timer'
+import TimerContainer from './timer_container'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -79,7 +79,7 @@ class NavBar extends React.Component {
           <div id="timer">
             {/* <span id='clock'>00:00</span> */}
             <span id="timer">
-              <MyTimer size={"small"}/>
+              <TimerContainer size={"small"}/>
             </span>
           </div>
         </div>
