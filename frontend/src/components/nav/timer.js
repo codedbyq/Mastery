@@ -39,7 +39,11 @@ class MyTimer extends React.Component {
     });
   };
 
-  createTask = () => {
+  createTask = (seconds, minutes, hours) => {
+    let time = { seconds: seconds,
+                 minutes: minutes,
+                 hours: hours};
+    this.props.updateTimer(time);
     this.props.openModal("createTask");
   }
 
@@ -50,7 +54,6 @@ class MyTimer extends React.Component {
     let hours = ("0" + Math.floor(timerTime / 3600000)).slice(-2);
     return (
       <>
-        <Modal />
         <div className={`timer-field-${this.props.size}`}>
           <div className={`timer-numbers-${this.props.size}`}>
             {hours} : {minutes} : {seconds}
@@ -89,7 +92,7 @@ class MyTimer extends React.Component {
             {this.state.timerOn === false && this.state.timerTime > 0 && (
               <button
                 className={`timer-button-${this.props.size}`}
-                onClick={this.createTask}
+                onClick={this.createTask(seconds, minutes, hours)}
               >
                 Create Task
               </button>
