@@ -21,7 +21,7 @@ export default class user_dashboard extends Component {
     }
 
     handleSelect(selected) {
-        this.setState({ activeTab: selected });
+        this.setState({ activeTab: selected })
     }
 
     render() {

@@ -22,7 +22,10 @@ export default class SkillForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.newSkill(this.state)
-          .then((res) => this.props.closeModal())
+          .then((res) => {
+            this.props.closeModal();
+            document.location.reload();
+          })
     }
 
      // Render the form errors if there are any
