@@ -4,12 +4,30 @@ import SkillTasksContainer from '../tasks/skill_tasks/skill_task_container';
 class Skill extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props;
+      this.state = {
+        tasks: [],
+      };
+    }
+
+    componentWillMount() {
+      if (this.props.skill._id) {
+        this.props.fetchSkillTasks(this.props.skill._id);
+      }
+    }
+
+    componentWillReceiveProps(newState) {
+      this.setState({ tasks: newState.tasks });
     }
 
     render() {
-        const { skill, deleteSkill } = this.props;
+        const { skill, deleteSkill, tasks } = this.props;
         const { title, description, _id } = skill;
+        let totalTime = 0;
+        this.state.tasks.forEach(task => {
+        if(task.skill === _id){
+          totalTime += task.elapsedTime;
+        }
+      });
         return (
           <>
             <link
@@ -27,7 +45,7 @@ class Skill extends React.Component {
                     eventKey={_id}
                   >
                     <p>{title}</p>
-                    <p>Place Total Time Here</p>
+                    <p>{totalTime}</p>
                   </Accordion.Toggle>
                 </Card.Header>
                 <Accordion.Collapse eventKey={_id}>
@@ -37,7 +55,7 @@ class Skill extends React.Component {
                       <p id="card-description">{description}</p>
                     </Card.Body>
                     <div>
-                    <SkillTasksContainer skillTitle={title} skillId={_id}/>
+                    <SkillTasksContainer skillTitle={title} skillId={_id} tasks={tasks} />
                     </div>
                     <Button
                       variant="danger"
