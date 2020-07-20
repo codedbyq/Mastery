@@ -30,3 +30,30 @@ textarea {
     padding: 5px 10px;
     border-radius: 10px;
 }
+
+.duration-flex {
+    display:flex;
+}
+
+
+.duration-hour{
+    margin-top: 10px;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    display: inline-flex;
+}
+
+.duration-min{
+    margin-top: 10px;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+}
+
+.duration-sec{
+    margin-top: 10px;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+}

@@ -13,6 +13,10 @@ class TaskForm extends React.Component {
       details: "",
       skills: "",
       errors: {},
+      // elapsedtime: "",
+      hour: "",
+      min: "",
+      sec: ""
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,11 +45,13 @@ class TaskForm extends React.Component {
     } else {
       skillId = "";
     }
+    let totalMinutes = parseFloat((this.state.hour * 60) + parseInt((this.state.min)) + '.' +parseInt(this.state.sec));
+    debugger
     let task = {
       title: this.state.title,
       details: this.state.details,
       user: this.props.userId,
-      elapsedTime: "0",
+      elapsedTime: `${totalMinutes}`,
       skill: skillId
     };
     this.props
@@ -76,7 +82,7 @@ class TaskForm extends React.Component {
       <option value={skill.title}> {skill.title}</option>
     ));
 
-    const selectTable = 
+    const selectSkillTable = 
             (<select
               onChange={this.update("skills")}
               value={this.state.skills} >
@@ -84,6 +90,8 @@ class TaskForm extends React.Component {
             <option value="">Choose a Skill</option>
             {skillsTable}
               </select>)
+
+    
     return (
       <div id="modal">
         <form className="modal-content animate" onSubmit={this.handleSubmit}>
@@ -102,14 +110,47 @@ class TaskForm extends React.Component {
                 className="session-input"
               />
             </label>
-            {selectTable}
-            {/* <select
-              onChange={this.update("skills")}
-              value={this.state.skills} >
-            
-            <option value="">Choose a Skill</option>
-            {skillsTable}
-            <select> */}
+            <label>Skill:<br />
+            {selectSkillTable}
+            </label>
+
+            <div className="duration-container">
+              <label>
+                Duration:
+                <br />
+                <div className="duration-flex">
+                  <div className="duration-hour-container">
+                    <input
+                      className="duration-hour"
+                      onChange={this.update("hour")}
+                      type="text"
+                      placeholder="hr"
+                      value={this.state.hour || ""}
+                    />
+                  </div>
+                  <div className="duration-min-container">
+                    <input
+                      className="duration-min"
+                      onChange={this.update("min")}
+                      type="text"
+                      placeholder="min"
+                      value={this.state.min || ""}
+                    />
+                  </div>
+
+                  <div className="duration-sec-container">
+                    <input
+                      className="duration-sec"
+                      onChange={this.update("sec")}
+                      type="text"
+                      placeholder="sec"
+                      value={this.state.sec || ""}
+                    />
+                  </div>
+                </div>
+              </label>
+            </div>
+
             <label>
               Details:
               <br />
@@ -121,6 +162,7 @@ class TaskForm extends React.Component {
                 onChange={this.update("details")}
               />
             </label>
+
           </div>
           <div className="session-button-holder">
             <input type="submit" value="Create Task"/>
