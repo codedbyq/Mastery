@@ -37,10 +37,9 @@ function Modal({ modal, closeModal, user }) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  
   return {
     modal: state.ui.modal,
-    user: ownProps.user
+    user: ownProps.user,
   };
 };
 
