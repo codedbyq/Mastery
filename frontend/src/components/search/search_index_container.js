@@ -1,6 +1,7 @@
-import connect from 'react-redux';
+import { connect } from 'react-redux';
 import SearchIndex from './search_index';
-import fetchUsers from '../../actions/user_actions';
+import { fetchUsers } from '../../actions/user_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
     const users = Object.values(state.entities.users);
@@ -8,7 +9,7 @@ const mapStateToProps = (state, ownProps) => {
     const filtered = users.filter(user => user.username.toLowerCase().includes(input));
 
     return {
-        users = filtered
+        users: filtered
     }
 };
 
