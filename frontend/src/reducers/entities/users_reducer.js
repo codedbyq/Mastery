@@ -12,8 +12,8 @@ const usersReducer = (state = {}, action) => {
 
         // receive a single user that we can add to our state as key(user id) - 
         // value(user object) pair
-        case RECEIVE_USER:
-            newState[action.user.data.id] = action.user.data;
+        case RECEIVE_USER:  
+            newState[action.user.data._id] = action.user.data;
             return newState;
         
         // on login receive the current user and add to our state as key(user id) - 

@@ -25,6 +25,7 @@ export default class user_dashboard extends Component {
     }
 
     render() {
+      
       const user = this.props.user ? this.props.user : null;
       const greeting = user ? `Welcome back, ${user.username}!` : 'Welcome back to Mastery!';
         return (

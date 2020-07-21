@@ -21,18 +21,24 @@ class SkillTasks extends React.Component {
     }
 
     render() {
-        // const skillTasks = this.state.tasks.filter((task) => { task._id === this.props.skillId});
-        let show = this.state.tasks.length === 0 ?
+        let skillTasks = [];
+        if (this.state.tasks.length > 0) {
+            skillTasks = this.state.tasks.filter((taskId) => taskId.skill === this.props.skillId);
+        }
+        let show = skillTasks === 0 ?
             (<div>No tasks</div>)
             :
             (<div>
-                {this.state.tasks.reverse().map((task) => (
+                <h2>Tasks</h2>
+            <div className="task-solo-items">
+                { skillTasks.reverse().map((task) => (
                     <SkillTaskItems
                         key={task._id}
                         task={task}
                         deleteTask={this.props.deleteTask}
                     />
                 ))}
+            </div>
             </div>)
         return (
             <div>

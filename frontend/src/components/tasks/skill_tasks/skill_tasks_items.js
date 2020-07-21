@@ -27,6 +27,21 @@ class SkillTaskItems extends React.Component {
         this.props.deleteTask(this.props.task._id)
     }
 
+    getFormattedTime(elapsedMinutes){
+      let time = ""
+      let hours = Math.round(elapsedMinutes/60);
+      if (hours === 1){
+        time += '1 hour';
+      } else if (hours > 1){
+        time += hours + ' hours';
+      }
+
+      let minutes = elapsedMinutes % 60;
+      if (minutes > 0) time += " " + minutes + ' minutes';
+
+      return time;
+    }
+
     render() {
         const { task } = this.props;
         const dateCreated = this.formatDate(task.creationDate);
@@ -34,7 +49,7 @@ class SkillTaskItems extends React.Component {
         const taskDetails = task.details ? task.details : "no description";
         return (
             <div>
-                <div className="task-card">
+                <div className="social-task-container skill-task">
                     <div className="task-card-content">
                         <div className="task-card-header">
                             <h3>{task.title}</h3>
@@ -43,13 +58,13 @@ class SkillTaskItems extends React.Component {
                                     {dayOfWeek} {dateCreated}
                                 </span>
                                 <br />
-                                <p>Total time: {task.elapsedTime}</p>
+                                <p>Total time: {this.getFormattedTime(task.elapsedTime)}</p>
                             </div>
                         </div>
                         <div>
                         </div>
                         <p>{taskDetails}</p>
-                        <button className="task-delete-button" onClick={this.handleDelete}>Delete Task</button>
+                        <button className="task-delete-button white-button" onClick={this.handleDelete}>Delete Task</button>
                     </div>
                 </div>
             </div>

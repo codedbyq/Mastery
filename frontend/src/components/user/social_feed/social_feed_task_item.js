@@ -31,6 +31,22 @@ class SocialFeedTaskItem extends React.Component {
     let justDate = newDate.toDateString().split(" ");
     return justDate.shift();
   }
+
+  getFormattedTime(elapsedMinutes){
+    let time = ""
+    let hours = Math.round(elapsedMinutes/60);
+    if (hours === 1){
+      time += '1 hour';
+    } else if (hours > 1){
+      time += hours + ' hours';
+    }
+
+    let minutes = elapsedMinutes % 60;
+    if (minutes > 0) time += " " + minutes + ' minutes';
+
+    return time;
+  }
+
   render() {
     const { task } = this.props;
     const dateCreated = this.formatDate(task.creationDate);
@@ -48,7 +64,8 @@ class SocialFeedTaskItem extends React.Component {
         <ul className="social-task-list">
           <li> {task.details}</li>
           <div className="time-and-date">
-            <li> {task.elapsedTime} minutes</li>
+            {/* <li> {task.elapsedTime}</li> */}
+            <li> {this.getFormattedTime(task.elapsedTime)}</li>
             <li> {`${dayOfWeek} ${dateCreated}`}</li>
           </div>
         </ul>

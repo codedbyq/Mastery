@@ -9,12 +9,14 @@ class SkillList extends React.Component {
     }
 
     render() {
-        const { skills, patchSkill } = this.props;
+        const { skills, patchSkill, fetchSkillTasks, tasks } = this.props;
         const skillItems = skills.map(skill => (
             <Skill
                 key={skill._id}
                 skill={skill}
-                patchSkill={patchSkill} />
+                patchSkill={patchSkill}
+                fetchSkillTasks={fetchSkillTasks}
+                tasks={tasks} />
         )
         );
         return (

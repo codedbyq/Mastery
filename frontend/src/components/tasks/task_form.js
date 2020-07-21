@@ -7,21 +7,29 @@ import { withRouter } from "react-router-dom";
 class TaskForm extends React.Component {
   constructor(props) {
     super(props);
-
+    let h, m, s;
+    if (this.props.time){
+      h = this.props.time.hours;
+      m = this.props.time.minutes;
+      s = this.props.time.seconds;
+    }
+    if (h === "00") { h = "" };
+    if (m === "00") { m = "" };
+    if (s === "00") { s = "" };
     this.state = {
       title: "",
       details: "",
       skills: "",
       errors: {},
-      // elapsedtime: "",
-      hour: "",
-      min: "",
-      sec: ""
+      hour: h,
+      min: m,
+      sec: s
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearedErrors = false;
   }
+
 
   componentWillReceiveProps(nextProps) {
     this.setState({ errors: nextProps.errors });
@@ -45,8 +53,11 @@ class TaskForm extends React.Component {
     } else {
       skillId = "";
     }
-    let totalMinutes = parseFloat((this.state.hour * 60) + parseInt((this.state.min)) + '.' +parseInt(this.state.sec));
-    debugger
+    let hour = this.state.hour === "" ? "0" : this.state.hour;
+    let min = this.state.min === "" ? "0" : this.state.min;
+    let sec = this.state.sec === "" ? "0" : this.state.sec;
+
+    let totalMinutes = parseFloat((hour * 60) + parseInt((min)) + '.' + parseInt(sec));
     let task = {
       title: this.state.title,
       details: this.state.details,
@@ -58,6 +69,7 @@ class TaskForm extends React.Component {
       .taskFormAction(task).then((res) => {
         this.props.closeModal();
         this.props.history.push("/dashboard");
+        this.props.clearTimer();
       });
   }
 
@@ -70,7 +82,6 @@ class TaskForm extends React.Component {
       </ul>
     );
   }
-
   render() {
     let modal = document.getElementById("mySignupModal");
     window.onclick = function (e) {
@@ -91,9 +102,11 @@ class TaskForm extends React.Component {
             {skillsTable}
               </select>)
 
+    let temp = "x"
+    if (this.props.time) {temp = "with-time"}
     
     return (
-      <div id="modal">
+      <div id="modal" className={temp}>
         <form className="modal-content animate" onSubmit={this.handleSubmit}>
           <div onClick={this.props.closeModal} className="close-x">
             X
