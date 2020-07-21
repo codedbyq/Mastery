@@ -28,6 +28,7 @@ class Skill extends React.Component {
         if(task.skill === _id){
           totalTime += task.elapsedTime;
         }
+        console.log(skill);
       });
         return (
           <>
@@ -61,7 +62,7 @@ class Skill extends React.Component {
                     <Button
                       variant="danger"
                       className="delete-button"
-                      onClick={deleteSkill}
+                      onClick={() => deleteSkill(skill)}
                     >
                       Delete Skill
                     </Button>
