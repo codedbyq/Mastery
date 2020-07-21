@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 1900px;
+    height: 100%;
     position: absolute;
     z-index: 1px;
     background: rgb(146,191,67);
@@ -42,7 +42,7 @@
     align-items: center;
     height: 800px;
     width: 700px;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 }
 
 .landing-words {
@@ -108,10 +108,36 @@
     color: white;
     font-size: 30px;
     font-weight: bold;
+    margin-bottom: 100px;
 }
 
 .closing-text {
     font-size: 35px;
     margin-top: 30px;
     text-align: center;
+}
+
+#landing-title {
+    font-size: 40px;
+}
+
+.landing-content {
+    overflow-y: scroll;
+    scroll-snap-type: mandatory;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-child {
+    scroll-snap-align: start;
+}
+
+#scroll-sym {
+    height: 40px;
+    width: 40px;
+    margin-top: 170px;
+    opacity: 0.5;
 }
