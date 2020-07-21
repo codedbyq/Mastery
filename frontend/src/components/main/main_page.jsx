@@ -55,7 +55,7 @@ class MainPage extends React.Component {
               <img className='landing-logo' src="https://tinyurl.com/y35mx8se" alt='footer-logo'/>
             </div>
             <p className="bottom-text">
-              Mastery gives you the tools necessary to become a mastery at the
+              Mastery gives you the tools necessary to become a master at the
               skill or skills of your choice.
             </p>
             <div className="landing-end">
