@@ -21,6 +21,5 @@ export const updateSkill = (data) => {
 };
 
 export const destroySkill = (data) => {
-  debugger
   return axios.delete(`/api/skills/${data._id}`);
 };

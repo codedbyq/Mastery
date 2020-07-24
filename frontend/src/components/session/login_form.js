@@ -45,6 +45,7 @@ class LoginForm extends React.Component {
     this.props.login(user)
       .then((res) => {
         this.props.closeModal();
+        this.props.history.push("/dashboard");
       }
       );
   }
