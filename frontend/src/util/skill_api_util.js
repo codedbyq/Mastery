@@ -17,9 +17,10 @@ export const createSkill = (data) => {
 };
 
 export const updateSkill = (data) => {
-  return axios.patch(`/api/skills/edit/${data.id}`, data);
+  return axios.patch(`/api/skills/edit/${data._id}`, data);
 };
 
 export const destroySkill = (data) => {
-  return axios.delete(`/api/skills/${data.id}`);
+  debugger
+  return axios.delete(`/api/skills/${data._id}`);
 };
