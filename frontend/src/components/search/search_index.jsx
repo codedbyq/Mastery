@@ -1,5 +1,6 @@
 import React from 'react';
 import UserInfoContainer from '../user/user_info_container';
+import { Link } from 'react-router-dom';
 import Modal from '../modal/modal';
 
 class SearchIndex extends React.Component {
@@ -17,14 +18,17 @@ class SearchIndex extends React.Component {
         const numResults = this.props.users.length + this.props.skills.length
         const resultsFound = `There were ${numResults} results found for "${this.props.match.params.input}".`
         const userResult = this.props.users ? this.props.users.map(user => (
-            <li>{user.username}</li> 
+            <li><Link to={`/users/${user.id}`}>{user.username}</Link></li> 
         )) : 'No users found.'
-        const skillResult = this.props.skills ? this.props.skills.map(skill => (
-            <div>
-                <li>{skill.title}</li>
-                <li>{skill.category}</li>
-            </div> 
-        )) : 'No skills found.'
+        const skillResult = this.props.skills
+          ? this.props.skills.map((skill) => (
+              <div>
+                <li>
+                  <Link id='search-skill' to={`/users/${skill.user}`}>{skill.title}</Link> - {skill.category}
+                </li>
+              </div>
+            ))
+          : "No skills found.";
 
 
         return (
@@ -43,8 +47,8 @@ class SearchIndex extends React.Component {
                                 { userResult }
                             </ul>
                         </div>
-                        <div>
-                            <h1>Skill Found</h1>
+                        <div className='skill-results'>
+                            <h1>Skills Found</h1>
                             <ul className='result-list'>
                                 { skillResult }
                             </ul>
