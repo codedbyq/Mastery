@@ -3,8 +3,8 @@ import { fetchUser } from '../../actions/user_actions';
 import { connect } from 'react-redux';
 import UserShow from './user_show';
 
-const mapStateToProps = (state) => {
-    const userId = state.session.user.id;
+const mapStateToProps = (state, ownProps) => {
+    const userId = ownProps.match.params.userId;
     return {
         user: state.entities.users[userId],
         skills: state.entities.skills,

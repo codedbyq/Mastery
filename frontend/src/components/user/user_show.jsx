@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Tab, Tabs } from 'react-bootstrap';
+
 
 export default class UserShow extends Component {
     constructor(props) {
@@ -30,7 +32,7 @@ export default class UserShow extends Component {
                         <section className="content-main">
                             <Tabs
                                 id="dashboard-tabs"
-                                defaultActiveKey="friends"
+                                defaultActiveKey="skills"
                                 onSelect={this.handleSelect}
                             >
                                 <Tab eventKey="skills" title="My Skills">
