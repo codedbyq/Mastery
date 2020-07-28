@@ -20,12 +20,15 @@ class SearchIndex extends React.Component {
         const userResult = this.props.users ? this.props.users.map(user => (
             <li><Link to={`/users/${user.id}`}>{user.username}</Link></li> 
         )) : 'No users found.'
-        const skillResult = this.props.skills ? this.props.skills.map(skill => (
-            <div>
-                <li>{skill.title}</li>
-                <li>{skill.category}</li>
-            </div> 
-        )) : 'No skills found.'
+        const skillResult = this.props.skills
+          ? this.props.skills.map((skill) => (
+              <div>
+                <li>
+                  <Link id='search-skill' to={`/users/${skill.user}`}>{skill.title}</Link> - {skill.category}
+                </li>
+              </div>
+            ))
+          : "No skills found.";
 
 
         return (
@@ -44,8 +47,8 @@ class SearchIndex extends React.Component {
                                 { userResult }
                             </ul>
                         </div>
-                        <div>
-                            <h1>Skill Found</h1>
+                        <div className='skill-results'>
+                            <h1>Skills Found</h1>
                             <ul className='result-list'>
                                 { skillResult }
                             </ul>
