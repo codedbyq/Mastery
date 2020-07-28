@@ -20,6 +20,13 @@ export default class UserShow extends Component {
     render() {
         const user = this.props.user ? this.props.user : null;
         const greeting = user ? `Check out what ${user.username} has been up to!` : 'Check out what your friend has been up to!';
+        const skills = this.props.skills ? this.props.skills.map(skill => (
+            <div>
+                <li>{skill.title}</li>
+                <li>{skill.description}</li>
+                <li>{skill.creationDate}</li>
+            </div>
+        )) : null
 
         return (
             <div className="dashboard-container">
@@ -37,6 +44,7 @@ export default class UserShow extends Component {
                             >
                                 <Tab eventKey="skills" title="My Skills">
                                     Skills container will go here
+                                    {skills}
                                 </Tab>
                                 <Tab eventKey="tasks" title="My Tasks">
                                     Tasks container will go here

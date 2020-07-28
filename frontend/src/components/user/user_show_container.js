@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => {
     const userId = ownProps.match.params.userId;
     return {
         user: state.entities.users[userId],
-        skills: state.entities.skills,
+        skills: Object.values(state.entities.skills),
         userId,
     };
 };
