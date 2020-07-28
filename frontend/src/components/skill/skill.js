@@ -28,7 +28,6 @@ class Skill extends React.Component {
         if(task.skill === _id){
           totalTime += task.elapsedTime;
         }
-        console.log(skill);
       });
         return (
           <>

@@ -10,13 +10,21 @@ class SearchIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
+        this.props.getSkills();
     }
 
     render() {
-        const resultsFound = `There were ${this.props.users.length} results found for "${this.props.match.params.input}".`
-        const searchResult = this.props.users ? this.props.users.map(user => (
+        const numResults = this.props.users.length + this.props.skills.length
+        const resultsFound = `There were ${numResults} results found for "${this.props.match.params.input}".`
+        const userResult = this.props.users ? this.props.users.map(user => (
             <li>{user.username}</li> 
-        )) : 'No results found... narrow down your search and try again.'
+        )) : 'No users found.'
+        const skillResult = this.props.skills ? this.props.skills.map(skill => (
+            <div>
+                <li>{skill.title}</li>
+                <li>{skill.category}</li>
+            </div> 
+        )) : 'No skills found.'
 
 
         return (
@@ -29,10 +37,18 @@ class SearchIndex extends React.Component {
 
                 <div className='results-content'>
                     <section id='results-index' className='content-main'>
-                        <h1>Users Found</h1>
-                        <ul className='result-list'>
-                            { searchResult }
-                        </ul>
+                        <div className='user-results'>
+                            <h1>Users Found</h1>
+                            <ul className='result-list'>
+                                { userResult }
+                            </ul>
+                        </div>
+                        <div>
+                            <h1>Skill Found</h1>
+                            <ul className='result-list'>
+                                { skillResult }
+                            </ul>
+                        </div>
                     </section>
 
                     <section className="content-side">
