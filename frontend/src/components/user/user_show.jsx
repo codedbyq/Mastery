@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import UserTasksShowContainer from "../tasks/user_tasks/user_tasks_show_container";
+import SkillListShowContainer from "../skill/skill_list_show_container";
+import UserInfoShowContainer from "../user/user_info_show_container"
 
 
 export default class UserShow extends Component {
@@ -29,35 +32,34 @@ export default class UserShow extends Component {
         )) : null
 
         return (
-            <div className="dashboard-container">
-                <div className="dashboard">
-                    <div className="dashboard-header">
-                        <h1>Discover</h1>
-                        <p>{greeting}</p>
-                    </div>
-                    <div className="dash-content">
-                        <section className="content-main">
-                            <Tabs
-                                id="dashboard-tabs"
-                                defaultActiveKey="skills"
-                                onSelect={this.handleSelect}
-                            >
-                                <Tab eventKey="skills" title="My Skills">
-                                    Skills container will go here
-                                    {skills}
-                                </Tab>
-                                <Tab eventKey="tasks" title="My Tasks">
-                                    Tasks container will go here
-                                </Tab>
-                            </Tabs>
-                        </section>
+          <div className="dashboard-container">
+            <div className="dashboard">
+              <div className="dashboard-header">
+                <h1>Discover</h1>
+                <p>{greeting}</p>
+              </div>
+              <div className="dash-content">
+                <section className="content-main">
+                  <Tabs
+                    id="dashboard-tabs"
+                    defaultActiveKey="skills"
+                    onSelect={this.handleSelect}
+                  >
+                    <Tab eventKey="skills" title="My Skills">
+                      <SkillListShowContainer userId={this.props.userId} />
+                    </Tab>
+                    <Tab eventKey="tasks" title="My Tasks">
+                      <UserTasksShowContainer userId={this.props.userId} />
+                    </Tab>
+                  </Tabs>
+                </section>
 
-                        <section className="content-side">
-                            User info will go here
-                        </section>
-                    </div>
-                </div>
+                <section className="content-side">
+                  <UserInfoShowContainer />
+                </section>
+              </div>
             </div>
+          </div>
         );
     }
 }

@@ -11,6 +11,12 @@
     width: fit-content;
 }
 
+#card-header > p{
+    letter-spacing: 3px;
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+}
+
 #card-body{
     width: 100%;
     display: flex;
