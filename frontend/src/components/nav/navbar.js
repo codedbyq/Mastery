@@ -24,7 +24,8 @@ class NavBar extends React.Component {
     if (this.props.loggedIn) {
       return (
         <>
-          <Link to={"/profile"}>Profile</Link>
+          {/* <Link to={"/profile"}>Profile</Link> */}
+          
           <span className="nav-right-btn" onClick={this.logoutUser}>
             Logout
           </span>
@@ -52,20 +53,23 @@ class NavBar extends React.Component {
   render() {
     return (
       <div id="navbar-container">
-        <img id='navbar-logo' src="https://tinyurl.com/y35mx8se" alt='footer-logo'/>
+        <img
+          id="navbar-logo"
+          src="https://tinyurl.com/y35mx8se"
+          alt="footer-logo"
+        />
         <div id="navbar">
           <div id="nav-left">
-            <Link to="/" id="logo">
-              Mastery
-            </Link>
             <Link to="/dashboard" id="nav-left-btn">
               Home
             </Link>
+            <Link to="/" id="logo">
+              Explore
+            </Link>
             <a href="https://github.com/codedbyq/Mastery">GitHub</a>
-            
           </div>
 
-          <form onSubmit={this.search}> 
+          <form onSubmit={this.search}>
             <input
               id="search"
               type="search"
@@ -79,7 +83,7 @@ class NavBar extends React.Component {
           <div id="timer">
             {/* <span id='clock'>00:00</span> */}
             <span id="timer">
-              <TimerContainer size={"small"}/>
+              <TimerContainer size={"small"} />
             </span>
           </div>
         </div>
