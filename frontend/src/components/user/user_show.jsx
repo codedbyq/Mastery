@@ -55,7 +55,7 @@ export default class UserShow extends Component {
                 </section>
 
                 <section className="content-side">
-                  <UserInfoShowContainer />
+                  <UserInfoShowContainer userId={this.props.userId} />
                 </section>
               </div>
             </div>

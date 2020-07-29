@@ -15,7 +15,7 @@ const mSTP = (state, ownProps) => {
   const userId = ownProps.userId;
   return {
     skills: Object.values(state.entities.skills),
-    userId: state.entities.users[userId],
+    userId: userId,
     tasks: Object.values(state.entities.tasks),
   };
 };

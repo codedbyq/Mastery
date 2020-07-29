@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.userId;
   return {
     user: state.entities.users[userId],
-    userId: userId,
+    userId: ownProps.userId,
     follows: Object.values(state.entities.follows),
     followers: Object.values(state.entities.followers),
   };
