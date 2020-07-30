@@ -11,7 +11,7 @@ export const RECEIVE_NEW_FOLLOW = "RECEIVE_NEW_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
 export const REMOVE_FOLLOWER = "REMOVE_FOLLOWER";
 export const REMOVE_FOLLOWERS = "REMOVE_FOLLOWERS";
-
+export const RECEIVE_NEW_FOLLOWER = "RECEIVE_NEW_FOLLOWER";
 
 
 export const receiveUserFollowers = (followers) => ({
@@ -29,6 +29,12 @@ export const receiveNewFollow = (follow) => ({
   follow,
 });
 
+export const receiveNewFollower = (follow) => ({
+  type: RECEIVE_NEW_FOLLOWER,
+  follow,
+});
+
+
 export const removeFollow = (follow) => ({
   type: REMOVE_FOLLOW,
   follow,
@@ -40,8 +46,6 @@ export const removeFollower = (follow) => ({
 });
 
 
-
-
 export const fetchUserFollowers = (id) => (dispatch) =>
   getUserFollowers(id).then((followers) => dispatch(receiveUserFollowers(followers)));
 
@@ -50,13 +54,18 @@ export const fetchUserFollows = (id) => (dispatch) =>
 
 export const newFollow = (data) => (dispatch) => (
   createFollow(data)
-    .then((follow) => dispatch(receiveNewFollow(follow)))
+    .then((follow) => {
+      debugger
+      dispatch(receiveNewFollow(follow))
+      dispatch(receiveNewFollower(follow.data))
+    })
     .catch((err) => console.log(err))
 );
 
 export const deleteFollow = (data) => (dispatch) => (
   destroyFollow(data).then((follow) => {
-    dispatch(removeFollow(follow))
-    dispatch(removeFollower(follow))
+    debugger
+    dispatch(removeFollow(follow.data))
+    dispatch(removeFollower(follow.data))
   })
 );

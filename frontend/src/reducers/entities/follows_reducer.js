@@ -2,7 +2,6 @@ import {
   RECEIVE_USER_FOLLOWS,
   RECEIVE_NEW_FOLLOW,
   REMOVE_FOLLOW,
-  REMOVE_FOLLOWER,
 } from "../../actions/follows_actions";
 
 const followsReducer = (state = {}, action) => {

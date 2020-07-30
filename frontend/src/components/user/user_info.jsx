@@ -22,7 +22,6 @@ export default class UserInfo extends Component {
 
     handleUnFollow() {
         const follow = this.props.followers.filter((follower) => follower.userId === this.props.curUser);
-        debugger
         this.props.deleteFollow(follow[0])
     }
     render() {
@@ -38,7 +37,7 @@ export default class UserInfo extends Component {
         return (
             <div className='user-info'>
                 <span className='profile-name'>{username}</span>
-                <div className="follow-button">{ followButton }</div>
+                    {(this.props.curUser !== this.props.userId) && <div className="follow-button">{ followButton }</div>}
                 <div className='profile-pic'></div>
                 <div className='user-stats'>
                     <div className='stat'>

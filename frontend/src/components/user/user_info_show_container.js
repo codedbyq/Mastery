@@ -8,7 +8,6 @@ import { newFollow, deleteFollow } from "../../actions/follows_actions";
 
 const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.userId;
-
   return {
     user: state.entities.users[userId],
     userId: ownProps.userId,
