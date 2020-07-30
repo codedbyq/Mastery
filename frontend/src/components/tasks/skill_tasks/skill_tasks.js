@@ -26,10 +26,9 @@ class SkillTasks extends React.Component {
             skillTasks = this.state.tasks.filter((taskId) => taskId.skill === this.props.skillId);
         }
         let show = skillTasks === 0 ?
-            (<div>No tasks</div>)
+            (<div>No current tasks</div>)
             :
             (<div>
-                <h2>Tasks</h2>
             <div className="task-solo-items">
                 { skillTasks.reverse().map((task) => (
                     <SkillTaskItems

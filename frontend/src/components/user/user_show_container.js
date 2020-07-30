@@ -12,9 +12,10 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-const mapDispatchToProps = dispatch => ({
-    fetchUser: userId => dispatch(fetchUser(userId)),
-    getUserSkills: userId => dispatch(getUserSkills(userId))
+const mapDispatchToProps = (dispatch) => ({
+  fetchUser: (userId) => dispatch(fetchUser(userId)),
+  getUserSkills: (userId) => dispatch(getUserSkills(userId)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserShow);

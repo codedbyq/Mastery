@@ -6,7 +6,7 @@ export const getUserFollows = (id) => {
 };
 
 export const getUserFollowers = (id) => {
-  return axios.get(`/api/follows/user/${id}`);
+  return axios.get(`/api/follows/user/followers/${id}`);
 };
 
 export const createFollow = (data) => {
@@ -15,5 +15,5 @@ export const createFollow = (data) => {
 
 
 export const destroyFollow = (data) => {
-  return axios.delete(`/api/follows/${data.id}`);
+  return axios.delete(`/api/follows/${data._id}`);
 };

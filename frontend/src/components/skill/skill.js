@@ -58,13 +58,13 @@ class Skill extends React.Component {
                     <div>
                     <SkillTasksContainer skillTitle={title} skillId={_id} tasks={tasks} />
                     </div>
-                    <Button
+                    {this.props.userId === this.props.curUser && <Button
                       variant="danger"
                       className="delete-button"
                       onClick={() => deleteSkill(skill)}
                     >
                       Delete Skill
-                    </Button>
+                    </Button>}
                   </div>
                 </Accordion.Collapse>
               </Card>

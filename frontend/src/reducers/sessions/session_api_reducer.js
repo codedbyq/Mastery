@@ -7,6 +7,7 @@ import {
 const initialState = {
   isAuthenticated: false,
   user: {},
+  following: {}
 };
 
 export default function (state = initialState, action) {

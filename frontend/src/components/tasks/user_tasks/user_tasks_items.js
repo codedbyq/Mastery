@@ -71,7 +71,7 @@ class UserTaskItems extends React.Component {
             <div>
             </div>
             <p>{taskDetails}</p>
-            <button className="task-delete-button white-button" onClick={this.handleDelete}>Delete Task</button>
+            { this.props.userId === this.props.curUser && <button className="task-delete-button white-button" onClick={this.handleDelete}>Delete Task</button>}
           </div>
         </div>
       </div>

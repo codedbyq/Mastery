@@ -26,7 +26,7 @@ class NavBar extends React.Component {
         <>
           {/* <Link to={"/profile"}>Profile</Link> */}
           
-          <span className="nav-right-btn" onClick={this.logoutUser}>
+          <span className="nav-right-btn logout-nav" onClick={this.logoutUser}>
             Logout
           </span>
         </>
@@ -63,7 +63,7 @@ class NavBar extends React.Component {
             <Link to="/dashboard" id="nav-left-btn">
               Home
             </Link>
-            <Link to="/" id="logo">
+            <Link to="/explore" id="logo">
               Explore
             </Link>
             <a href="https://github.com/codedbyq/Mastery">GitHub</a>

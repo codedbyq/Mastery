@@ -10,16 +10,18 @@ class SkillList extends React.Component {
 
     render() {
         const { skills, patchSkill, fetchSkillTasks, deleteSkill, tasks } = this.props;
-        const skillItems = skills.map(skill => (
-            <Skill
-                key={skill._id}
-                skill={skill}
-                patchSkill={patchSkill}
-                fetchSkillTasks={fetchSkillTasks}
-                deleteSkill={deleteSkill}
-                tasks={tasks} />
-        )
-        );
+        const skillItems = skills.map((skill) => (
+          <Skill
+            key={skill._id}
+            skill={skill}
+            patchSkill={patchSkill}
+            fetchSkillTasks={fetchSkillTasks}
+            deleteSkill={deleteSkill}
+            tasks={tasks}
+            userId={this.props.userId}
+            curUser= {this.props.curUser}
+          />
+        ));
         return (
           <>
             <link

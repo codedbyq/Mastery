@@ -18,7 +18,7 @@ class SearchIndex extends React.Component {
         const numResults = this.props.users.length + this.props.skills.length
         const resultsFound = `There were ${numResults} results found for "${this.props.match.params.input}".`
         const userResult = this.props.users ? this.props.users.map(user => (
-            <li><Link to={`/users/${user.id}`}>{user.username}</Link></li> 
+            <li><Link to={`/users/${user._id}`}>{user.username}</Link></li> 
         )) : 'No users found.'
         const skillResult = this.props.skills
           ? this.props.skills.map((skill) => (
