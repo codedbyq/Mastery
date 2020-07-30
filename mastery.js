@@ -43,5 +43,5 @@ app.use("/api/document", fileUploadRoutes);
 
 const port = process.env.PORT || 5000;
 //seed mongo database - uncommenting will reset database from seeder.js
-// seed();
+seed();
 app.listen(port, () => console.log(`Server is running on port ${port}`));
