@@ -66,6 +66,7 @@ class NavBar extends React.Component {
             {/* <Link to="/explore" id="logo">
               Explore
             </Link> */}
+            <a href="https://github.com/codedbyq/Mastery">GitHub</a>
             <div className="space"></div>
           </div>
 
