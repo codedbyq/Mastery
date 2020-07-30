@@ -8,7 +8,7 @@ const mSTP = state => {
     return{
     skills: Object.values(state.entities.skills),
     userId: state.session.user.id,
-    tasks: Object.values(state.entities.tasks)
+    tasks: Object.values(state.entities.tasks),
 }}
 
 const mDTP = dispatch => ({

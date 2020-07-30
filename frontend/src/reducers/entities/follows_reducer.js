@@ -1,4 +1,8 @@
-import { RECEIVE_USER_FOLLOWS, RECEIVE_NEW_FOLLOW, REMOVE_FOLLOW } from "../../actions/follows_actions";
+import {
+  RECEIVE_USER_FOLLOWS,
+  RECEIVE_NEW_FOLLOW,
+  REMOVE_FOLLOW,
+} from "../../actions/follows_actions";
 
 const followsReducer = (state = {}, action) => {
   Object.freeze(state);

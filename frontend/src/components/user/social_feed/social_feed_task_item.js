@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 class SocialFeedTaskItem extends React.Component {
   constructor(props){
@@ -53,10 +55,12 @@ class SocialFeedTaskItem extends React.Component {
     const dayOfWeek = this.getDay(task.creationDate);
     return (
       <div className="social-task-container">
-        <div className="social-user-info">
-          <p className="social-username">{`${this.state.username} `}</p>
-          <p className="social-user-message">just completed this task!</p>
-        </div>
+       <Link to={`/users/${this.props.userId}`}>
+          <div className="social-user-info">
+            <p className="social-username">{`${this.state.username} `}</p>
+            <p className="social-user-message">just completed this task!</p>
+          </div>
+        </Link>
         <div id="social-task-header">
           <h3 className="social-task-title">{task.title}</h3>
           <h5 className="social-task-skill">{this.state.skill}</h5>

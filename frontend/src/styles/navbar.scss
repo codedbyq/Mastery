@@ -40,6 +40,8 @@
   height: 40px;
   width: 45px;
   margin: 3px;
+  margin-right: 20px;
+
 }
 
 #nav-left > a {
@@ -85,3 +87,15 @@
 #dashboard-tabs.active {
     background-color: $bright-yellow;
 }
+
+.logout-nav {
+    border-left: 1px solid black;
+}
+
+    // .home {
+    //     margin-right: 125px;
+    // }
+
+    .space {
+        width: 125px;
+    }

@@ -7,10 +7,11 @@ import UserInfo from "./user_info";
 const mapStateToProps = (state) => {
     const userId = state.session.user.id;
     return {
-        user: state.entities.users[userId],
-        userId,
-        follows: Object.values(state.entities.follows),
-        followers: Object.values(state.entities.followers),
+      user: state.entities.users[userId],
+      userId,
+      follows: Object.values(state.entities.follows),
+      followers: Object.values(state.entities.followers),
+      curUser: state.session.user.id,
     };
 };
 

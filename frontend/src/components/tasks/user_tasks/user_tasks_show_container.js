@@ -8,7 +8,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     tasks: Object.values(state.entities.tasks),
     skills: state.entities.skills,
-    user: state.entities.users[userId]
+    user: state.entities.users[userId],
+    curUser: state.session.user.id,
+    userId
   };
 };
 

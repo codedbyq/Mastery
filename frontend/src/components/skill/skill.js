@@ -35,7 +35,7 @@ class Skill extends React.Component {
               rel="stylesheet"
               href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
             />
               <Card id="card">
                 <Card.Header>
@@ -58,13 +58,13 @@ class Skill extends React.Component {
                     <div>
                     <SkillTasksContainer skillTitle={title} skillId={_id} tasks={tasks} />
                     </div>
-                    <Button
+                    {this.props.userId === this.props.curUser && <Button
                       variant="danger"
                       className="delete-button"
                       onClick={() => deleteSkill(skill)}
                     >
                       Delete Skill
-                    </Button>
+                    </Button>}
                   </div>
                 </Accordion.Collapse>
               </Card>

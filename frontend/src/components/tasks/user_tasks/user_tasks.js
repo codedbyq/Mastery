@@ -12,9 +12,12 @@ class UserTasks extends React.Component {
   }
 
   componentWillMount() {
-    if (this.props.user) {
-    this.props.fetchUserTasks(this.props.user.id);
+    if (this.props.userId) {
+      this.props.fetchUserTasks(this.props.userId);
+    } else {
+      this.props.fetchUserTasks(this.props.user.id);
     }
+    
   }
 
   componentWillReceiveProps(newState) {
@@ -31,15 +34,28 @@ class UserTasks extends React.Component {
               key={task._id}
               task={task}
               deleteTask={this.props.deleteTask}
+              userId= {this.props.userId}
+              curUser = {this.props.curUser}
             />
           ))} 
         </div> )
+      let createTask = this.props.userId === this.props.curUser ? (
+        <div>
+          <button
+            className="light-button"
+            onClick={() => this.props.openModal("createTask")}
+          >
+            {" "}
+            Create New Task{" "}
+          </button>
+        </div>
+      ) : ""
+
       return (
         <div>
           <div className="dashboard-task-header">
-            <div><h2>My Tasks</h2></div>
             <Modal />
-            <div><button className="light-button" onClick={() => this.props.openModal("createTask")}> Create New Task </button></div>
+        {createTask}
           </div>
           <div>
           {show}

@@ -17,6 +17,7 @@ const mSTP = (state, ownProps) => {
     skills: Object.values(state.entities.skills),
     userId: userId,
     tasks: Object.values(state.entities.tasks),
+    curUser: state.session.user.id
   };
 };
 

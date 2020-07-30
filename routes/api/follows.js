@@ -13,9 +13,9 @@ router.get('/user/:user_id', passport.authenticate('jwt', { session: false }),
 })
 
 //api/follows/user/:userId - find all users that follow a user
-router.get('/user/:follower_id', passport.authenticate('jwt', { session: false }),
+router.get('/user/followers/:follower_id', passport.authenticate('jwt', { session: false }),
     (req, res) => {
-        Follow.find({followerId: req.params.user_id })
+        Follow.find({followerId: req.params.follower_id })
         .then((followers) => res.json(followers))
 })
 
@@ -36,10 +36,9 @@ router.post('/', passport.authenticate('jwt', { session: false }),
               userId: req.user.id,
               followerId: req.body.followerId,
             });
-            
             newFollow.save()
-                .then(() => res.json('Followed Successfully'))
-                .catch(err => res.status(400).json('Error: ' + err));
+                .then((follow) => res.json(follow))
+                .catch(err => console.log(`${err}`));
         } else {
             return res.status(400).json('Error: user not found');
         }
@@ -51,7 +50,7 @@ router.delete(
   "/:id", passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Follow.findByIdAndDelete(req.params.id)
-      .then(() => res.json("Unfollowed User"))
+      .then(() => res.json(req.params.id))
       .catch((err) => res.json("Error: " + err));
   }
 );

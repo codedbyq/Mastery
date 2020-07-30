@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
     user: state.entities.users[userId],
     skills: state.entities.skills,
     userId,
+    curUser: state.session.user.id,
   };
 };
 
