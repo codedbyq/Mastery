@@ -55,7 +55,6 @@ export const fetchUserFollows = (id) => (dispatch) =>
 export const newFollow = (data) => (dispatch) => (
   createFollow(data)
     .then((follow) => {
-      debugger
       dispatch(receiveNewFollow(follow))
       dispatch(receiveNewFollower(follow.data))
     })
@@ -64,7 +63,6 @@ export const newFollow = (data) => (dispatch) => (
 
 export const deleteFollow = (data) => (dispatch) => (
   destroyFollow(data).then((follow) => {
-    debugger
     dispatch(removeFollow(follow.data))
     dispatch(removeFollower(follow.data))
   })

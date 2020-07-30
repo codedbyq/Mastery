@@ -1,12 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
 export default class UserInfo extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            hover: false,
+        }
         this.handleFollow = this.handleFollow.bind(this);
         this.handleUnFollow = this.handleUnFollow.bind(this);
+
     }
+
     componentDidMount() {
         const id = this.props.userId
         this.props.fetchUser(id);
@@ -33,7 +37,22 @@ export default class UserInfo extends Component {
         ).length === 1)
           ? true
           : false;
-        const followButton = isFollowing ? (<button onClick={this.handleUnFollow}>Following</button>) : <button onClick={this.handleFollow}>Follow</button>
+        const followButton = isFollowing ? (
+          <button
+            className="following"
+            onMouseEnter={() => this.setState({hover: true})}
+            onMouseLeave={() => this.setState({ hover: false})}
+            onClick={this.handleUnFollow}
+          >
+            { this.state.hover ? "Unfollow" : "Following" }
+          </button>
+        ) : (
+          <button className="following"
+             onClick={this.handleFollow}
+          >
+            Follow
+          </button>
+        );
         return (
             <div className='user-info'>
                 <span className='profile-name'>{username}</span>

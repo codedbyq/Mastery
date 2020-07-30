@@ -9,7 +9,6 @@ const followersReducer = (state = {}, action) => {
         newState = action.followers.data;
         return newState;
     case RECEIVE_NEW_FOLLOWER:
-        debugger
         newState[Object.values(newState).length] = action.follow;
         return newState;
       case REMOVE_FOLLOWER:
@@ -21,7 +20,6 @@ const followersReducer = (state = {}, action) => {
             }
             count += 1;
         });
-        debugger
         delete newState[id];
         return newState;
       default:

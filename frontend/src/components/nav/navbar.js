@@ -60,16 +60,16 @@ class NavBar extends React.Component {
         />
         <div id="navbar">
           <div id="nav-left">
-            <Link to="/dashboard" id="nav-left-btn">
+            <Link to="/dashboard" id="nav-left-btn" className="home">
               Home
             </Link>
-            <Link to="/explore" id="logo">
+            {/* <Link to="/explore" id="logo">
               Explore
-            </Link>
-            <a href="https://github.com/codedbyq/Mastery">GitHub</a>
+            </Link> */}
+            <div className="space"></div>
           </div>
 
-          <form onSubmit={this.search}>
+          <form className="searchbar" onSubmit={this.search}>
             <input
               id="search"
               type="search"

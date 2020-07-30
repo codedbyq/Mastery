@@ -5,12 +5,12 @@ import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.userId;
-
   return {
     tasks: Object.values(state.entities.tasks),
     skills: state.entities.skills,
     user: state.entities.users[userId],
-    curUser: state.session.user.id
+    curUser: state.session.user.id,
+    userId
   };
 };
 
