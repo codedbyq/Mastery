@@ -19,7 +19,7 @@ class SearchIndex extends React.Component {
         const resultsFound = `There were ${numResults} results found for "${this.props.match.params.input}".`
         const userResult = this.props.users ? this.props.users.map(user => (
             <li><Link to={`/users/${user._id}`}>{user.username}</Link></li> 
-        )) : 'No users found.'
+        )) : null;
         const skillResult = this.props.skills
           ? this.props.skills.map((skill) => (
               <div>
@@ -28,8 +28,8 @@ class SearchIndex extends React.Component {
                 </li>
               </div>
             ))
-          : "No skills found.";
-
+            : null;
+    
 
         return (
             <div className='search-index'>
@@ -44,13 +44,13 @@ class SearchIndex extends React.Component {
                         <div className='user-results'>
                             <h1>Users Found</h1>
                             <ul className='result-list'>
-                                { userResult }
+                                {userResult ? userResult : (<li>No users found.</li>) }
                             </ul>
                         </div>
                         <div className='skill-results'>
                             <h1>Skills Found</h1>
                             <ul className='result-list'>
-                                { skillResult }
+                                {skillResult ? skillResult : (<li>No skills found.</li>) }
                             </ul>
                         </div>
                     </section>

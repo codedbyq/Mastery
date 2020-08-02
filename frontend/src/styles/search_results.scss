@@ -4,6 +4,19 @@
     padding: 20px;
 }
 
+.search-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 0;
+    height: calc(100% - 45px);
+    margin: 0 30px;
+}
+
+.user-results, .skill-results {
+    min-height: 200px;
+}
+
 .user-results > h1, .skill-results > h1 {
     font-size: 28px;
     color: grey;
