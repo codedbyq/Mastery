@@ -67,7 +67,7 @@ class NavBar extends React.Component {
               Explore
             </Link> */}
             <a href="https://github.com/codedbyq/Mastery">GitHub</a>
-            <div className="space"></div>
+            {/* <div className="space"></div> */}
           </div>
 
           <form className="searchbar" onSubmit={this.search}>
