@@ -15,6 +15,18 @@ Mastery is a Web Application that allows users to gain mastery over skills of th
 * Global leaderboards (In Progress)
 * Searching for users (In Progress)
 
+<img src="./frontend/public/gifs/dashboard.gif" width=800 height=auto>
+
+The dashboard contains feeds for the user to view their own skills and tasks or those of the friends they follow!
+
+<img src="./frontend/public/gifs/new-skill.gif" width=800 height=auto>
+
+Adding a new skill is quick and intuitive!
+
+<img src="./frontend/public/gifs/create-task.gif" width=800 height=auto>
+
+Users can use the timer on the navbar to make task logging more efficient and precise!
+
 # Technology
 Mastery is a single-page application built on Mongodb, Express, React/Redux, Node.js hosted on heroku, and other additional dependencies.
 
