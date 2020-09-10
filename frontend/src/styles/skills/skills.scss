@@ -45,3 +45,45 @@
 #card {
     background-color: $yellow;
 }
+
+.skill-preview {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-container {
+    // border: 1px solid rgb(145, 143, 143);
+    height: 15px;
+    width: 150px;
+    background-color: #e0e0de;
+    border-radius: 50px;
+    margin: 5px;
+    position:relative;
+    overflow: hidden;
+}
+.filler {
+    transition: width 1s ease-in-out;
+    height: 100%;
+    background-color: #00695c;
+    border-radius: inherit;
+    text-align: right;
+}
+
+.filler-label-container{
+    display:flex;
+    justify-content: center;
+}
+
+.filler-label {
+    position: absolute;
+    display: none;
+    color: white;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.progress-container:hover .filler-label {
+    display: block;
+    text-align: center;
+}
