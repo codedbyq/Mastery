@@ -30,7 +30,7 @@
     "concurrently": "^5.2.0",
     "express": "^4.17.1",
     "framer": "^1.2.5",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "mongoose": "^5.9.21",
     "mongoose-sequence": "^5.2.2",
